@@ -41,18 +41,18 @@ a {
   font-family: 'PoppinsM';
   font-style: normal;
   font-weight: 500;
-  src: url('../fonts/Poppins-Medium.ttf');
+  src: url('/src/assets/fonts/Poppins-Medium.ttf');
 }
 
 @font-face {
   font-family: 'PoppinsR';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/Poppins-Regular.ttf');
+  src: url('/src/assets/fonts/Poppins-Regular.ttf');
 }
 @font-face {
   font-family: 'PoppinsSB';
   font-style: normal;
   font-weight: 600;
-  src: url('../fonts/Poppins-SemiBold.ttf');
+  src: url('/src/assets/fonts/Poppins-SemiBold.ttf');
 }
