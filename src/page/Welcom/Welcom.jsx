@@ -1,9 +1,7 @@
-import { Title } from './Welcom.styled';
-
 const Welcom = () => {
   return (
     <>
-      <Title>Welcom</Title>
+      <h1>Welcom</h1>
     </>
   );
 };
