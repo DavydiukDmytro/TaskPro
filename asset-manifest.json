@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/TaskPro/static/css/main.655972fc.css",
-    "main.js": "/TaskPro/static/js/main.bf1bfcfc.js",
+    "main.js": "/TaskPro/static/js/main.5a448243.js",
     "index.html": "/TaskPro/index.html",
     "main.655972fc.css.map": "/TaskPro/static/css/main.655972fc.css.map",
-    "main.bf1bfcfc.js.map": "/TaskPro/static/js/main.bf1bfcfc.js.map"
+    "main.5a448243.js.map": "/TaskPro/static/js/main.5a448243.js.map"
   },
   "entrypoints": [
     "static/css/main.655972fc.css",
-    "static/js/main.bf1bfcfc.js"
+    "static/js/main.5a448243.js"
   ]
 }
