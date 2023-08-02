@@ -7,7 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 export const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Welcome />} />
+      <Route path="/welcome" element={<Welcome />} />
       <Route path="/auth" element={<Auth />} />
       <Route path="/" element={<Home />} />
     </Routes>
