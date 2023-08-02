@@ -3,10 +3,12 @@ import css from './StartSection.module.css';
 
 export const StartSection = () => {
   return (
-    <section>
-      <img src="" alt="Task pro user" />
-      <div className="title-wrapp">
-        <svg>
+    <section className={css.section}>
+      <div className={css.img__wrapp}>
+        <img src="" alt="Task pro user" className={css.img} />
+      </div>
+      <div className={css.title__wrapp}>
+        <svg className={css.icon}>
           <use></use>
         </svg>
         <h1 className={css.title}>Task Pro</h1>
@@ -17,8 +19,8 @@ export const StartSection = () => {
         Pro - Don't wait, start achieving your goals now!
       </p>
 
-      <Link>Registration</Link>
-      <Link>Log In</Link>
+      <Link className={css.link}>Registration</Link>
+      <Link className={css.link}>Log In</Link>
     </section>
   );
 };
