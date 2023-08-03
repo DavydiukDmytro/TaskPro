@@ -1,0 +1,22 @@
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.list {
+  width: 100px;
+  height: 107px;
+  padding: 18px;
+  color: var(--primary-text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 4px;
+  background-color: var(--primary-bg-color);
+  border-radius: 8px;
+  border: 1px solid #bedbb0;
+}
+.item {
+  cursor: pointer;
+}

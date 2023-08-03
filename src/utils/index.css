@@ -1,11 +1,30 @@
 @import-normalize; /* bring in normalize.css styles */
 
-:root {
-  --color-primary-bg: #151515;
+/* dark theme */
+html[data-theme='dark'] {
+  --primary-bg-color: #151515;
+  --primary-text-color: #ffffff;
+  --secondary-text-color: rgba(255, 255, 255, 0.5);
+  --accent-color: #bedbb0;
+  --active-color: #9dc888;
 }
 
-* {
-  box-sizing: border-box;
+/* light theme */
+html[data-theme='light'] {
+  --primary-bg-color: #fcfcfc;
+  --primary-text-color: #161616;
+  --secondary-text-color: rgba(22, 22, 22, 0.5);
+  --accent-color: #bedbb0;
+  --active-color: #9dc888;
+}
+
+/* violet theme */
+html[data-theme='violet'] {
+  --primary-bg-color: #ecedfd;
+  --primary-text-color: #161616;
+  --secondary-text-color: rgba(255, 255, 255, 0.5);
+  --accent-color: #5255bc;
+  --active-color: #7b7ede;
 }
 
 html {
