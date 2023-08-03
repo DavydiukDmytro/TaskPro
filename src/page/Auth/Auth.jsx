@@ -1,13 +1,10 @@
-import { NavLink } from 'react-router-dom';
+import { AuthSection } from 'components/AuthSection/AuthSection';
 import { StartContainer } from 'components/StartContainer/StartContainer';
 
 const Auth = () => {
   return (
     <StartContainer>
-      <div>
-        <NavLink>Registration</NavLink>
-        <NavLink>Log In</NavLink>
-      </div>
+      <AuthSection />
     </StartContainer>
   );
 };
