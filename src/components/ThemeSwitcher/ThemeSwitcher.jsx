@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
+import { useThemeContext } from './ThemeContext';
 import css from './ThemeSwitcher.module.css';
 
 export const ThemeSwitcher = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleOptionClick = theme => {
-    setIsOpen(false);
-  };
+  const { currentTheme, handleThemeChange } = useThemeContext();
+  const themes = ['light', 'dark', 'violet'];
 
   return (
     <div className="dropdown">
@@ -15,15 +14,11 @@ export const ThemeSwitcher = () => {
       </button>
       {isOpen && (
         <ul className={css.list}>
-          <li className={css.item}>
-            <span onClick={() => handleOptionClick('Light')}>Light</span>
-          </li>
-          <li className={css.item}>
-            <span onClick={() => handleOptionClick('Dark')}>Dark</span>
-          </li>
-          <li className={css.item}>
-            <span onClick={() => handleOptionClick('Violet')}>Violet</span>
-          </li>
+          {themes.map(theme => (
+            <li className={css.item} key={theme}>
+              <span onClick={() => handleThemeChange(theme)}>{theme}</span>
+            </li>
+          ))}
         </ul>
       )}
     </div>
