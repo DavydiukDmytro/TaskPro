@@ -7,13 +7,13 @@
   width: 100px;
   height: 107px;
   padding: 18px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--primary-text-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
   gap: 4px;
-  background-color: #151515;
+  background-color: var(--primary-bg-color);
   border-radius: 8px;
   border: 1px solid #bedbb0;
 }

@@ -21,7 +21,7 @@ html[data-theme='light'] {
 /* violet theme */
 html[data-theme='violet'] {
   --primary-bg-color: #ecedfd;
-  --primary-text-color: #ffffff;
+  --primary-text-color: #161616;
   --secondary-text-color: rgba(255, 255, 255, 0.5);
   --accent-color: #5255bc;
   --active-color: #7b7ede;
