@@ -1,8 +1,14 @@
+import { NavLink } from 'react-router-dom';
+import { StartContainer } from 'components/StartContainer/StartContainer';
+
 const Auth = () => {
   return (
-    <>
-      <h1>Auth</h1>
-    </>
+    <StartContainer>
+      <div>
+        <NavLink>Registration</NavLink>
+        <NavLink>Log In</NavLink>
+      </div>
+    </StartContainer>
   );
 };
 
