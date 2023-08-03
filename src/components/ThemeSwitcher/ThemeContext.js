@@ -1,35 +1,24 @@
+import { useTheme } from 'hooks/useTheme';
 import React, { createContext, useContext, useState } from 'react';
-import { createTheme } from '@mui/material/styles';
 
 const ThemeContext = createContext();
 
 export const useThemeContext = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = useState(
-    createTheme({ palette: { mode: 'dark' } })
-  );
+  const [currentTheme, setCurrentTheme] = useState();
+  const { theme, setTheme } = useTheme();
 
   const handleThemeChange = theme => {
-    let paletteBackgroundDefault = '#151515';
-
     if (theme === 'light') {
-      paletteBackgroundDefault = '#fcfcfc';
+      setTheme('light');
     } else if (theme === 'violet') {
-      paletteBackgroundDefault = '#ecedfd';
+      setTheme('violet');
+    } else if (theme === 'dark') {
+      setTheme('dark');
     }
 
-    const newTheme = createTheme({
-      palette: {
-        mode: theme,
-        background: {
-          default: paletteBackgroundDefault,
-          primary: paletteBackgroundDefault,
-        },
-      },
-    });
-
-    setCurrentTheme(newTheme);
+    setCurrentTheme(theme);
   };
 
   return (

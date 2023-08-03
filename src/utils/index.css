@@ -1,5 +1,23 @@
 @import-normalize; /* bring in normalize.css styles */
 
+/* dark theme */
+html[data-theme='dark'] {
+  --primary-bg-color: #151515;
+  --primary-text-color: #ffffff;
+}
+
+/* light theme */
+html[data-theme='light'] {
+  --primary-bg-color: #fcfcfc;
+  --primary-text-color: #161616;
+}
+
+/* violet theme */
+html[data-theme='violet'] {
+  --primary-bg-color: #ecedfd;
+  --primary-text-color: #ffffff;
+}
+
 html {
   box-sizing: border-box;
   width: 100vw;
