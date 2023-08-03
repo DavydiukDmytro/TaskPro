@@ -1,13 +1,13 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
-export const AuthSection = ({ children }) => {
+export const AuthSection = () => {
   return (
     <div>
       <div>
-        <NavLink>Registration</NavLink>
+        <NavLink >Registration</NavLink>
         <NavLink>Log In</NavLink>
       </div>
-      {children}
+      <Outlet />
     </div>
   );
 };
