@@ -3,7 +3,6 @@ import css from './StartSection.module.css';
 import img from '../../assets/images/welcomeImg/boy.png';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
 
-
 export const StartSection = () => {
   return (
     <section className={css.section}>
@@ -12,7 +11,7 @@ export const StartSection = () => {
       </div>
       <div className={css.title__wrapp}>
         <svg className={css.icon}>
-          <use className={css.svg} href={svgSprite + '#icon-task'} />
+          <use href={svgSprite + '#icon-task'} />
         </svg>
         <h1 className={css.title}>Task Pro</h1>
       </div>
