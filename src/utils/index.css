@@ -1,5 +1,9 @@
 @import-normalize; /* bring in normalize.css styles */
 
+:root {
+  --color-primary-bg: #151515;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -7,7 +11,6 @@
 html {
   box-sizing: border-box;
   width: 100vw;
-  overflow-x: hidden;
 }
 
 body {

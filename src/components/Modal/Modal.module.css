@@ -1,0 +1,39 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1200;
+  overflow: hidden;
+}
+
+.modalContainer {
+  position: relative;
+  padding: 24px;
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 24px);
+  overflow: hidden;
+  background-color: var(--color-primary-bg);
+  border-radius: 8px;
+  border: 1px solid rgba(190, 219, 176, 0.5);
+}
+
+.close {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  display: inline-block;
+  padding: 7px;
+  background-color: initial;
+  border: none;
+  cursor: pointer;
+}
+
+.svg {
+  stroke: #fff;
+}
