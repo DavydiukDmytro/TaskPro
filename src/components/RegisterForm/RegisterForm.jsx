@@ -39,7 +39,7 @@ export const RegistrationForm = () => {
             autoComplete="name"
             type="text"
             name="name"
-            className={css.__input}
+            className={css.form__input}
           />
         </div>
 
