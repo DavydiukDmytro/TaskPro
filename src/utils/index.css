@@ -68,19 +68,25 @@ a {
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
-  src: url('/src/assets/fonts/Poppins-Regular.ttf');
+  src: url('/src/assets/fonts/Poppins-Regular.woff2') format('woff2'),
+    url('/src/assets/fonts/Poppins-Regular.woff') format('woff'),
+    url('/src/assets/fonts/Poppins-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
-  src: url('/src/assets/fonts/Poppins-Medium.ttf');
+  src: url('/src/assets/fonts/Poppins-Medium.woff2') format('woff2'),
+    url('/src/assets/fonts/Poppins-Medium.woff') format('woff'),
+    url('/src/assets/fonts/Poppins-Medium.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
-  src: url('/src/assets/fonts/Poppins-SemiBold.ttf');
+  src: url('/src/assets/fonts/Poppins-SemiBold.woff2') format('woff2'),
+    url('/src/assets/fonts/Poppins-SemiBold.woff') format('woff'),
+    url('/src/assets/fonts/Poppins-SemiBold.ttf') format('truetype');
 }

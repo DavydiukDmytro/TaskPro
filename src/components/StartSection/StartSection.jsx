@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom';
 import css from './StartSection.module.css';
+import img from '../../assets/images/welcomeImg/boy.png';
+import svgSprite from '../../assets/svg/symbol-defs.svg';
 
 export const StartSection = () => {
   return (
     <section className={css.section}>
       <div className={css.img__wrapp}>
-        <img src="" alt="Task pro user" className={css.img} />
+        <img src={img} alt="Task pro user" className={css.img} />
       </div>
       <div className={css.title__wrapp}>
         <svg className={css.icon}>
-          <use></use>
+          <use href={svgSprite + '#icon-task'} />
         </svg>
         <h1 className={css.title}>Task Pro</h1>
       </div>
