@@ -1,8 +1,11 @@
+import { AuthSection } from 'components/AuthSection/AuthSection';
+import { StartContainer } from 'components/StartContainer/StartContainer';
+
 const Auth = () => {
   return (
-    <>
-      <h1>Auth</h1>
-    </>
+    <StartContainer>
+      <AuthSection />
+    </StartContainer>
   );
 };
 
