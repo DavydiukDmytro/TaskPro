@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-// import { gettUser } from 'store/user/selectorsAuth';
 import { updateUser } from '../../store/user/operationAuth';
 import photo from '../../assets/images/defaultuserimg/user.jpg';
 import css from './EditProfileForm.module.css';
@@ -10,15 +9,16 @@ import css from './EditProfileForm.module.css';
 export const EditProfileForm = ({ user, onClose }) => {
   const dispatch = useDispatch();
   const [userPhoto, setUserPhoto] = useState(photo);
-  // const user = useSelector(gettUser);
 
   const initialValues = {
-    name: user.name || '',
-    photo: user.photo || '',
+    name: user.name || 'User',
+    photo: user.photo || photo,
     email: user.email || '',
     password: user.password || '',
   };
   // const EMAIL_REGX = `^(([^<>()\[\]\\.,;:\s@"]+(.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/`;
+  const EMAIL_REGX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
   const PASSWORD_REGEX =
     /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,64}$/;
 
@@ -28,7 +28,7 @@ export const EditProfileForm = ({ user, onClose }) => {
       .max(32, 'Too Long!')
       .required('Name is required'),
     email: Yup.string()
-      // .matches(EMAIL_REGX, 'Invalid email address')
+      .matches(EMAIL_REGX, 'Invalid email address')
       .email('Invalid email')
       .required('Email is required'),
     password: Yup.string()
