@@ -13,17 +13,17 @@ export const CardItem = () => {
       </p>
 
       <div className={css.container}>
-        <div className={css.info__box}>
+        <div className={css.infoBox}>
           <div>
-            <h4 className={css.info__title}>Priority</h4>
+            <h4 className={css.infoTitle}>Priority</h4>
             <p className={css.info}>High</p>
           </div>
           <div>
-            <h4 className={css.info__title}>Deadline</h4>
+            <h4 className={css.infoTitle}>Deadline</h4>
             <p className={css.info}>12/05/2023</p>
           </div>
         </div>
-        <ul className={css.icon__list}>
+        <ul className={css.iconList}>
           <li>
             <button className={css.button}>
               <svg width={16} height={16}>

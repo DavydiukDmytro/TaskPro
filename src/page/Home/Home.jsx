@@ -1,10 +1,10 @@
-import { CardList } from 'components/CardList/CardList';
+import { CardSection } from 'components/CardSection/CardSeection';
 
 const Home = () => {
   return (
     <>
       <h1>Home</h1>
-      <CardList/>
+      <CardSection />
     </>
   );
 };
