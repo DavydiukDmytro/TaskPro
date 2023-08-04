@@ -12,45 +12,48 @@ export const CardItem = () => {
         trends in watch design.
       </p>
 
-      <div>
-        <h4>Priority</h4>
-        <p>High</p>
+      <div className={css.container}>
+        <div className={css.info__box}>
+          <div>
+            <h4 className={css.info__title}>Priority</h4>
+            <p className={css.info}>High</p>
+          </div>
+          <div>
+            <h4 className={css.info__title}>Deadline</h4>
+            <p className={css.info}>12/05/2023</p>
+          </div>
+        </div>
+        <ul className={css.icon__list}>
+          <li>
+            <button className={css.button}>
+              <svg width={16} height={16}>
+                <use href={svgSprite + '#icon-bell'} />
+              </svg>
+            </button>
+          </li>
+          <li>
+            <button className={css.button}>
+              <svg width={16} height={16}>
+                <use href={svgSprite + '#icon-arrow-circle-broken-right'} />
+              </svg>
+            </button>
+          </li>
+          <li>
+            <button className={css.button}>
+              <svg width={16} height={16}>
+                <use href={svgSprite + '#icon-pencil'} />
+              </svg>
+            </button>
+          </li>
+          <li>
+            <button className={css.button}>
+              <svg width={16} height={16}>
+                <use href={svgSprite + '#icon-trash-04'} />
+              </svg>
+            </button>
+          </li>
+        </ul>
       </div>
-      <div>
-        <h4>Deadline</h4>
-        <p>12/05/2023</p>
-      </div>
-
-      <ul>
-        <li>
-          <button>
-            <svg width={16} height={16}>
-              <use href={svgSprite + '#icon-bell'} />
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button>
-            <svg width={16} height={16}>
-              <use href={svgSprite + '#icon-arrow-circle-broken-right'} />
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button>
-            <svg width={16} height={16}>
-              <use href={svgSprite + '#icon-pencil'} />
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button>
-            <svg width={16} height={16}>
-              <use href={svgSprite + '#icon-trash-04'} />
-            </svg>
-          </button>
-        </li>
-      </ul>
     </li>
   );
 };
