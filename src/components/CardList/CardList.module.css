@@ -1,0 +1,12 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+/* @media screen and (min-width: 768px) {
+  .list {
+    width: 473px;
+  }
+} */
