@@ -6,16 +6,29 @@ import { gettUser } from 'store/user/selectorsAuth';
 import photo from '../../assets/images/user.png';
 import css from './UserInfo.module.css';
 
-export const UserInfo = ({ handleClose }) => {
-  const user = useSelector(gettUser);
+export const UserInfo = () => {
+  // const user = useSelector(gettUser);
+  const [showEditForm, setShowEditForm] = useState(false);
+  const user = {
+    name: 'John Doe',
+    email: 'johndoe@example.com',
+    password: 'mypassword',
+    // Other user data...
+  };
+  const handleEditClick = () => {
+    setShowEditForm(true);
+  };
 
+  const handleCloseForm = () => {
+    setShowEditForm(false);
+  };
   // const [name, setName] = useState('');
   // const [photo, setPhoto] = useState('');
-  const [modalVisible, setModalVisible] = useState(false);
+  // const [modalVisible, setModalVisible] = useState(false);
 
-  const openModal = () => {
-    setModalVisible(true);
-  };
+  // const openModal = () => {
+  //   setModalVisible(true);
+  // };
 
   return (
     <div className={css.profile}>
@@ -24,11 +37,11 @@ export const UserInfo = ({ handleClose }) => {
         className={css.userPhoto}
         src="../../assets/images/user.png"
         alt={photo}
-        onClick={openModal}
+        onClick={handleEditClick}
       />
-      {modalVisible && (
-        <Modal handleClose={handleClose}>
-          <EditProfileForm handleClose={handleClose} />
+      {showEditForm && (
+        <Modal>
+          <EditProfileForm user={user} onClose={handleCloseForm} />
         </Modal>
       )}
     </div>

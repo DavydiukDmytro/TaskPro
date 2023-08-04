@@ -4,12 +4,13 @@
 
 // import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from '../ThemeSwitcher/ThemeContext';
-import { EditProfileForm } from 'components/EditProfileForm/EditProfileForm';
+// import { EditProfileForm } from 'components/EditProfileForm/EditProfileForm';
+import { UserInfo } from '../UserInfo';
 
 export const App = () => {
   return (
     <ThemeProvider>
-      <EditProfileForm />
+      <UserInfo />
       {/* <Routes>
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/auth" element={<Auth />} />

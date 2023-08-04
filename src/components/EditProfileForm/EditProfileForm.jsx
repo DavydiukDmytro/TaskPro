@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
+import { updateUser } from '../../store/user/operationAuth';
+import photo from '../../assets/images/defaultuserimg/user.jpg';
 import css from './EditProfileForm.module.css';
 
-export const EditProfileForm = user => {
+export const EditProfileForm = ({ user, onClose }) => {
   const dispatch = useDispatch();
+  const [userPhoto, setUserPhoto] = useState(photo);
 
   const initialValues = {
     name: user.name || '',
-    phone: user.phone || '',
+    photo: user.photo || '',
     email: user.email || '',
     password: user.password || '',
   };
-  const EMAIL_REGX = `^(([^<>()\[\]\\.,;:\s@"]+(.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/`;
+  // const EMAIL_REGX = `^(([^<>()\[\]\\.,;:\s@"]+(.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/`;
   const PASSWORD_REGEX =
     /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,64}$/;
 
@@ -22,9 +25,8 @@ export const EditProfileForm = user => {
       .min(2, 'Too Short!')
       .max(32, 'Too Long!')
       .required('Name is required'),
-    phone: Yup.string().required('Phone is required'),
     email: Yup.string()
-      .matches(EMAIL_REGX, 'Invalid email address')
+      // .matches(EMAIL_REGX, 'Invalid email address')
       .email('Invalid email')
       .required('Email is required'),
     password: Yup.string()
@@ -32,8 +34,28 @@ export const EditProfileForm = user => {
       .required('Password is required'),
   });
 
-  const handleSubmit = async values => {
-    dispatch(updateUserOnBackend(values));
+  const handleSubmit = async (values, { resetForm }) => {
+    const updatedUser = {
+      ...values,
+      photo: userPhoto,
+    };
+    setUserPhoto(userPhoto);
+    dispatch(updateUser(updatedUser));
+    resetForm();
+    onClose();
+  };
+  const openModal = () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.addEventListener('change', event => {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        setUserPhoto(reader.result);
+      };
+      reader.readAsDataURL(file);
+    });
+    input.click();
   };
 
   return (
@@ -43,16 +65,16 @@ export const EditProfileForm = user => {
       onSubmit={handleSubmit}
     >
       <Form>
+        <img
+          className={css.userPhoto}
+          src={userPhoto}
+          alt="Profile Photo"
+          onClick={openModal}
+        />
         <div>
           <label htmlFor="name">Name:</label>
           <Field type="text" id="name" name="name" />
           <ErrorMessage name="name" component="div" />
-        </div>
-
-        <div>
-          <label htmlFor="phone">Phone:</label>
-          <Field type="text" id="phone" name="phone" />
-          <ErrorMessage name="phone" component="div" />
         </div>
 
         <div>
@@ -67,7 +89,7 @@ export const EditProfileForm = user => {
           <ErrorMessage name="password" component="div" />
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit">Send</button>
       </Form>
     </Formik>
   );
