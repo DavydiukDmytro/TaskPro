@@ -1,0 +1,1 @@
+import { EditProfileForm } from './EditProfileForm';
