@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
+// import { gettUser } from 'store/user/selectorsAuth';
 import { updateUser } from '../../store/user/operationAuth';
 import photo from '../../assets/images/defaultuserimg/user.jpg';
 import css from './EditProfileForm.module.css';
@@ -9,6 +10,7 @@ import css from './EditProfileForm.module.css';
 export const EditProfileForm = ({ user, onClose }) => {
   const dispatch = useDispatch();
   const [userPhoto, setUserPhoto] = useState(photo);
+  // const user = useSelector(gettUser);
 
   const initialValues = {
     name: user.name || '',

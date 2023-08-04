@@ -3,17 +3,17 @@ import { useSelector } from 'react-redux';
 import { Modal } from '../Modal';
 import { EditProfileForm } from '../EditProfileForm';
 import { gettUser } from 'store/user/selectorsAuth';
-import photo from '../../assets/images/user.png';
+import photo from '../../assets/images/defaultuserimg/user 2x.jpg';
 import css from './UserInfo.module.css';
 
 export const UserInfo = () => {
   // const user = useSelector(gettUser);
   const [showEditForm, setShowEditForm] = useState(false);
   const user = {
-    name: 'John Doe',
-    email: 'johndoe@example.com',
-    password: 'mypassword',
-    // Other user data...
+    photo,
+    name: '',
+    email: '',
+    password: '',
   };
   const handleEditClick = () => {
     setShowEditForm(true);
@@ -35,8 +35,8 @@ export const UserInfo = () => {
       <h2 className={css.userName}>{user.name}</h2>
       <img
         className={css.userPhoto}
-        src="../../assets/images/user.png"
-        alt={photo}
+        src={photo}
+        alt="avatar"
         onClick={handleEditClick}
       />
       {showEditForm && (
