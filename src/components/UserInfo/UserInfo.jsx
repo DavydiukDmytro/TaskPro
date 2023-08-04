@@ -32,13 +32,15 @@ export const UserInfo = () => {
 
   return (
     <div className={css.profile}>
-      <h2 className={css.userName}>{user.name || 'User'}</h2>
-      <img
-        className={css.userPhoto}
-        src={photo}
-        alt="avatar"
-        onClick={handleEditClick}
-      />
+      <h2 className={css.userName}>{user.name || 'Profile'}</h2>
+      <div className={css.photo}>
+        <img
+          // className={css.userPhoto}
+          src={photo}
+          alt="avatar"
+          onClick={handleEditClick}
+        />
+      </div>
       {showEditForm && (
         <Modal>
           <EditProfileForm user={user} onClose={handleCloseForm} />

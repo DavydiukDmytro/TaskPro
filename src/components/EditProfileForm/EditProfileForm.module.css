@@ -1,13 +1,13 @@
 .form {
   width: 400px;
-  height: 430px;
-  outline: 1px solid red;
+  height: 440px;
   padding: 24px;
   margin: 0 auto;
 }
 
-.inputFild {
-  margin: 0 auto;
+.input_fild {
+  width: 352px;
+  /* margin: 0; */
   /* width: 352px; */
   /* height: 49px; */
   /* border-radius: 8px; */
@@ -19,15 +19,18 @@
   cursor: pointer;
   margin-top: 14px;
   border-radius: 8px;
+  outline: none;
+  border: 1px solid;
 }
 .photo {
   position: relative;
   display: flex;
   width: 68px;
-  height: 79px;
+  height: 68px;
   cursor: pointer;
   margin: 0 auto;
-  background-color: aliceblue;
+  border-radius: 8px;
+  /* overflow: hidden; */
 }
 .photo::before {
   content: '';
@@ -44,10 +47,10 @@
   font-size: 7px;
   color: #161616;
 }
-.userPhoto {
+/* .userPhoto {
   width: 68px;
   height: 68px;
-}
+} */
 .sendButton {
   width: 352px;
   height: 49px;

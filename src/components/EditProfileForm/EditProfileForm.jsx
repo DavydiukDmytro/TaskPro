@@ -11,7 +11,7 @@ export const EditProfileForm = ({ user, onClose }) => {
   const [userPhoto, setUserPhoto] = useState(photo);
 
   const initialValues = {
-    name: user.name || 'User',
+    name: user.name || '',
     photo: user.photo || photo,
     email: user.email || '',
     password: user.password || '',
@@ -66,32 +66,43 @@ export const EditProfileForm = ({ user, onClose }) => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <Form>
-        <img
-          className={css.userPhoto}
-          src={userPhoto}
-          alt="Profile Photo"
-          onClick={openModal}
-        />
-        <div>
+      <Form className={css.form}>
+        <p>Edit profile</p>
+        <div className={css.photo}>
+          <img
+            // className={css.photo}
+            src={userPhoto}
+            alt="Profile Photo"
+            onClick={openModal}
+          />
+        </div>
+
+        <div className={css.input_fild}>
           <label htmlFor="name">Name:</label>
-          <Field type="text" id="name" name="name" />
+          <Field className={css.input} type="text" id="name" name="name" />
           <ErrorMessage name="name" component="div" />
         </div>
 
         <div>
           <label htmlFor="email">Email:</label>
-          <Field type="text" id="email" name="email" />
+          <Field className={css.input} type="text" id="email" name="email" />
           <ErrorMessage name="email" component="div" />
         </div>
 
         <div>
           <label htmlFor="password">Password:</label>
-          <Field type="password" id="password" name="password" />
+          <Field
+            className={css.input}
+            type="password"
+            id="password"
+            name="password"
+          />
           <ErrorMessage name="password" component="div" />
         </div>
 
-        <button type="submit">Send</button>
+        <button className={css.sendButton} type="submit">
+          Send
+        </button>
       </Form>
     </Formik>
   );
