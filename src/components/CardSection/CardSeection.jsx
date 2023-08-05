@@ -7,10 +7,10 @@ import { Button } from 'components/Button/Button';
 export const CardSection = () => {
   return (
     <div className={css.cardContainer}>
-      <Button type="button" isContrast={false} text="Add another column" />
+      {/* <Button type="button" isContrast={false} text="Add another column" /> */}
       <CardTitle title="To do" />
       <CardList />
-      <Button type="button" isContrast={false} text="Add another card" />
+      <Button type="button"  text="Add another card" />
     </div>
   );
 };

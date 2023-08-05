@@ -2,10 +2,21 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  height: 640px;
+  overflow: scroll;
+  padding-right: 8px;
 }
 
-/* @media screen and (min-width: 768px) {
-  .list {
-    width: 473px;
-  }
-} */
+.list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.list::-webkit-scrollbar-track {
+  border-radius: 12px;
+  background: var(--scrollbar-bg);
+}
+.list::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background: var(--scrollbar);
+  height: 142px;
+}
