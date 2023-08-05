@@ -6,11 +6,10 @@ import { Button } from 'components/Button/Button';
 
 export const CardSection = () => {
   return (
-    <div className={css.cardContainer}>
-      {/* <Button type="button" isContrast={false} text="Add another column" /> */}
+    <li className={css.cardContainer}>
       <CardTitle title="To do" />
       <CardList />
-      <Button type="button"  text="Add another card" />
-    </div>
+      <Button type="button" text="Add another card" />
+    </li>
   );
 };
