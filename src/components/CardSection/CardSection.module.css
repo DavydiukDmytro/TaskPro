@@ -1,3 +1,5 @@
 .cardContainer {
-  width: 351px;
+ width: 351px;
+  padding-right: 16px;
+  box-sizing: border-box;
 }

@@ -1,10 +1,14 @@
 .list {
+  width: fit-content; /* Ширина по содержимому */
   display: flex;
   flex-direction: column;
   gap: 8px;
   height: 640px;
-  overflow: scroll;
+  overflow: auto;
+  overflow-x: none;
+  box-sizing: border-box;
   padding-right: 8px;
+  margin-bottom: 14px;
 }
 
 .list::-webkit-scrollbar {
@@ -15,8 +19,22 @@
   border-radius: 12px;
   background: var(--scrollbar-bg);
 }
+
 .list::-webkit-scrollbar-thumb {
   border-radius: 12px;
   background: var(--scrollbar);
   height: 142px;
+  margin-right: -8px;
 }
+
+/* .list::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -80px;
+  bottom: 0;
+  width: 8px;
+  background-color: transparent;
+  pointer-events: none;
+  z-index: 1;
+} */
