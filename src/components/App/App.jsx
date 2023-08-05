@@ -1,6 +1,5 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
-
 import { ThemeProvider } from '../ThemeSwitcher/ThemeContext';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 import { useDispatch } from 'react-redux';
