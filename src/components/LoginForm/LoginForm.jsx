@@ -1,10 +1,27 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import { login } from '../../store/user/operationAuth';
+import { object, string } from 'yup';
 import css from './LoginForm.module.css';
 import { getIsLoggin } from 'store/user/selectorsAuth';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+
+
+const schema = object({
+  email: string().trim().email('Enter your email correct').required('Required'),
+  password: string()
+    .trim()
+    .matches(
+      /^[a-zA-Z0-9_]+$/,
+      'Enter your password correct'
+    ).min(8)
+    .max(64)
+    .required('Required'),
+});
+
+
 
 const initialValuesForm = {
   email: '',
@@ -23,36 +40,60 @@ const LoginForm = () => {
   }, [isLogIn, navigate]);
 
   const handleSubmit = async (values, { resetForm }) => {
+    console.log(values)
     await dispatch(login(values));
     resetForm();
   };
 
   return (
-    <Formik initialValues={initialValuesForm} onSubmit={handleSubmit}>
-      <Form className={css.form}>
-        <div className={css.form__field}>
-          <label htmlFor="email" className={css.form__label}>
-            Email
-          </label>
+    <Formik
+      initialValues={initialValuesForm}
+      onSubmit={handleSubmit}
+      validationSchema={schema}
+      validateOnBlur
+    >
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isValid,
+        dirty,
+      }) => (
+        <Form className={css.form}>
           <Field
             autoComplete="email"
+            placeholder="Enter your email"
             type="email"
             name="email"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            values={values.email}
             className={css.form__input}
           />
-        </div>
+          {touched.email && errors.email && (
+            <p className={css.form__error}>{errors.email}</p>
+          )}
+          <Field
+            placeholder="Enter your password"
+            type="text"
+            name="password"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            values={values.password}
+            className={css.form__input}
+          />
+          {touched.password && errors.password && (
+            <p className={css.form__error}>{errors.password}</p>
+          )}
 
-        <div className={css.form__field}>
-          <label htmlFor="password" className={css.form__label}>
-            Password
-          </label>
-          <Field type="password" name="password" className={css.form__input} />
-        </div>
-
-        <button type="submit" className={css.form__button}>
-          Log In Now
-        </button>
-      </Form>
+          <button type="submit" className={css.form__button}>
+            Lof In Now
+          </button>
+        </Form>
+      )}
     </Formik>
   );
 };
