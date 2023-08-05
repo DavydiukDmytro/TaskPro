@@ -21,8 +21,12 @@ export const StartSection = () => {
         Pro - Don't wait, start achieving your goals now!
       </p>
 
-      <Link className={css.link}>Registration</Link>
-      <Link className={css.link}>Log In</Link>
+      <Link className={css.link} to="/auth/register">
+        Registration
+      </Link>
+      <Link className={css.link} to="/auth/login">
+        Log In
+      </Link>
     </section>
   );
 };

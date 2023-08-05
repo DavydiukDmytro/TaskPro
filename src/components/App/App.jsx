@@ -6,12 +6,11 @@ import { Home } from '../../page/Home';
 import { ScreensPage } from '../../page/ScreensPage';
 import { RegistrationForm } from '../RegisterForm';
 import { LoginForm } from '../LoginForm';
+import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 
 import { ThemeProvider } from '../ThemeSwitcher/ThemeContext';
 
 export const App = () => {
-  const isAuthenticated = true;
-
   return (
     <ThemeProvider>
       <Routes>
@@ -22,10 +21,15 @@ export const App = () => {
         </Route>
         <Route
           path="/home"
-          element={isAuthenticated ? <Home /> : <Navigate to="/auth/login" />}
+          element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
         >
           <Route path=":boardName" element={<ScreensPage />} />
         </Route>
+
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </ThemeProvider>
