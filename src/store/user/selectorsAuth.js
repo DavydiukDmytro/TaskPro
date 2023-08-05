@@ -1,4 +1,4 @@
-export const gettUser = state => state.auth.user;
+export const gettUser = state => state.user;
 
 export const getIsLoggin = state => state.auth.isLoggedIn;
 

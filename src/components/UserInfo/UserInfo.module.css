@@ -1,20 +1,27 @@
-.profile {
+.user_container {
+  position: absolute;
+  top: 18px;
+  right: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  align-self: flex-end;
   gap: 8px;
-  width: 79px;
-  height: 32px;
+  cursor: pointer;
 }
-.userName {
-  font-family: 'PoppinsM';
+
+.user_name {
+  font-family: 'Poppins';
+  font-weight: 500;
   font-size: 14px;
+}
+.photo_container {
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: 8px;
 }
 .photo {
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background-color: black;
-  overflow: hidden;
 }

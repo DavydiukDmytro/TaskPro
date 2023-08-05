@@ -11,12 +11,12 @@ export const EditProfileForm = ({ user, onClose }) => {
   const [userPhoto, setUserPhoto] = useState(photo);
 
   const initialValues = {
-    name: user.name || '',
+    name: user.name,
     photo: user.photo || photo,
-    email: user.email || '',
-    password: user.password || '',
+    email: user.email,
+    password: user.password,
   };
-  // const EMAIL_REGX = `^(([^<>()\[\]\\.,;:\s@"]+(.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/`;
+
   const EMAIL_REGX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   const PASSWORD_REGEX =
@@ -36,12 +36,11 @@ export const EditProfileForm = ({ user, onClose }) => {
       .required('Password is required'),
   });
 
-  const handleSubmit = async (values, { resetForm }) => {
+  const handleSubmit = (values, { resetForm }) => {
     const updatedUser = {
       ...values,
       photo: userPhoto,
     };
-    setUserPhoto(userPhoto);
     dispatch(updateUser(updatedUser));
     resetForm();
     onClose();
@@ -67,40 +66,57 @@ export const EditProfileForm = ({ user, onClose }) => {
       onSubmit={handleSubmit}
     >
       <Form className={css.form}>
-        <p>Edit profile</p>
+        <p className={css.form__title}>Edit profile</p>
         <div className={css.photo}>
           <img
-            // className={css.photo}
+            className={css.photo__img}
             src={userPhoto}
             alt="Profile Photo"
             onClick={openModal}
           />
         </div>
 
-        <div className={css.input_fild}>
-          <label htmlFor="name">Name:</label>
-          <Field className={css.input} type="text" id="name" name="name" />
-          <ErrorMessage name="name" component="div" />
-        </div>
-
-        <div>
-          <label htmlFor="email">Email:</label>
-          <Field className={css.input} type="text" id="email" name="email" />
-          <ErrorMessage name="email" component="div" />
-        </div>
-
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div className={css.input}>
+          <label htmlFor="name"></label>
           <Field
-            className={css.input}
+            className={css.input__field}
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+          />
+          <ErrorMessage className={css.errors} name="name" component="div" />
+        </div>
+
+        <div className={css.input}>
+          <label htmlFor="email"></label>
+          <Field
+            className={css.input__field}
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Email"
+          />
+          <ErrorMessage className={css.errors} name="email" component="div" />
+        </div>
+
+        <div className={css.input}>
+          <label htmlFor="password"></label>
+          <Field
+            className={css.input__field}
             type="password"
             id="password"
             name="password"
+            // placeholder="Password"
           />
-          <ErrorMessage name="password" component="div" />
+          <ErrorMessage
+            className={css.errors}
+            name="password"
+            component="div"
+          />
         </div>
 
-        <button className={css.sendButton} type="submit">
+        <button className={css.form__button} type="submit">
           Send
         </button>
       </Form>
