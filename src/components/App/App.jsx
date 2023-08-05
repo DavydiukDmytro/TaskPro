@@ -1,10 +1,10 @@
-import { Route, Routes, Navigate, Outlet } from 'react-router-dom';
-import { lazy, Suspense, useEffect } from 'react';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import { lazy } from 'react';
 import { ThemeProvider } from '../ThemeSwitcher/ThemeContext';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
-import { useDispatch } from 'react-redux';
 
 import { SharedLayoutStart } from '../SharedLayoutStart';
+import { Home } from 'page/Home';
 
 // import { Welcome } from '../../page/Welcome';
 // import { Auth } from '../../page/Auth';
@@ -18,8 +18,6 @@ const StartPage = lazy(() => import('../../page/Start/Start'));
 const AuthPage = lazy(() => import('../../page/Auth/Auth'));
 const RegistrationForm = lazy(() => import('../RegisterForm/RegistrationForm'));
 const LoginForm = lazy(() => import('../LoginForm/LoginForm'));
-
-const Home = lazy(() => import('../../page/Home/Home'));
 const ScreensPage = lazy(() => import('../../page/ScreensPage/ScreensPage'));
 
 export const App = () => {
@@ -37,19 +35,20 @@ export const App = () => {
             <Route path="register" element={<RegistrationForm />} />
             <Route path="login" element={<LoginForm />} />
           </Route>
-          <Route
-            path="/home"
-            element={
-              <PrivateRoute>
-                <Home />
-              </PrivateRoute>
-            }
-          >
-            <Route path=":boardName" element={<ScreensPage />} />
-          </Route>
-
-          <Route path="*" element={<Navigate to="/" />} />
         </Route>
+
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
+        >
+          <Route path=":boardName" element={<ScreensPage />} />
+        </Route>
+
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </ThemeProvider>
   );

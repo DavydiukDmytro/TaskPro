@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
-import { login, register } from '../../store/user/operationAuth';
+import { register } from '../../store/user/operationAuth';
 import css from './RegisterForm.module.css';
-import { getIsLoggin, getUserEmail } from 'store/user/selectorsAuth';
+import { getIsLoggin } from 'store/user/selectorsAuth';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 

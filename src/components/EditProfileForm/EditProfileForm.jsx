@@ -12,7 +12,7 @@ export const EditProfileForm = ({ user, onClose }) => {
 
   const initialValues = {
     name: user.name,
-    photo: user.photo || photo,
+    photo: user.avatarUrl || photo,
     email: user.email,
     password: user.password,
   };
@@ -71,7 +71,7 @@ export const EditProfileForm = ({ user, onClose }) => {
           <img
             className={css.photo__img}
             src={userPhoto}
-            alt="Profile Photo"
+            alt="Profile Phot"
             onClick={openModal}
           />
         </div>
