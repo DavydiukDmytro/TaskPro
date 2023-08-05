@@ -1,4 +1,4 @@
-.user_container {
+.user {
   position: absolute;
   top: 18px;
   right: 24px;
@@ -9,18 +9,18 @@
   cursor: pointer;
 }
 
-.user_name {
+.user__name {
   font-family: 'Poppins';
   font-weight: 500;
   font-size: 14px;
 }
-.photo_container {
+.photo {
   width: 32px;
   height: 32px;
   overflow: hidden;
   border-radius: 8px;
 }
-.photo {
+.photo__img {
   width: 32px;
   height: 32px;
   border-radius: 8px;
