@@ -1,8 +1,9 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 
 import { ThemeProvider } from '../ThemeSwitcher/ThemeContext';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
+import { useDispatch } from 'react-redux';
 
 // import { Welcome } from '../../page/Welcome';
 // import { Auth } from '../../page/Auth';
@@ -19,6 +20,11 @@ const RegistrationForm = lazy(() => import('../RegisterForm/RegisterForm'));
 const LoginForm = lazy(() => import('../LoginForm/LoginForm'));
 
 export const App = () => {
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(fetchUser());
+  // }, [dispatch]);
+
   return (
     <ThemeProvider>
       <Routes>
