@@ -1,12 +1,10 @@
-import { AuthSection } from 'components/AuthSection/AuthSection';
 import { StartContainer } from 'components/StartContainer/StartContainer';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
-const Auth = () => {
+const SharedLayoutStart = () => {
   return (
     <StartContainer>
-      <AuthSection />
       <Suspense fallback={<p>DDDD</p>}>
         <Outlet />
       </Suspense>
@@ -14,4 +12,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default SharedLayoutStart;

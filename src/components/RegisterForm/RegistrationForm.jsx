@@ -1,8 +1,11 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import { register } from '../../store/user/operationAuth';
 import css from './RegisterForm.module.css';
+import { getIsLoggin } from 'store/user/selectorsAuth';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const schema = object({
   name: string().min(2).required(),
@@ -17,10 +20,18 @@ const initialValuesForm = {
 };
 
 const RegistrationForm = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isLogIn = useSelector(getIsLoggin);
 
-  const handleSubmit = (values, { resetForm }) => {
-    dispatch(register(values));
+  useEffect(() => {
+    if (isLogIn) {
+      navigate('/home', { replace: true });
+    }
+  }, [isLogIn, navigate]);
+
+  const handleSubmit = async (values, { resetForm }) => {
+    await dispatch(register(values));
     resetForm();
   };
 

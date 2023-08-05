@@ -3,6 +3,7 @@ export const handleFulfilledUser = (state, { payload }) => {
   state.token = payload.token;
   state.isLoggedIn = true;
   state.isLoading = false;
+
   state.error = null;
 };
 
@@ -15,7 +16,7 @@ export const handleRejectedUser = (state, { payload }) => {
 };
 
 export const handleFulfilledUserLogOut = state => {
-  state.user = { name: null, email: null };
+  state.user = { name: null, email: null, avatarUrl: null };
   state.token = null;
   state.isLoggedIn = false;
   state.isLoading = false;

@@ -1,6 +1,8 @@
-export const gettUser = state => state.auth.user;
+export const getUser = state => state.user.user;
 
-export const getIsLoggin = state => state.auth.isLoggedIn;
+export const getUserEmail = state => state.user.user.email;
+
+export const getIsLoggin = state => state.user.isLoggedIn;
 
 export const getIsLoading = state => state.auth.isLoading;
 
