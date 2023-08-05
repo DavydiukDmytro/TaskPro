@@ -7,7 +7,7 @@
   overflow: auto;
   overflow-x: none;
   box-sizing: border-box;
-  padding-right: 8px;
+  padding-right: 4px;
   margin-bottom: 14px;
 }
 
@@ -24,17 +24,5 @@
   border-radius: 12px;
   background: var(--scrollbar);
   height: 142px;
-  margin-right: -8px;
+  margin-right: -4px;
 }
-
-/* .list::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -80px;
-  bottom: 0;
-  width: 8px;
-  background-color: transparent;
-  pointer-events: none;
-  z-index: 1;
-} */
