@@ -9,7 +9,7 @@ const { createSlice, isAnyOf } = require('@reduxjs/toolkit');
 const { login, register, logOut, updateUser } = require('./operationAuth');
 
 const initialState = {
-  user: { name: null, email: null, photo: null },
+  user: { name: null, email: null, avatarUrl: null },
   token: null,
   isLoading: false,
   isLoggedIn: false,

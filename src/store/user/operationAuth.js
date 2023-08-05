@@ -12,10 +12,10 @@ const clearAuthHeader = () => {
 };
 
 export const register = createAsyncThunk(
-  'user/register',
+  'user/registration',
   async (body, thunkAPI) => {
     try {
-      const res = await axios.post('/api/users/signup', body);
+      const res = await axios.post('/api/user/registration', body);
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
@@ -30,7 +30,7 @@ export const register = createAsyncThunk(
 
 export const login = createAsyncThunk('user/login', async (body, thunkAPI) => {
   try {
-    const res = await axios.post('/api/users/login', body);
+    const res = await axios.post('/api/user/login', body);
     setAuthHeader(res.data.token);
     return res.data;
   } catch (error) {
@@ -44,7 +44,7 @@ export const login = createAsyncThunk('user/login', async (body, thunkAPI) => {
 
 export const logOut = createAsyncThunk('user/logout', async (_, thunkAPI) => {
   try {
-    await axios.post('/api/users/logout');
+    await axios.post('/api/user/logout');
     clearAuthHeader();
   } catch (error) {
     const newError = { message: error.message, status: error.request.status };
@@ -56,7 +56,7 @@ export const updateUser = createAsyncThunk(
   'user/update',
   async (body, thunkAPI) => {
     try {
-      const res = await axios.patch('/api/users/update', body);
+      const res = await axios.patch('/api/user/update', body);
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {

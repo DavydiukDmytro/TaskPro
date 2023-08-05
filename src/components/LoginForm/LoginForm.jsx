@@ -1,7 +1,10 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import { login } from '../../store/user/operationAuth';
 import css from './LoginForm.module.css';
+import { getIsLoggin } from 'store/user/selectorsAuth';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const initialValuesForm = {
   email: '',
@@ -9,7 +12,15 @@ const initialValuesForm = {
 };
 
 const LoginForm = () => {
+  const isLogIn = useSelector(getIsLoggin);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isLogIn) {
+      navigate('/home', { replace: true });
+    }
+  }, [isLogIn, navigate]);
 
   const handleSubmit = async (values, { resetForm }) => {
     await dispatch(login(values));
