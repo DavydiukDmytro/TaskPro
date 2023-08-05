@@ -16,7 +16,7 @@ const initialValuesForm = {
   password: '',
 };
 
-export const RegistrationForm = () => {
+const RegistrationForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
@@ -69,3 +69,5 @@ export const RegistrationForm = () => {
     </Formik>
   );
 };
+
+export default RegistrationForm;
