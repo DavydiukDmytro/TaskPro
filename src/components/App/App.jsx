@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
-import { lazy } from 'react';
+// import { lazy } from 'react';
 
 import { ThemeProvider } from '../ThemeSwitcher/ThemeContext';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
