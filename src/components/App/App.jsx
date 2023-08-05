@@ -23,8 +23,7 @@ export const App = () => {
         <Route
           path="/home"
           element={isAuthenticated ? <Home /> : <Navigate to="/auth/login" />}
-        />
-        <Route path="/home" element={<Home />}>
+        >
           <Route path=":boardName" element={<ScreensPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
