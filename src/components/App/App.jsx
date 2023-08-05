@@ -1,7 +1,6 @@
 import { Auth } from 'page/Auth';
 import { Home } from 'page/Home';
 import { Welcome } from 'page/Welcome';
-
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from '../ThemeSwitcher/ThemeContext';
 
