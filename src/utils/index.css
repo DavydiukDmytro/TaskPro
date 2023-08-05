@@ -7,6 +7,10 @@ html[data-theme='dark'] {
   --secondary-text-color: rgba(255, 255, 255, 0.5);
   --accent-color: #bedbb0;
   --active-color: #9dc888;
+  --button-color: #161616;
+  --bg-button: #121212;
+  --bg-icon: #ffffff;
+  --card-line: rgba(255, 255, 255, 0.1);
 }
 
 /* light theme */
@@ -16,6 +20,10 @@ html[data-theme='light'] {
   --secondary-text-color: rgba(22, 22, 22, 0.5);
   --accent-color: #bedbb0;
   --active-color: #9dc888;
+  --button-color: #161616;
+  --bg-button: #ffffff;
+  --bg-icon: #161616;
+  --card-line: rgba(22, 22, 22, 0.1);
 }
 
 /* violet theme */
@@ -25,6 +33,10 @@ html[data-theme='violet'] {
   --secondary-text-color: rgba(255, 255, 255, 0.5);
   --accent-color: #5255bc;
   --active-color: #7b7ede;
+  --button-color: #ffffff;
+  --bg-button: #ffffff;
+  --bg-icon: #5255bc;
+  --card-line: rgba(22, 22, 22, 0.1);
 }
 
 html {

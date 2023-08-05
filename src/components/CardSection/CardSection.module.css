@@ -1,0 +1,6 @@
+.cardContainer {
+  max-width: 335px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}

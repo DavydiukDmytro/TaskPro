@@ -1,0 +1,76 @@
+.card {
+  border-radius: 8px;
+  background: #121212;
+  padding: 14px 18px 14px 24px;
+}
+
+.title {
+  color: var(--primary-text-color);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.28px;
+  margin-bottom: 8px;
+}
+
+.text {
+  color: var(--secondary-text-color);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.33;
+  letter-spacing: -0.24px;
+  margin-bottom: 14px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: normal;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid var(--card-line);
+}
+
+.infoBox {
+  display: flex;
+  gap: 14px;
+}
+
+.infoTitle {
+  color: var(--secondary-text-color);
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: -0.16px;
+  margin-bottom: 4px;
+}
+
+.info {
+  color:var(  --primary-text-color);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: -0.2px;
+}
+
+.iconList {
+  display: flex;
+  gap: 8px;
+}
+
+.button {
+  width: 16px;
+  height: 16px;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  fill: var(--secondary-text-color);
+
+  &:hover {
+    fill: var(--primary-text-color);
+  }
+}
