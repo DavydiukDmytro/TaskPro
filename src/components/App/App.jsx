@@ -2,6 +2,9 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
 import { ThemeProvider } from '../ThemeSwitcher/ThemeContext';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 import { SharedLayoutStart } from '../SharedLayoutStart';
 import { Home } from 'page/Home';
@@ -19,6 +22,7 @@ const AuthPage = lazy(() => import('../../page/Auth/Auth'));
 const RegistrationForm = lazy(() => import('../RegisterForm/RegistrationForm'));
 const LoginForm = lazy(() => import('../LoginForm/LoginForm'));
 const ScreensPage = lazy(() => import('../../page/ScreensPage/ScreensPage'));
+
 
 export const App = () => {
   // const dispatch = useDispatch();
@@ -50,6 +54,18 @@ export const App = () => {
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </ThemeProvider>
   );
 };
