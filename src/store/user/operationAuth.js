@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://task-pro.onrender.com';
 
@@ -23,6 +24,8 @@ export const register = createAsyncThunk(
         message: error.message,
         status: error.request.status,
       };
+     toast.success('Oh! You are not registered! Try again.');
+
       return thunkAPI.rejectWithValue(newError);
     }
   }
@@ -38,6 +41,8 @@ export const login = createAsyncThunk('user/login', async (body, thunkAPI) => {
       message: error.message,
       status: error.request.status,
     };
+    toast.success('Oh! You are not logged in. Register or try again.');
+
     return thunkAPI.rejectWithValue(newError);
   }
 });
@@ -64,6 +69,11 @@ export const updateUser = createAsyncThunk(
         message: error.message,
         status: error.request.status,
       };
+    toast.success(
+      'Something went wrong. Try later!'
+    );
+
+
       return thunkAPI.rejectWithValue(newError);
     }
   }
