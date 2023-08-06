@@ -21,14 +21,15 @@ const boards = [
 
 export const BoardsList = () => {
   return (
-    <ul className={css.list}>
-      {boards.map(board => (
-        <BoardItem
-          key={board.id}
-          icon={`icon-sprite-class-${board.iconId}`}
-          title={board.title}
-        />
-      ))}
-    </ul>
+    
+        <ul className={css.list}>
+        {boards.map(board => (
+          <BoardItem
+            key={board.id}
+            icon={`icon-sprite-class-${board.iconId}`}
+            title={board.title}
+          />
+        ))}
+      </ul>
   );
 };

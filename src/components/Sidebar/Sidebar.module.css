@@ -1,11 +1,31 @@
 .sidebar {
   width: 225px;
   background-color: #121212;
-  padding: 28px 0;
+  padding: 14px 0;
 }
 
 @media (min-width: 768px) {
   .sidebar {
     width: 260px;
+    padding: 24px 0;
   }
+}
+
+.logoWrapp {
+  display: flex;
+  align-items: center;
+  margin-bottom: 64px;
+  padding: 0 24px;
+}
+
+.logoSvg {
+  margin-right: 8px;
+}
+
+.logo {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.64px;
 }
