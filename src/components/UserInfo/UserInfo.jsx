@@ -22,21 +22,11 @@ export const UserInfo = () => {
     <div>
       <div className={css.user}>
         <h2 className={css.user__name}>{user.name || 'Profile'}</h2>
-        <div className={css.photo}>
+        <div className={css.photo} onClick={handleEditClick}>
           {user.avatarUrl ? (
-            <img
-              className={css.photo__img}
-              src={user.avatarUrl}
-              alt="avatar"
-              onClick={handleEditClick}
-            />
+            <img className={css.photo__img} src={user.avatarUrl} alt="avatar" />
           ) : (
-            <svg
-              className={css.svg}
-              width={32}
-              height={32}
-              onClick={handleEditClick}
-            >
+            <svg className={css.svg} width={32} height={32}>
               <use href={defaultPhoto + '#icon-Group-1456q'} />
             </svg>
           )}

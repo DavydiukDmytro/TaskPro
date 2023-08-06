@@ -7,9 +7,9 @@ import defaultPhoto from '../../assets/svg/symbol-defs.svg';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import css from './EditProfileForm.module.css';
 
-export const EditProfileForm = (user, { onClose }) => {
+export const EditProfileForm = ({ user, onClose }) => {
   const dispatch = useDispatch();
-  const [userPhoto, setUserPhoto] = useState(user);
+  const [userPhoto, setUserPhoto] = useState(user.user);
   const [showPassword, setShowPassword] = React.useState(false);
 
   const initialValues = {
@@ -59,7 +59,6 @@ export const EditProfileForm = (user, { onClose }) => {
     dispatch(updateUser(updatedUser));
     resetForm();
     onClose();
-    console.log(updatedUser);
   };
 
   const togglePasswordVisibility = () => {
@@ -74,19 +73,17 @@ export const EditProfileForm = (user, { onClose }) => {
     >
       <Form className={css.form}>
         <p className={css.form__title}>Edit profile</p>
-        <div className={css.photo}>
+        <div className={css.photo} onClick={openModal}>
           {userPhoto ? (
             <img
               className={css.photo__img}
-              src={user.avatarUrl}
+              src={userPhoto}
               alt="ProfilePhoto"
-              onClick={openModal}
             />
           ) : (
             <svg width={68} height={68}>
               <use
                 className={css.svg}
-                onClick={openModal}
                 href={defaultPhoto + '#icon-Group-1456q'}
               />
             </svg>
