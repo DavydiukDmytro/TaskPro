@@ -51,6 +51,12 @@ html[data-theme='violet'] {
   --secondary-bg-color: #ffffff;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 html {
   box-sizing: border-box;
   width: 100vw;
