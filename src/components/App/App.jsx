@@ -1,6 +1,6 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
-import { ThemeProvider } from '../ThemeSwitcher/ThemeContext';
+import { ThemeProvider } from '../ThemeSwitcher/ThemeProvider';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 
 import { SharedLayoutStart } from '../SharedLayoutStart';

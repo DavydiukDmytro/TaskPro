@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useThemeContext } from './ThemeContext';
+import { useThemeContext } from './ThemeProvider';
 import css from './ThemeSwitcher.module.css';
 
 export const ThemeSwitcher = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { currentTheme, handleThemeChange } = useThemeContext();
+  const { handleThemeChange } = useThemeContext();
   const themes = ['light', 'dark', 'violet'];
 
   return (
