@@ -4,6 +4,7 @@ import { UserInfo } from 'components/UserInfo';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
+
 export const Home = () => {
   return (
     <>
@@ -14,6 +15,7 @@ export const Home = () => {
       </header>
       <main>
         <Suspense fallback={<p>DDDD</p>}>
+        
           <Outlet />
         </Suspense>
       </main>
