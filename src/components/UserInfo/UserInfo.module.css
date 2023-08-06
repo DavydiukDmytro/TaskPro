@@ -13,15 +13,16 @@
   font-family: 'Poppins';
   font-weight: 500;
   font-size: 14px;
+  color: var(--primary-text-color);
 }
 .photo {
   width: 32px;
   height: 32px;
+  border-radius: 8px;
   overflow: hidden;
-  border-radius: 8px;
+  background-color: var(--avatar-bg-color);
 }
-.photo__img {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+
+.svg {
+  fill: var(--avatar-color);
 }

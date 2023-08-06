@@ -1,1 +1,1 @@
-export * from './EditProfileForm';
+export { EditProfileForm } from './EditProfileForm';
