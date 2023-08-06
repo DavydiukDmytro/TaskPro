@@ -1,7 +1,7 @@
 import css from './CardItem.module.css';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
 
-export const CardItem = () => {
+export const CardItem = ({ card }) => {
   return (
     <li className={css.card}>
       <h3 className={css.title}>The Watch Spot Design</h3>
@@ -16,7 +16,10 @@ export const CardItem = () => {
         <div className={css.infoBox}>
           <div>
             <h4 className={css.infoTitle}>Priority</h4>
-            <p className={css.info}>High</p>
+            <div className={css.priority}>
+              <div className={css.circle}></div>
+              <p className={css.info}>High</p>
+            </div>
           </div>
           <div>
             <h4 className={css.infoTitle}>Deadline</h4>
@@ -26,28 +29,28 @@ export const CardItem = () => {
         <ul className={css.iconList}>
           <li>
             <button className={css.button}>
-              <svg width={16} height={16}>
+              <svg width={16} height={16} stroke="var( --accent-color)">
                 <use href={svgSprite + '#icon-bell'} />
               </svg>
             </button>
           </li>
           <li>
             <button className={css.button}>
-              <svg width={16} height={16}>
+              <svg width={16} height={16} stroke="currentColor">
                 <use href={svgSprite + '#icon-arrow-circle-broken-right'} />
               </svg>
             </button>
           </li>
           <li>
             <button className={css.button}>
-              <svg width={16} height={16}>
+              <svg width={16} height={16} stroke="currentColor">
                 <use href={svgSprite + '#icon-pencil'} />
               </svg>
             </button>
           </li>
           <li>
             <button className={css.button}>
-              <svg width={16} height={16}>
+              <svg width={16} height={16} stroke="currentColor">
                 <use href={svgSprite + '#icon-trash-04'} />
               </svg>
             </button>

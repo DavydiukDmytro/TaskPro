@@ -23,9 +23,9 @@ export const AuthSection = () => {
           Log In
         </NavLink>
       </div>
-      {/* <Suspense fallback={<p>DDDD</p>}>
+      <Suspense fallback={<p>DDDD</p>}>
         <Outlet />
-      </Suspense> */}
+      </Suspense>
     </div>
   );
 };

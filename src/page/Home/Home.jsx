@@ -1,3 +1,4 @@
+
 import { Sidebar } from 'components/Sidebar/Sidebar';
 import { ThemeSwitcher } from 'components/ThemeSwitcher/ThemeSwitcher';
 import { UserInfo } from 'components/UserInfo';
