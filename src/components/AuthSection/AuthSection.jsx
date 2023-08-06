@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import css from './AuthSection.module.css';
 
@@ -22,7 +23,9 @@ export const AuthSection = () => {
           Log In
         </NavLink>
       </div>
-      <Outlet />
+      {/* <Suspense fallback={<p>DDDD</p>}>
+        <Outlet />
+      </Suspense> */}
     </div>
   );
 };

@@ -1,37 +1,41 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
-import { login } from '../../store/user/operationAuth';
 import { object, string } from 'yup';
-import css from './LoginForm.module.css';
+import { register } from '../../store/user/operationAuth';
+import css from './RegisterForm.module.css';
 import { getIsLoggin } from 'store/user/selectorsAuth';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
-
 const schema = object({
+  name: string()
+    .trim()
+    .matches(
+      /^[a-zA-Z0-9__\s~!@#$%^&*()_+-=[\{}|;’:”,./<>?£]+$/,
+      'Enter your name correct'
+    )
+    .min(2)
+    .max(16)
+    .required('Required'),
   email: string().trim().email('Enter your email correct').required('Required'),
   password: string()
     .trim()
-    .matches(
-      /^[a-zA-Z0-9_]+$/,
-      'Enter your password correct'
-    ).min(8)
+    .matches(/^[a-zA-Z0-9_]+$/, 'Enter your password correct')
+    .min(8)
     .max(64)
     .required('Required'),
 });
 
-
-
 const initialValuesForm = {
+  name: '',
   email: '',
   password: '',
 };
 
-const LoginForm = () => {
-  const isLogIn = useSelector(getIsLoggin);
+const RegistrationForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isLogIn = useSelector(getIsLoggin);
 
   useEffect(() => {
     if (isLogIn) {
@@ -40,8 +44,8 @@ const LoginForm = () => {
   }, [isLogIn, navigate]);
 
   const handleSubmit = async (values, { resetForm }) => {
-    console.log(values)
-    await dispatch(login(values));
+    console.log(values);
+    await dispatch(register(values));
     resetForm();
   };
 
@@ -64,6 +68,19 @@ const LoginForm = () => {
       }) => (
         <Form className={css.form}>
           <Field
+            autoComplete="name"
+            placeholder="Enter your name"
+            type="text"
+            name="name"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            values={values.name}
+            className={css.form__input}
+          />
+          {touched.name && errors.name && (
+            <p className={css.form__error}>{errors.name}</p>
+          )}
+          <Field
             autoComplete="email"
             placeholder="Enter your email"
             type="email"
@@ -77,6 +94,7 @@ const LoginForm = () => {
             <p className={css.form__error}>{errors.email}</p>
           )}
           <Field
+            autoComplete="password"
             placeholder="Enter your password"
             type="text"
             name="password"
@@ -90,7 +108,7 @@ const LoginForm = () => {
           )}
 
           <button type="submit" className={css.form__button}>
-            Lof In Now
+            Register Now
           </button>
         </Form>
       )}
@@ -98,4 +116,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegistrationForm;

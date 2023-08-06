@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import css from './StartSection.module.css';
+import css from './Start.module.css';
 import img from '../../assets/images/welcomeImg/boy.png';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
 
-export const StartSection = () => {
+const Start = () => {
   return (
     <section className={css.section}>
       <div className={css.img__wrapp}>
@@ -21,8 +21,14 @@ export const StartSection = () => {
         Pro - Don't wait, start achieving your goals now!
       </p>
 
-      <Link className={css.link}>Registration</Link>
-      <Link className={css.link}>Log In</Link>
+      <Link className={css.link} to="/auth/register">
+        Registration
+      </Link>
+      <Link className={css.link} to="/auth/login">
+        Log In
+      </Link>
     </section>
   );
 };
+
+export default Start;

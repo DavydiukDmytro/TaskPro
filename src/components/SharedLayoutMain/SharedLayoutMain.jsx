@@ -1,11 +1,9 @@
-
-import { Sidebar } from 'components/Sidebar/Sidebar';
 import { ThemeSwitcher } from 'components/ThemeSwitcher/ThemeSwitcher';
 import { UserInfo } from 'components/UserInfo';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
-export const Home = () => {
+const SharedLayoutMain = () => {
   return (
     <>
       <header>
@@ -18,7 +16,8 @@ export const Home = () => {
           <Outlet />
         </Suspense>
       </main>
-      <Sidebar />
     </>
   );
 };
+
+export default SharedLayoutMain;
