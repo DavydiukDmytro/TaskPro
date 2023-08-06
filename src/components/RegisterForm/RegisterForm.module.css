@@ -1,5 +1,6 @@
 .form {
   display: flex;
+
   flex-direction: column;
   align-items: center;
   margin: 180px auto;
@@ -13,9 +14,26 @@
 
 .form__input {
   max-width: 200px;
-  padding: 10px 15px;
+  padding: 10px;
   font-size: 16px;
   border-radius: 10px;
+  background-color: rgb(138, 124, 124);
+  border: none;
+}
+
+.form__div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 350px;
+  gap: 20px;
+}
+
+.form__svg {
+  position: absolute;
+  right: 1%;
+  top: 30%;
   border: none;
 }
 

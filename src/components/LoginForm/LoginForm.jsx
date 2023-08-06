@@ -14,7 +14,7 @@ const schema = object({
   password: string()
     .trim()
     .matches(
-      /^[a-zA-Z0-9_]+$/,
+      /^[a-zA-Z0-9_~!@#$%^&*()_+-=[{}|`";:”,./<>?£]+$/,
       'Enter your password correct'
     ).min(8)
     .max(64)
@@ -45,6 +45,7 @@ const LoginForm = () => {
     resetForm();
   };
 
+ 
   return (
     <Formik
       initialValues={initialValuesForm}
@@ -78,7 +79,7 @@ const LoginForm = () => {
           )}
           <Field
             placeholder="Enter your password"
-            type="text"
+            type="email"
             name="password"
             onChange={handleChange}
             onBlur={handleBlur}
