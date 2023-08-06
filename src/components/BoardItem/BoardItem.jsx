@@ -11,23 +11,24 @@ export const BoardItem = ({ icon, title }) => {
         }}
       >
         <svg width={16} height={16} stroke="currentColor" className={css.svg}>
-          <use href={sprite + icon} />
+          <use href={sprite + '#icon-pazzle'} />
+          {/* <use href={sprite + icon} /> */}
         </svg>
         <p>Project office{title}</p>
-      </NavLink>
 
-      <div>
-        <button className={css.button}>
-          <svg width={16} height={16} stroke="currentColor">
-            <use href={sprite + '#icon-pencil'} />
-          </svg>
-        </button>
-        <button className={css.button}>
-          <svg width={16} height={16} stroke="currentColor">
-            <use href={sprite + '#icon-trash-04'} />
-          </svg>
-        </button>
-      </div>
+        <div className={css.wrapper}>
+          <button className={css.button}>
+            <svg width={16} height={16} stroke="currentColor">
+              <use href={sprite + '#icon-pencil'} />
+            </svg>
+          </button>
+          <button className={css.button}>
+            <svg width={16} height={16} stroke="currentColor">
+              <use href={sprite + '#icon-trash-04'} />
+            </svg>
+          </button>
+        </div>
+      </NavLink>
     </li>
   );
 };

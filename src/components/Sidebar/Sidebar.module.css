@@ -1,7 +1,7 @@
 .sidebar {
   width: 225px;
   background-color: #121212;
-  padding: 28px 24px;
+  padding: 28px 0;
 }
 
 @media (min-width: 768px) {

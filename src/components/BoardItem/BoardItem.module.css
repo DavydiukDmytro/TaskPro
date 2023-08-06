@@ -1,7 +1,5 @@
 .boardItem {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  height: 61px;
 }
 
 .button {
@@ -21,18 +19,41 @@
 
 .link {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 24px;
+  padding-right: 24px;
   color: var(--secondary-text-color);
   font-size: 14px;
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.28px;
+  height: 100%;
+  width: 100%;
 }
 
 .active {
   composes: link;
   color: --primary-text-color;
+  position: relative;
+  background-color: #1f1f1f;
 }
 
+.active::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  border-radius: 4px 0px 0px 4px;
+  background: #bedbb0;
+  top: 0;
+  right: 0;
+}
 .svg {
   margin-right: 8px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 8px;
 }
