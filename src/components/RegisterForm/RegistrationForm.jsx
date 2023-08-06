@@ -8,9 +8,22 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const schema = object({
-  name: string().min(2).required(),
-  email: string().email().required(),
-  password: string().min(6).max(12).required(),
+  name: string()
+    .trim()
+    .matches(
+      /^[a-zA-Z0-9__\s~!@#$%^&*()_+-=[\{}|;’:”,./<>?£]+$/,
+      'Enter your name correct'
+    )
+    .min(2)
+    .max(16)
+    .required('Required'),
+  email: string().trim().email('Enter your email correct').required('Required'),
+  password: string()
+    .trim()
+    .matches(/^[a-zA-Z0-9_]+$/, 'Enter your password correct')
+    .min(8)
+    .max(64)
+    .required('Required'),
 });
 
 const initialValuesForm = {
@@ -31,6 +44,7 @@ const RegistrationForm = () => {
   }, [isLogIn, navigate]);
 
   const handleSubmit = async (values, { resetForm }) => {
+    console.log(values);
     await dispatch(register(values));
     resetForm();
   };
@@ -40,43 +54,64 @@ const RegistrationForm = () => {
       initialValues={initialValuesForm}
       onSubmit={handleSubmit}
       validationSchema={schema}
+      validateOnBlur
     >
-      <Form className={css.form}>
-        <div className={css.form__field}>
-          <label htmlFor="name" className={css.form__label}>
-            Name
-          </label>
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isValid,
+        dirty,
+      }) => (
+        <Form className={css.form}>
           <Field
             autoComplete="name"
+            placeholder="Enter your name"
             type="text"
             name="name"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            values={values.name}
             className={css.form__input}
           />
-        </div>
-
-        <div className={css.form__field}>
-          <label htmlFor="email" className={css.form__label}>
-            Email
-          </label>
+          {touched.name && errors.name && (
+            <p className={css.form__error}>{errors.name}</p>
+          )}
           <Field
             autoComplete="email"
+            placeholder="Enter your email"
             type="email"
             name="email"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            values={values.email}
             className={css.form__input}
           />
-        </div>
+          {touched.email && errors.email && (
+            <p className={css.form__error}>{errors.email}</p>
+          )}
+          <Field
+            autoComplete="password"
+            placeholder="Enter your password"
+            type="text"
+            name="password"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            values={values.password}
+            className={css.form__input}
+          />
+          {touched.password && errors.password && (
+            <p className={css.form__error}>{errors.password}</p>
+          )}
 
-        <div className={css.form__field}>
-          <label htmlFor="password" className={css.form__label}>
-            Password
-          </label>
-          <Field type="password" name="password" className={css.form__input} />
-        </div>
-
-        <button type="submit" className={css.form__button}>
-          Register Now
-        </button>
-      </Form>
+          <button type="submit" className={css.form__button}>
+            Register Now
+          </button>
+        </Form>
+      )}
     </Formik>
   );
 };
