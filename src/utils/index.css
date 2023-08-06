@@ -39,6 +39,12 @@ html[data-theme='violet'] {
   --card-line: rgba(22, 22, 22, 0.1);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 html {
   box-sizing: border-box;
   width: 100vw;

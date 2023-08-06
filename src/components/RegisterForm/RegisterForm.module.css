@@ -1,4 +1,4 @@
-.form {
+/* .form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,4 +32,83 @@
 
 .form__error {
   color: #f5f5f5;
+} */
+.form__field {
+  margin-bottom: 14px;
+  width: 100%;
+}
+
+.form__input {
+  width: 100%;
+  padding: 14px 18px;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.28px;
+  border-radius: 8px;
+  border: 1px solid #bedbb0;
+  background: #1f1f1f;
+  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+  box-sizing: border-box;
+  opacity: 0.4;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus {
+    outline: none;
+    opacity: 1;
+  }
+}
+
+.form__password {
+  margin-bottom: 14px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 24px;
+  fill: var(--secondary-text-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    fill: var(--primary-text-color);
+  }
+}
+
+.svg {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  color: currentColor;
+  cursor: pointer;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 14px 0;
+
+  background-color: var(--accent-color);
+  color: var(--button-color);
+
+  &:hover {
+    background-color: var(--active-color);
+  }
+}
+
+.form__error {
+  color: rgb(190, 219, 176, 0.8);
+  font-family: Poppins;
+  font-size: 12px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 10px;
 }
