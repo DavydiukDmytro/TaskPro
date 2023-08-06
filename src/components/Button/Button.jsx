@@ -8,14 +8,14 @@ export const Button = ({
   text,
   action,
 }) => {
-  const height = type === 'submit' ? '49px' : '56px';
+  const padding = type === 'submit' ? '49px' : '10px';
 
   return (
     <button
       type={type}
       className={isContrast ? css.buttonContrast : css.buttonPlain}
       onClick={action}
-      style={{ height }}
+      style={{ padding }}
     >
       {isIcon && (
         <svg width="28px" height="28px" className={css.icon}>

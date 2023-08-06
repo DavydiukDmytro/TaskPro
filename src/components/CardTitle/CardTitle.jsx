@@ -8,7 +8,7 @@ export const CardTitle = ({ title }) => {
       <ul className={css.iconList}>
         <li>
           <button className={css.button}>
-            <svg width={16} height={16}>
+            <svg width={16} height={16} stroke="currentColor">
               <use href={svgSprite + '#icon-pencil'} />
             </svg>
           </button>

@@ -7,10 +7,16 @@ html[data-theme='dark'] {
   --secondary-text-color: rgba(255, 255, 255, 0.5);
   --accent-color: #bedbb0;
   --active-color: #9dc888;
+
   --button-color: #161616;
   --bg-button: #121212;
   --bg-icon: #ffffff;
+
   --card-line: rgba(255, 255, 255, 0.1);
+  --scrollbar: #121212;
+  --scrollbar-bg: rgb(255, 255, 255, 0.1);
+
+  --secondary-bg-color: #121212;
 }
 
 /* light theme */
@@ -24,6 +30,9 @@ html[data-theme='light'] {
   --bg-button: #ffffff;
   --bg-icon: #161616;
   --card-line: rgba(22, 22, 22, 0.1);
+  --scrollbar: rgba(22, 22, 22, 0.1);
+  --scrollbar-bg: #e8e8e8;
+  --secondary-bg-color: #ffffff;
 }
 
 /* violet theme */
@@ -37,6 +46,9 @@ html[data-theme='violet'] {
   --bg-button: #ffffff;
   --bg-icon: #5255bc;
   --card-line: rgba(22, 22, 22, 0.1);
+  --scrollbar: #b8bcfd;
+  --scrollbar-bg: #ffffff;
+  --secondary-bg-color: #ffffff;
 }
 
 *,
