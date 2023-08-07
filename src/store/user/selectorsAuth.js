@@ -4,7 +4,7 @@ export const getUserEmail = state => state.user.user.email;
 
 export const getIsLoggin = state => state.user.isLoggedIn;
 
-export const getTheme = state => state.user.theme;
+export const getTheme = state => state.user.user.theme;
 
 export const getIsLoading = state => state.auth.isLoading;
 

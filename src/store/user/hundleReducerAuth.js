@@ -7,6 +7,13 @@ export const handleFulfilledUser = (state, { payload }) => {
   state.error = null;
 };
 
+export const handleFulfilledUserTheme = (state, { payload }) => {
+  state.user.theme = payload.user.theme;
+  state.isLoggedIn = true;
+  state.isLoading = false;
+  state.error = null;
+};
+
 export const handlePendingUser = state => {
   state.isLoading = true;
 };
