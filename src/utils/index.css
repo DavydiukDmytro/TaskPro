@@ -6,6 +6,7 @@ html[data-theme='dark'] {
   --primary-text-color: #ffffff;
   --secondary-text-color: rgba(255, 255, 255, 0.5);
   --accent-color: #bedbb0;
+  --input-inactive-color: rgba(190, 219, 176, 0.4);
   --active-color: #9dc888;
 
   --button-color: #161616;
@@ -13,9 +14,12 @@ html[data-theme='dark'] {
   --bg-icon: #ffffff;
 
   --card-line: rgba(255, 255, 255, 0.1);
+  --avatar-bg-color: #1f1f1f;
+  --avatar-color: #151515;
+  --plus-bg-color: #bedbb0;
+  --plus-active-color: #9dc888;
   --scrollbar: #121212;
   --scrollbar-bg: rgb(255, 255, 255, 0.1);
-
   --secondary-bg-color: #121212;
 }
 
@@ -25,11 +29,16 @@ html[data-theme='light'] {
   --primary-text-color: #161616;
   --secondary-text-color: rgba(22, 22, 22, 0.5);
   --accent-color: #bedbb0;
+  --input-inactive-color: rgba(190, 219, 176, 0.4);
   --active-color: #9dc888;
   --button-color: #161616;
   --bg-button: #ffffff;
   --bg-icon: #161616;
   --card-line: rgba(22, 22, 22, 0.1);
+  --avatar-bg-color: #f6f6f7;
+  --avatar-color: #fcfcfc;
+  --plus-bg-color: #bedbb0;
+  --plus-active-color: #9dc888;
   --scrollbar: rgba(22, 22, 22, 0.1);
   --scrollbar-bg: #e8e8e8;
   --secondary-bg-color: #ffffff;
@@ -41,11 +50,16 @@ html[data-theme='violet'] {
   --primary-text-color: #161616;
   --secondary-text-color: rgba(255, 255, 255, 0.5);
   --accent-color: #5255bc;
+  --input-inactive-color: rgb(82, 85, 188, 0.4);
   --active-color: #7b7ede;
   --button-color: #ffffff;
   --bg-button: #ffffff;
   --bg-icon: #5255bc;
   --card-line: rgba(22, 22, 22, 0.1);
+  --avatar-bg-color: #ecedfd;
+  --avatar-color: #ffffff;
+  --plus-bg-color: #b8bcfd;
+  --plus-active-color: #979cea;
   --scrollbar: #b8bcfd;
   --scrollbar-bg: #ffffff;
   --secondary-bg-color: #ffffff;

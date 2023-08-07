@@ -3,16 +3,18 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { updateUser } from '../../store/user/operationAuth';
-import photo from '../../assets/images/defaultuserimg/user.jpg';
+import defaultPhoto from '../../assets/svg/symbol-defs.svg';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import css from './EditProfileForm.module.css';
 
 export const EditProfileForm = ({ user, onClose }) => {
   const dispatch = useDispatch();
-  const [userPhoto, setUserPhoto] = useState(photo);
+  const [userPhoto, setUserPhoto] = useState(user.user);
+  const [showPassword, setShowPassword] = React.useState(false);
 
   const initialValues = {
     name: user.name,
-    photo: user.avatarUrl || photo,
+    avatarUrl: user.avatarUrl || defaultPhoto,
     email: user.email,
     password: user.password,
   };
@@ -36,15 +38,6 @@ export const EditProfileForm = ({ user, onClose }) => {
       .required('Password is required'),
   });
 
-  const handleSubmit = (values, { resetForm }) => {
-    const updatedUser = {
-      ...values,
-      photo: userPhoto,
-    };
-    dispatch(updateUser(updatedUser));
-    resetForm();
-    onClose();
-  };
   const openModal = () => {
     const input = document.createElement('input');
     input.type = 'file';
@@ -58,6 +51,19 @@ export const EditProfileForm = ({ user, onClose }) => {
     });
     input.click();
   };
+  const handleSubmit = (user, { resetForm }) => {
+    const updatedUser = {
+      ...user,
+      avatarUrl: userPhoto,
+    };
+    dispatch(updateUser(updatedUser));
+    resetForm();
+    onClose();
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(prevShowPassword => !prevShowPassword);
+  };
 
   return (
     <Formik
@@ -67,16 +73,24 @@ export const EditProfileForm = ({ user, onClose }) => {
     >
       <Form className={css.form}>
         <p className={css.form__title}>Edit profile</p>
-        <div className={css.photo}>
-          <img
-            className={css.photo__img}
-            src={userPhoto}
-            alt="Profile Phot"
-            onClick={openModal}
-          />
+        <div className={css.photo} onClick={openModal}>
+          {userPhoto ? (
+            <img
+              className={css.photo__img}
+              src={userPhoto}
+              alt="ProfilePhoto"
+            />
+          ) : (
+            <svg width={68} height={68}>
+              <use
+                className={css.svg}
+                href={defaultPhoto + '#icon-Group-1456q'}
+              />
+            </svg>
+          )}
         </div>
 
-        <div className={css.input}>
+        <div className={css.input__wrapper}>
           <label htmlFor="name"></label>
           <Field
             className={css.input__field}
@@ -88,7 +102,7 @@ export const EditProfileForm = ({ user, onClose }) => {
           <ErrorMessage className={css.errors} name="name" component="div" />
         </div>
 
-        <div className={css.input}>
+        <div className={css.input__wrapper}>
           <label htmlFor="email"></label>
           <Field
             className={css.input__field}
@@ -100,15 +114,20 @@ export const EditProfileForm = ({ user, onClose }) => {
           <ErrorMessage className={css.errors} name="email" component="div" />
         </div>
 
-        <div className={css.input}>
+        <div className={css.input__wrapper}>
           <label htmlFor="password"></label>
           <Field
             className={css.input__field}
-            type="password"
             id="password"
             name="password"
-            // placeholder="Password"
+            placeholder="Password"
+            type={showPassword ? 'text' : 'password'}
+            style={{ position: 'relative' }}
           />
+
+          <span className={css.eye} onClick={togglePasswordVisibility}>
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </span>
           <ErrorMessage
             className={css.errors}
             name="password"

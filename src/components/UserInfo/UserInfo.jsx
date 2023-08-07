@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Modal } from '../Modal';
 import { EditProfileForm } from '../EditProfileForm';
-import { gettUser, getUser } from 'store/user/selectorsAuth';
-import photo from '../../assets/images/defaultuserimg/user 2x.jpg';
+import { getUser } from 'store/user/selectorsAuth';
+import defaultPhoto from '../../assets/svg/symbol-defs.svg';
 import css from './UserInfo.module.css';
 
 export const UserInfo = () => {
@@ -22,21 +22,13 @@ export const UserInfo = () => {
     <div>
       <div className={css.user}>
         <h2 className={css.user__name}>{user.name || 'Profile'}</h2>
-        <div className={css.photo}>
+        <div className={css.photo} onClick={handleEditClick}>
           {user.avatarUrl ? (
-            <img
-              className={css.photo__img}
-              src={user.avatarUrl}
-              alt="avatar"
-              onClick={handleEditClick}
-            />
+            <img className={css.photo__img} src={user.avatarUrl} alt="avatar" />
           ) : (
-            <img
-              className={css.photo__img}
-              src={photo}
-              alt="avatar default"
-              onClick={handleEditClick}
-            />
+            <svg className={css.svg} width={32} height={32}>
+              <use href={defaultPhoto + '#icon-Group-1456q'} />
+            </svg>
           )}
         </div>
       </div>
