@@ -14,6 +14,7 @@ const initialState = {
   isLoading: false,
   isLoggedIn: false,
   error: null,
+  theme: 'dark',
 };
 
 const defaultStatus = {
@@ -27,6 +28,11 @@ const customArrStatusActions = status => customArr.map(el => el[status]);
 const userSlice = createSlice({
   name: 'user',
   initialState,
+  reducers: {
+    changeTheme: (state, action) => {
+      state.user.theme = action.payload;
+    },
+  },
   extraReducers: buider => {
     buider
       .addCase(register.fulfilled, handleFulfilledUser)
@@ -43,5 +49,7 @@ const userSlice = createSlice({
       );
   },
 });
+
+export const { changeTheme } = userSlice.actions;
 
 export const userReducer = userSlice.reducer;

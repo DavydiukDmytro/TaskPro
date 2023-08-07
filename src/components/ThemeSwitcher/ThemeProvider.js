@@ -1,6 +1,7 @@
 import { useTheme } from 'hooks/useTheme';
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeTheme } from 'store/user/actions';
 import { getTheme } from 'store/user/selectorsAuth';
 
 const ThemeContext = createContext();
@@ -8,20 +9,22 @@ const ThemeContext = createContext();
 export const useThemeContext = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
+  const dispatch = useDispatch();
   const userTheme = useSelector(getTheme);
 
   const [currentTheme, setCurrentTheme] = useState(userTheme);
-  const { theme, setTheme: setThemeHook } = useTheme();
-  console.log(theme);
+  const { setTheme } = useTheme(userTheme);
+  console.log(userTheme);
 
   useEffect(() => {
-    setCurrentTheme(userTheme);
-  }, [userTheme]);
+    dispatch(changeTheme(currentTheme));
+  }, [dispatch, currentTheme]);
 
   const handleThemeChange = theme => {
     if (theme === 'light' || theme === 'violet' || theme === 'dark') {
-      setThemeHook(theme);
       setCurrentTheme(theme);
+      dispatch(changeTheme(theme));
+      setTheme(theme);
     }
   };
 
