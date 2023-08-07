@@ -1,0 +1,22 @@
+/* .section {
+  width: 1440px;
+  height: 770px;
+  background-color: var(--primary-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text__wrapp {
+  color: var(--secondary-text-color);
+  width: 486px;
+  text-align: center;
+  line-height: 18px;
+  letter-spacing: 0.02;
+
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 14px;
+}
+.link {
+  color: var(--accent-color);
+} */
