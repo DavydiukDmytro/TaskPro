@@ -14,6 +14,13 @@ export const handleFulfilledUserTheme = (state, { payload }) => {
   state.error = null;
 };
 
+export const handleFulfilledUserUpdate = (state, { payload }) => {
+  state.user = payload.user;
+  state.isLoggedIn = true;
+  state.isLoading = false;
+  state.error = null;
+};
+
 export const handlePendingUser = state => {
   state.isLoading = true;
 };

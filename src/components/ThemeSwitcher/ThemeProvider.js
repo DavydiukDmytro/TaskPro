@@ -1,7 +1,7 @@
 import { useTheme } from 'hooks/useTheme';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateTheme, updateUser } from 'store/user/operationAuth';
+import { updateTheme } from 'store/user/operationAuth';
 import { getTheme } from 'store/user/selectorsAuth';
 
 const ThemeContext = createContext();
