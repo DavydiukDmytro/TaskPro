@@ -1,0 +1,16 @@
+/* .container{
+    
+
+} */
+
+@media (min-width: 1440px) {
+  .header {
+    margin-left: 260px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .main {
+    margin-left: 260px;
+  }
+}

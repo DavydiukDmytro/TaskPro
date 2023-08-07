@@ -1,7 +1,7 @@
 .user {
-  position: absolute;
+  /* position: absolute;
   top: 18px;
-  right: 24px;
+  right: 24px; */
   display: flex;
   align-items: center;
   justify-content: center;

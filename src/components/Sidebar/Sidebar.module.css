@@ -1,31 +1,97 @@
-.sidebar {
-  width: 225px;
-  background-color: var(--sidebar-bg);
-  padding: 14px 0;
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(21, 21, 21, 0.3);
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
 }
 
-@media (min-width: 768px) {
-  .sidebar {
-    width: 260px;
-    padding: 24px 0;
+@media screen and (max-width: 1439px) {
+  .wrapper {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    display: block;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
-.logoWrapp {
+.wrapper.isOpen {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  /* transform: scaleX(1); */
+}
+
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    width: 260px;
+  }
+}
+
+.sidebar {
   display: flex;
-  align-items: center;
-  margin-bottom: 64px;
-  padding: 0 24px;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 225px;
+  background-color: var(--sidebar-bg);
+  padding: 14px 0;
+  height: 100vh;
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.logoSvg {
-  margin-right: 8px;
+.wrapper.isOpen .sidebar {
+  transform: scaleX(1);
 }
 
-.logo {
-  color: var(--sidebar-color);
-  font-size: 16px;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: -0.64px;
+@media (min-width: 1440px) {
+  .sidebar {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 260px;
+    padding: 24px 0;
+    z-index: 111;
+  }
+}
+
+.container {
+  padding: 0 14px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+.button {
+  /* display: flex;
+  align-items: center; */
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: transparent;
+  color: #000;
+  cursor: pointer;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:hover .icon {
+  color: var(--accent-color);
+}
+
+@media (min-width: 1440px) {
+  .button {
+    display: none;
+  }
 }
