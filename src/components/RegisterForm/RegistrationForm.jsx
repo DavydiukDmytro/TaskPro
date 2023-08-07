@@ -12,7 +12,7 @@ const schema = object({
   name: string()
     .trim()
     .matches(
-      /^[a-zA-Z0-9__\s~!@#$%^&*()_+-=[\{}|;’:”,./<>?£]+$/,
+      /^[a-zA-Z0-9_\s~!@#$%№^&*()_+-=[{}|`"'”;:,./<>?£]+$/,
       'Enter your name correct'
     )
     .min(2)
@@ -21,7 +21,7 @@ const schema = object({
   email: string().trim().email('Enter your email correct').required('Required'),
   password: string()
     .trim()
-    .matches(/^[a-zA-Z0-9_]+$/, 'Enter your password correct')
+    .matches(/^[a-zA-Z0-9!@#$%№^&*)(_+-=[{}|`"'”;:,./<>?£]+$/, 'Enter your password correct')
     .min(8)
     .max(64)
     .required('Required'),
