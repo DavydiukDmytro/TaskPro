@@ -4,13 +4,27 @@ import { object, string } from 'yup';
 import { register } from '../../store/user/operationAuth';
 import css from './RegisterForm.module.css';
 import { getIsLoggin } from 'store/user/selectorsAuth';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import svgSprite from '../../assets/svg/symbol-defs.svg';
 
 const schema = object({
-  name: string().min(2).required(),
-  email: string().email().required(),
-  password: string().min(6).max(12).required(),
+  name: string()
+    .trim()
+    .matches(
+      /^[a-zA-Z0-9__\s~!@#$%^&*()_+-=[\{}|;’:”,./<>?£]+$/,
+      'Enter your name correct'
+    )
+    .min(2)
+    .max(16)
+    .required('Required'),
+  email: string().trim().email('Enter your email correct').required('Required'),
+  password: string()
+    .trim()
+    .matches(/^[a-zA-Z0-9_]+$/, 'Enter your password correct')
+    .min(8)
+    .max(64)
+    .required('Required'),
 });
 
 const initialValuesForm = {
@@ -20,6 +34,8 @@ const initialValuesForm = {
 };
 
 const RegistrationForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLogIn = useSelector(getIsLoggin);
@@ -31,8 +47,13 @@ const RegistrationForm = () => {
   }, [isLogIn, navigate]);
 
   const handleSubmit = async (values, { resetForm }) => {
+    console.log(values);
     await dispatch(register(values));
     resetForm();
+  };
+
+  const handleTogglePassword = () => {
+    setShowPassword(prevShowPassword => !prevShowPassword);
   };
 
   return (
@@ -40,43 +61,80 @@ const RegistrationForm = () => {
       initialValues={initialValuesForm}
       onSubmit={handleSubmit}
       validationSchema={schema}
+      validateOnBlur
     >
-      <Form className={css.form}>
-        <div className={css.form__field}>
-          <label htmlFor="name" className={css.form__label}>
-            Name
-          </label>
-          <Field
-            autoComplete="name"
-            type="text"
-            name="name"
-            className={css.form__input}
-          />
-        </div>
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isValid,
+        dirty,
+      }) => (
+        <Form className={css.form}>
+          <div className={css.form__field}>
+            <Field
+              autoComplete="name"
+              placeholder="Enter your name"
+              type="text"
+              name="name"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              values={values.name}
+              className={css.form__input}
+            />
+            {touched.name && errors.name && (
+              <p className={css.form__error}>{errors.name}</p>
+            )}
+          </div>
 
-        <div className={css.form__field}>
-          <label htmlFor="email" className={css.form__label}>
-            Email
-          </label>
-          <Field
-            autoComplete="email"
-            type="email"
-            name="email"
-            className={css.form__input}
-          />
-        </div>
+          <div className={css.form__field}>
+            <Field
+              autoComplete="email"
+              placeholder="Enter your email"
+              type="email"
+              name="email"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              values={values.email}
+              className={css.form__input}
+            />
+            {touched.email && errors.email && (
+              <p className={css.form__error}>{errors.email}</p>
+            )}
+          </div>
 
-        <div className={css.form__field}>
-          <label htmlFor="password" className={css.form__label}>
-            Password
-          </label>
-          <Field type="password" name="password" className={css.form__input} />
-        </div>
+          <div className={css.form__password}>
+            <Field
+              autoComplete="password"
+              placeholder="Enter your password"
+              type={!showPassword ? 'password' : 'text'}
+              name="password"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              values={values.password}
+              className={css.form__input}
+            />
+            {touched.password && errors.password && (
+              <p className={css.form__error}>{errors.password}</p>
+            )}
+            <svg
+              width={18}
+              height={18}
+              className={css.svg}
+              onClick={handleTogglePassword}
+            >
+              <use href={svgSprite + '#icon-eye'} />
+            </svg>
+          </div>
 
-        <button type="submit" className={css.form__button}>
-          Register Now
-        </button>
-      </Form>
+          <button type="submit" className={css.button}>
+            Register Now
+          </button>
+        </Form>
+      )}
     </Formik>
   );
 };
