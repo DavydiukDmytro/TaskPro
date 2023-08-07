@@ -14,7 +14,7 @@ const initialState = {
   isLoading: false,
   isLoggedIn: false,
   error: null,
-};
+  };
 
 const defaultStatus = {
   pending: 'pending',
