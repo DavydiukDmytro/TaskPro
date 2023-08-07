@@ -12,9 +12,8 @@ export const Sidebar = () => {
 
   const toggleSidebar = e => {
     const data = e.target.getAttribute('data-action');
-    if (data === 'open' || data === 'close') {
-      setSidebarVisible(!isSidebarVisible);
-    }
+    if (!data) return;
+     setSidebarVisible(!isSidebarVisible);
   };
 
   return (
@@ -26,7 +25,7 @@ export const Sidebar = () => {
             height={32}
             stroke="currentColor"
             className={css.icon}
-            data-action="open"
+            data-action="toggle"
           >
             <use href={svgSprite + '#icon-menu'} />
           </svg>
@@ -38,7 +37,7 @@ export const Sidebar = () => {
           !isSidebarVisible ? css.wrapper : `${css.wrapper} ${css.isOpen}`
         }
         onClick={toggleSidebar}
-        data-action="close"
+        data-action="toggle"
       >
         <section className={css.sidebar}>
           <div>
