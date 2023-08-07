@@ -28,7 +28,10 @@ html[data-theme='dark'] {
 
   --add-button-color:#121212;
   --add-button-bg: #bedbb0;
-    --add-button-bg-accent: #9dc888;
+  --add-button-bg-accent: #9dc888;
+
+  --logo-color: #fff;
+  --logo-bg: #1f1f1f;
 
 }
 
@@ -55,6 +58,8 @@ html[data-theme='light'] {
   --add-button-color:#121212;
   --add-button-bg: #bedbb0;
   --add-button-bg-accent: #9dc888;
+  --logo-color: #fff;
+  --logo-bg: #1f1f1f;
 
 }
 
@@ -78,10 +83,11 @@ html[data-theme='violet'] {
   --board-active: rgb(255, 255, 255, 0.5);
   --sidebar-bg: #5255bc;
   --sidebar-border: rgba(255, 255, 255, 0.10);
-
   --add-button-color:#ffffff;
   --add-button-bg: #b8bcfd;
-    --add-button-bg-accent: #a9adf5;
+  --add-button-bg-accent: #a9adf5;
+  --logo-color: #5255bc;
+  --logo-bg: #ecedfd;
 
 
 
