@@ -1,7 +1,7 @@
 import { BoardsList } from 'components/BoardsList';
 import { ButtonLogout } from 'components/ButtonLogout';
 import css from './Sidebar.module.css';
-import svgSprite from '../../assets/svg/symbol-defs.svg';
+// import svgSprite from '../../assets/svg/symbol-defs.svg';
 import { BoardTitle } from 'components/BoardTitle/BoardTitle';
 
 export const Sidebar = () => {

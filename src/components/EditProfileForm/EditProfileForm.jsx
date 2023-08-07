@@ -43,7 +43,7 @@ export const EditProfileForm = ({ user, onClose }) => {
     input.type = 'file';
     input.addEventListener('change', event => {
       const file = event.target.files[0];
-      const reader = new FileReader();
+      // const reader = new FileReader();
       setUserPhoto(file);
       // reader.onload = () => {
       //   setUserPhoto(reader.result);
@@ -80,7 +80,7 @@ export const EditProfileForm = ({ user, onClose }) => {
   return (
     <Formik
       initialValues={initialValues}
-      // validationSchema={validationSchema}
+      validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
       <Form className={css.form}>
