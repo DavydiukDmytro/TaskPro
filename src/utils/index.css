@@ -21,6 +21,22 @@ html[data-theme='dark'] {
   --scrollbar: #121212;
   --scrollbar-bg: rgb(255, 255, 255, 0.1);
   --secondary-bg-color: #121212;
+  --logout-button: #bedbb0;
+  --logout-button-accent: #9dc888;
+   --sidebar-color: #ffffff;
+
+  --board-active: #1f1f1f;
+
+  --sidebar-bg: #121212;
+  --sidebar-border: rgba(255, 255, 255, 0.10);
+
+  --add-button-color:#121212;
+  --add-button-bg: #bedbb0;
+  --add-button-bg-accent: #9dc888;
+
+  --logo-color: #fff;
+  --logo-bg: #1f1f1f;
+
 }
 
 /* light theme */
@@ -42,6 +58,18 @@ html[data-theme='light'] {
   --scrollbar: rgba(22, 22, 22, 0.1);
   --scrollbar-bg: #e8e8e8;
   --secondary-bg-color: #ffffff;
+  --logout-button: #bedbb0;
+  --logout-button-accent: #9dc888;
+  --sidebar-color:: #161616;
+  --board-active: #f6f6f6;
+  --sidebar-bg: #ffffff;
+  --sidebar-border: rgba(22, 22, 22, 0.10);
+  --add-button-color:#121212;
+  --add-button-bg: #bedbb0;
+  --add-button-bg-accent: #9dc888;
+  --logo-color: #fff;
+  --logo-bg: #1f1f1f;
+
 }
 
 /* violet theme */
@@ -63,8 +91,21 @@ html[data-theme='violet'] {
   --scrollbar: #b8bcfd;
   --scrollbar-bg: #ffffff;
   --secondary-bg-color: #ffffff;
-}
+  --logout-button: #ffffff;
+  --logout-button-accent: #b8bcfd;
+  --sidebar-color: #ffffff;
+  --board-active: rgb(255, 255, 255, 0.5);
+  --sidebar-bg: #5255bc;
+  --sidebar-border: rgba(255, 255, 255, 0.10);
+  --add-button-color:#ffffff;
+  --add-button-bg: #b8bcfd;
+  --add-button-bg-accent: #a9adf5;
+  --logo-color: #5255bc;
+  --logo-bg: #ecedfd;
 
+
+
+}
 *,
 *::before,
 *::after {

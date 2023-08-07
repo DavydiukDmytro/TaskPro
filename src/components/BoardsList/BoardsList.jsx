@@ -1,4 +1,5 @@
 import { BoardItem } from 'components/BoardItem';
+import css from './BoardList.module.css';
 
 const boards = [
   {
@@ -20,14 +21,15 @@ const boards = [
 
 export const BoardsList = () => {
   return (
-    <ul>
-      {boards.map(board => (
-        <BoardItem
-          key={board.id}
-          icon={`icon-sprite-class-${board.iconId}`}
-          title={board.title}
-        />
-      ))}
-    </ul>
+    
+        <ul className={css.list}>
+        {boards.map(board => (
+          <BoardItem
+            key={board.id}
+            icon={`icon-sprite-class-${board.iconId}`}
+            title={board.title}
+          />
+        ))}
+      </ul>
   );
 };
