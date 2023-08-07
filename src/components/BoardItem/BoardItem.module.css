@@ -62,5 +62,5 @@
 
 .active .svg {
   fill: var(--board-active);
-  opacity: 0.5;
+  color: var(--sidebar-color);
 }
