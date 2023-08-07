@@ -21,6 +21,7 @@ html[data-theme='dark'] {
   --scrollbar: #121212;
   --scrollbar-bg: rgb(255, 255, 255, 0.1);
   --secondary-bg-color: #121212;
+  --modal-bg-color: #151515;
 }
 
 /* light theme */
@@ -42,6 +43,7 @@ html[data-theme='light'] {
   --scrollbar: rgba(22, 22, 22, 0.1);
   --scrollbar-bg: #e8e8e8;
   --secondary-bg-color: #ffffff;
+  --modal-bg-color: #fcfcfc;
 }
 
 /* violet theme */
@@ -63,6 +65,7 @@ html[data-theme='violet'] {
   --scrollbar: #b8bcfd;
   --scrollbar-bg: #ffffff;
   --secondary-bg-color: #ffffff;
+  --modal-bg-color: #fcfcfc;
 }
 
 *,
