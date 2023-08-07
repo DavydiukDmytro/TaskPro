@@ -29,6 +29,8 @@
 @media screen and (min-width: 1440px) {
   .wrapper {
     width: 260px;
+    opacity: 1;
+
   }
 }
 
@@ -58,6 +60,8 @@
     width: 260px;
     padding: 24px 0;
     z-index: 111;
+      transform: scaleX(1);
+
   }
 }
 
