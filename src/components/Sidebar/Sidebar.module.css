@@ -1,6 +1,6 @@
 .sidebar {
   width: 225px;
-  background-color: #121212;
+  background-color: var(--sidebar-bg);
   padding: 14px 0;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .logo {
-  color: #fff;
+  color: var(--sidebar-color);
   font-size: 16px;
   font-weight: 600;
   line-height: normal;

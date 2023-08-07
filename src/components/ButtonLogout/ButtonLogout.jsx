@@ -10,10 +10,12 @@ export const ButtonLogout = () => {
   };
   return (
     <button onClick={handleLogout} className={css.button}>
-      <svg width={32} height={32} className={css.icon} stroke="currentColor">
-        <use href={svgSprite + '#login-icon'} />
-      </svg>
-      <span className={css.buttonText}> Log out</span>
+      <div className={css.buttonIcon}>
+        <svg width={32} height={32} stroke="currentColor">
+          <use href={svgSprite + '#login-icon'} />
+        </svg>
+      </div>
+      <span> Log out</span>
     </button>
   );
 };
