@@ -38,7 +38,8 @@ html[data-theme='dark'] {
   --logo-bg: #1f1f1f;
 
   --overlay:rgba(21, 21, 21, 0.50);
-    --header-bg:#161616;
+  --header-bg:#161616;
+  --priority-default: rgba(255, 255, 255, 0.30);
 
 
 }
@@ -75,6 +76,8 @@ html[data-theme='light'] {
   --logo-bg: #1f1f1f;
   --overlay:rgba(21, 21, 21, 0.30);
   --header-bg:#fcfcfc;
+  --priority-default: rgba(22, 22, 22, 0.30);
+
 
 
 }
@@ -110,7 +113,9 @@ html[data-theme='violet'] {
   --logo-color: #5255bc;
   --logo-bg: #ecedfd;
   --overlay:rgba(21, 21, 21, 0.30);
-    --header-bg:#fcfcfc;
+  --header-bg:#fcfcfc;
+  --priority-default: rgba(22, 22, 22, 0.30);
+
 
 }
 

@@ -15,7 +15,7 @@ export const CardTitle = ({ title }) => {
         </li>
         <li>
           <button className={css.button}>
-            <svg width={16} height={16} stroke="var( --accent-color)">
+            <svg width={16} height={16} stroke="currentColor">
               <use href={svgSprite + '#icon-trash-04'} />
             </svg>
           </button>
