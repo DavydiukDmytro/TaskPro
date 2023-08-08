@@ -1,0 +1,24 @@
+.logoWrapp {
+  display: flex;
+  align-items: center;
+  margin-bottom: 64px;
+  padding: 0 14px;
+}
+
+@media (min-width: 768px) {
+  .logoWrapp {
+    padding: 0 24px;
+  }
+}
+
+.logoSvg {
+  margin-right: 8px;
+}
+
+.logo {
+  color: var(--sidebar-color);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.64px;
+}

@@ -1,6 +1,7 @@
 .btn {
   border: none;
   background-color: transparent;
+  color: var(--primary-text-color);
   cursor: pointer;
 }
 .list {
