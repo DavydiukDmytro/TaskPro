@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import css from './BlankPage.module.css';
 
 const BlankPage = () => {
@@ -8,13 +8,9 @@ const BlankPage = () => {
       <div className={css.text__wrapp}>
         <p>
           Before starting your project, it is essential{' '}
-          {
-            <Link className={css.link} to="/auth/register">
-              to create a board
-            </Link>
-          }{' '}
-          to visualize and track all the necessary tasks and milestones. This
-          board serves as a powerful tool to organize the workflow and ensure
+          {<button className={css.button}>to create a board</button>} to
+          visualize and track all the necessary tasks and milestones. This board
+          serves as a powerful tool to organize the workflow and ensure
           effective collaboration among team members.
         </p>
       </div>

@@ -16,9 +16,14 @@
   font-weight: 400;
   font-size: 14px;
 }
-.link {
+.button {
   color: var(--accent-color);
   cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.button:hover {
+  color: var(--plus-active-color);
 }
 @media screen and (max-width: 374px) {
   .section {
