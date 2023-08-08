@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../store/user/operationAuth';
 import defaultPhoto from '../../assets/svg/symbol-defs.svg';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { getUser } from 'store/user/selectorsAuth';
 import css from './EditProfileForm.module.css';
 
-export const EditProfileForm = ({ user, onClose }) => {
+export const EditProfileForm = ({ onClose }) => {
   const dispatch = useDispatch();
+  const user = useSelector(getUser);
+
   const [userPhoto, setUserPhoto] = useState(user.user);
   const [showPassword, setShowPassword] = React.useState(false);
-
   const initialValues = {
     name: user.name,
     avatarUrl: user.avatarUrl || defaultPhoto,
@@ -19,26 +21,19 @@ export const EditProfileForm = ({ user, onClose }) => {
     password: user.password,
   };
 
-  const EMAIL_REGX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-  const PASSWORD_REGEX =
-    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,64}$/;
-
   const validationSchema = Yup.object().shape({
     name: Yup.string()
       .min(2, 'Too Short!')
-      .max(32, 'Too Long!')
+      .max(16, 'Too Long!')
       .required('Name is required'),
-    email: Yup.string()
-      .matches(EMAIL_REGX, 'Invalid email address')
-      .email('Invalid email')
-      .required('Email is required'),
+    email: Yup.string().email('Enter your email correct').required('Required'),
     password: Yup.string()
-      .matches(PASSWORD_REGEX, 'Please enter a strong password')
-      .required('Password is required'),
+      .matches(/^[a-zA-Z0-9_]+$/, 'Enter your password correct')
+      .min(8)
+      .max(64),
   });
 
-  const openModal = () => {
+  const handlePhotoChange = () => {
     const input = document.createElement('input');
     input.type = 'file';
     input.addEventListener('change', event => {
@@ -48,17 +43,17 @@ export const EditProfileForm = ({ user, onClose }) => {
         setUserPhoto(reader.result);
       };
       reader.readAsDataURL(file);
+      const formData = new FormData();
+      formData.append('file', userPhoto);
     });
     input.click();
   };
+
   const handleSubmit = (user, { resetForm }) => {
-    const updatedUser = {
-      ...user,
-      avatarUrl: userPhoto,
-    };
+    const updatedUser = { ...user, avatarUrl: userPhoto };
     dispatch(updateUser(updatedUser));
-    resetForm();
     onClose();
+    resetForm();
   };
 
   const togglePasswordVisibility = () => {
@@ -73,7 +68,13 @@ export const EditProfileForm = ({ user, onClose }) => {
     >
       <Form className={css.form}>
         <p className={css.form__title}>Edit profile</p>
-        <div className={css.photo} onClick={openModal}>
+        <div
+          className={css.photo}
+          type="file"
+          name="file"
+          id="avatarURL"
+          onClick={handlePhotoChange}
+        >
           {userPhoto ? (
             <img
               className={css.photo__img}
