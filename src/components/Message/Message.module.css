@@ -1,0 +1,29 @@
+.container {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px 0;
+  border-radius: 8px;
+  text-align: center;
+  background: #151515;
+  color: #fff;
+}
+@media (min-width: 375px) {
+  .container {
+    max-width: 424px;
+  }
+}
+
+.success {
+  stroke: #4fa94d;
+  fill: #4fa94d;
+}
+.error {
+  stroke: #e82a2a;
+  fill: #e82a2a;
+}
+.message {
+  padding: 0 20px;
+  margin-top: 10px;
+}
