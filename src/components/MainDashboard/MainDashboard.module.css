@@ -1,4 +1,4 @@
-.main {
+/* .main {
   background-color: var(--avatar-bg-color);
 }
 
@@ -6,8 +6,8 @@
   .main {
     padding-left: 260px;
   }
-}
-
+} */
+/* 
 .title {
   padding: 14px 20px 39px 20px;
   color: var(--primary-text-color);
@@ -27,10 +27,12 @@
   .title {
     padding: 10px 24px;
   }
-}
+} */
 
 .board {
   padding-left: 20px;
+  display: flex;
+  gap: 34px;
 }
 
 @media screen and (min-width: 768px) {
@@ -43,4 +45,13 @@
   .board {
     padding-left: 24px;
   }
+}
+
+.columnButton {
+  width: 335px;
+}
+
+.columnList {
+  display: flex;
+  gap: 34px;
 }

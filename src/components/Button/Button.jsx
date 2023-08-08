@@ -8,7 +8,7 @@ export const Button = ({
   text,
   action,
 }) => {
-  const padding = type === 'submit' ? '49px' : '10px';
+  const padding = type === 'submit' ? '10px' : '14px';
 
   return (
     <button
