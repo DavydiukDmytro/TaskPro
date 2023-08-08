@@ -5,23 +5,17 @@ import { Sidebar } from 'components/Sidebar/Sidebar';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
-import { MainDashboard } from 'components/MainDashboard/MainDashboard';
-import { CardSection } from 'components/CardSection/CardSeection';
-
+import { ScreensPage } from 'page/ScreensPage';
 
 export const Home = () => {
   return (
     <>
       <Header />
-      <MainDashboard>
-        <CardSection />
-      </MainDashboard>
+      <ScreensPage />
       <main>
         <Suspense fallback={<p>DDDD</p>}>
-        
           <Outlet />
         </Suspense>
-    
       </main>
       <Sidebar />
     </>

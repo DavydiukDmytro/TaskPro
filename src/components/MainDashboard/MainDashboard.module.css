@@ -31,6 +31,8 @@
 
 .board {
   padding-left: 20px;
+  display: flex;
+  gap: 34px;
 }
 
 @media screen and (min-width: 768px) {
@@ -43,4 +45,13 @@
   .board {
     padding-left: 24px;
   }
+}
+
+.columnButton {
+  width: 335px;
+}
+
+.columnList {
+  display: flex;
+  gap: 34px;
 }

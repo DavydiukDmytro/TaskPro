@@ -9,11 +9,12 @@
   padding: 0;
   background-color: transparent;
   color: var(--secondary-text-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  opacity: 0.5;
 
   &:hover {
-    color: var(--primary-text-color);
+    opacity: 1;
   }
 }
 

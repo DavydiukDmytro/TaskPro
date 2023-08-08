@@ -1,11 +1,14 @@
+import { Background } from 'components/Background/Background';
 import { HeaderDashboard } from 'components/HeaderDashboard/HeaderDashboard';
 import { MainDashboard } from 'components/MainDashboard/MainDashboard';
 
 const ScreensPage = () => {
   return (
     <>
-      <HeaderDashboard />
-      <MainDashboard />
+      <Background>
+        <HeaderDashboard />
+        <MainDashboard />
+      </Background>
     </>
   );
 };

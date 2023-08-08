@@ -1,11 +1,26 @@
+import { Button } from 'components/Button/Button';
 import css from './MainDashboard.module.css';
+import { CardSection } from 'components/CardSection/CardSeection';
 
 export const MainDashboard = () => {
   return (
-    <main className={css.main}>
-      <div className={css.board}>
-     
+    <div className={css.board}>
+      <ul className={css.columnList}>
+        <li>
+          <CardSection />
+        </li>
+        <li>
+          <CardSection />
+        </li>
+      </ul>
+
+      <div className={css.columnButton}>
+        <Button
+          isContrast={false}
+          type={'button'}
+          text={'Add another column'}
+        />
       </div>
-    </main>
+    </div>
   );
 };
