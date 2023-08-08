@@ -23,10 +23,11 @@ export const handleFulfilledUserUpdate = (state, { payload }) => {
 
 export const handlePendingUser = state => {
   state.isLoading = true;
+  state.error = null;
 };
 export const handleRejectedUser = (state, { payload }) => {
   state.isLoading = false;
-  state.error = payload;
+  state.error = payload.message;
 };
 
 export const handleFulfilledUserLogOut = state => {
