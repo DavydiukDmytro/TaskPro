@@ -5,7 +5,9 @@
   align-items: center;
   padding: 14px 20px;
   background-color: var(--header-bg);
-  width: 100%;
+  /* width: 100%; */
+    /* width: 100vw; */
+
 }
 
 @media (min-width: 768px) {
