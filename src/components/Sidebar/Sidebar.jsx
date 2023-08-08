@@ -19,7 +19,7 @@ export const Sidebar = () => {
   return (
     <>
       {!isSidebarVisible && (
-        <button className={css.button} onClick={toggleSidebar}>
+        <button className={css.button} onClick={toggleSidebar} data-action>
           <svg
             width={32}
             height={32}
