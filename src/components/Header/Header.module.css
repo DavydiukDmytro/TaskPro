@@ -4,6 +4,7 @@
   justify-content: end;
   align-items: center;
   padding: 14px 20px;
+  background-color: var(--header-bg);
 }
 
 @media (min-width: 768px) {
@@ -18,4 +19,3 @@
     padding: 18px 24px;
   }
 }
-

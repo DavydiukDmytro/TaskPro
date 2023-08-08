@@ -37,6 +37,10 @@ html[data-theme='dark'] {
   --logo-color: #fff;
   --logo-bg: #1f1f1f;
 
+  --overlay:rgba(21, 21, 21, 0.50);
+    --header-bg:#161616;
+
+
 }
 
 /* light theme */
@@ -69,6 +73,9 @@ html[data-theme='light'] {
   --add-button-bg-accent: #9dc888;
   --logo-color: #fff;
   --logo-bg: #1f1f1f;
+  --overlay:rgba(21, 21, 21, 0.30);
+  --header-bg:#fcfcfc;
+
 
 }
 
@@ -102,10 +109,11 @@ html[data-theme='violet'] {
   --add-button-bg-accent: #a9adf5;
   --logo-color: #5255bc;
   --logo-bg: #ecedfd;
-
-
+  --overlay:rgba(21, 21, 21, 0.30);
+    --header-bg:#fcfcfc;
 
 }
+
 *,
 *::before,
 *::after {

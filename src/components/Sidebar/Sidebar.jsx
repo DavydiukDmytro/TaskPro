@@ -25,7 +25,7 @@ export const Sidebar = () => {
             height={32}
             stroke="currentColor"
             className={css.icon}
-            data-action="toggle"
+            data-action
           >
             <use href={svgSprite + '#icon-menu'} />
           </svg>
@@ -37,7 +37,7 @@ export const Sidebar = () => {
           !isSidebarVisible ? css.wrapper : `${css.wrapper} ${css.isOpen}`
         }
         onClick={toggleSidebar}
-        data-action="toggle"
+        data-action
       >
         <section className={css.sidebar}>
           <div>
