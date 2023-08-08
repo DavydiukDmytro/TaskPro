@@ -1,10 +1,11 @@
 import css from './MainDashboard.module.css';
 
-export const MainDashboard = ({ children }) => {
+export const MainDashboard = () => {
   return (
     <main className={css.main}>
-      <h1 className={css.title}>Project office</h1>
-      <div className={css.board}>{children}</div>
+      <div className={css.board}>
+     
+      </div>
     </main>
   );
 };
