@@ -12,7 +12,7 @@ export const BoardItem = ({ icon, title }) => {
       >
         <svg width={16} height={16} stroke="currentColor" className={css.svg}>
           <use href={sprite + '#icon-pazzle'} />
-          {/* <use href={sprite + icon} /> */}
+          {/* <use href={sprite + { icon }} /> */}
         </svg>
         <p>Project office{title}</p>
 

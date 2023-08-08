@@ -12,6 +12,12 @@ export const MainDashboard = () => {
         <li>
           <CardSection />
         </li>
+        <li>
+          <CardSection />
+        </li>
+        <li>
+          <CardSection />
+        </li>
       </ul>
 
       <div className={css.columnButton}>
