@@ -1,31 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
-import { object, string } from 'yup';
 import { register } from '../../store/user/operationAuth';
 import css from './RegisterForm.module.css';
-import { getIsLoggin } from 'store/user/selectorsAuth';
+import { getIsLogin } from 'store/user/selectorsAuth';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
-
-const schema = object({
-  name: string()
-    .trim()
-    .matches(
-      /^[a-zA-Z0-9_\s~!@#$%№^&*()_+-=[{}|`"'”;:,./<>?£]+$/,
-      'Enter your name correct'
-    )
-    .min(2)
-    .max(16)
-    .required('Required'),
-  email: string().trim().email('Enter your email correct').required('Required'),
-  password: string()
-    .trim()
-    .matches(/^[a-zA-Z0-9!@#$%№^&*)(_+-=[{}|`"'”;:,./<>?£]+$/, 'Enter your password correct')
-    .min(8)
-    .max(64)
-    .required('Required'),
-});
+import { registrationSchema } from 'utils/validation';
 
 const initialValuesForm = {
   name: '',
@@ -38,7 +19,7 @@ const RegistrationForm = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isLogIn = useSelector(getIsLoggin);
+  const isLogIn = useSelector(getIsLogin);
 
   useEffect(() => {
     if (isLogIn) {
@@ -60,7 +41,7 @@ const RegistrationForm = () => {
     <Formik
       initialValues={initialValuesForm}
       onSubmit={handleSubmit}
-      validationSchema={schema}
+      validationSchema={registrationSchema}
       validateOnBlur
     >
       {({
