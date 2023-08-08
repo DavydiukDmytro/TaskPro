@@ -1,5 +1,13 @@
+import { HeaderDashboard } from 'components/HeaderDashboard/HeaderDashboard';
+import { MainDashboard } from 'components/MainDashboard/MainDashboard';
+
 const ScreensPage = () => {
-  return <p>Boards</p>;
+  return (
+    <>
+      <HeaderDashboard />
+      <MainDashboard />
+    </>
+  );
 };
 
 export default ScreensPage;
