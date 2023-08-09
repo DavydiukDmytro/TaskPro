@@ -3,13 +3,26 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  height: 640px;
+  height: 60vh;
+  /* height: 480px; */
   overflow: auto;
   overflow-x: none;
   box-sizing: border-box;
   padding-right: 4px;
   margin-bottom: 14px;
 }
+
+/* @media screen and (min-width: 768px) {
+  .list {
+    height: 640px;
+  }
+} */
+
+/* @media screen and (min-width: 1440px) {
+  .list {
+    height: 480px;
+  }
+} */
 
 .list::-webkit-scrollbar {
   width: 8px;

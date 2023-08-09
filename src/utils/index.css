@@ -8,11 +8,9 @@ html[data-theme='dark'] {
   --accent-color: #bedbb0;
   --input-inactive-color: rgba(190, 219, 176, 0.4);
   --active-color: #9dc888;
-
   --button-color: #161616;
   --bg-button: #121212;
   --bg-icon: #ffffff;
-
   --card-line: rgba(255, 255, 255, 0.1);
   --avatar-bg-color: #1f1f1f;
   --avatar-color: #151515;
@@ -24,22 +22,18 @@ html[data-theme='dark'] {
   --logout-button: #bedbb0;
   --logout-button-accent: #9dc888;
    --sidebar-color: #ffffff;
-
   --board-active: #1f1f1f;
-
   --sidebar-bg: #121212;
   --sidebar-border: rgba(255, 255, 255, 0.10);
-
   --add-button-color:#121212;
   --add-button-bg: #bedbb0;
   --add-button-bg-accent: #9dc888;
-
   --logo-color: #fff;
   --logo-bg: #1f1f1f;
-
   --overlay:rgba(21, 21, 21, 0.50);
   --header-bg:#161616;
   --priority-default: rgba(255, 255, 255, 0.30);
+  --help-bg: #1f1f1f;
 
 
 
@@ -78,6 +72,7 @@ html[data-theme='light'] {
   --overlay:rgba(21, 21, 21, 0.30);
   --header-bg:#fcfcfc;
   --priority-default: rgba(22, 22, 22, 0.30);
+  --help-bg: #f6f6f6;
 
 
 
@@ -116,6 +111,8 @@ html[data-theme='violet'] {
   --overlay:rgba(21, 21, 21, 0.30);
   --header-bg:#fcfcfc;
   --priority-default: rgba(22, 22, 22, 0.30);
+   --help-bg: rgba(236, 237, 253, 0.40);
+
 
 
 }
