@@ -12,9 +12,7 @@ export const ThemeProvider = ({ children }) => {
   const dispatch = useDispatch();
   const userTheme = useSelector(getTheme);
 
-  // const [currentTheme, setCurrentTheme] = useState(userTheme);
   const { setTheme } = useTheme(userTheme);
-  console.log(userTheme);
 
   useEffect(() => {
     setTheme(userTheme);
