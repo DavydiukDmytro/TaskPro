@@ -1,23 +1,22 @@
-// import * as React from 'react';
-// import dayjs, { Dayjs } from 'dayjs';
-// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-// import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-// export const Calendar = () => {
-//   const [value, setValue] =
-//     (React.useState < Dayjs) | (null > dayjs('2022-04-17'));
+export const Calendar = () => {
+  const [selectedDate, setSelectedDate] = useState(null);
 
-//   return (
-//     <LocalizationProvider dateAdapter={AdapterDayjs}>
-//       <DemoContainer components={['DatePicker']}>
-//         <DatePicker
-//           label="Date"
-//           value={value}
-//           onChange={newValue => setValue(newValue)}
-//         />
-//       </DemoContainer>
-//     </LocalizationProvider>
-//   );
-// };
+  const handleDateChange = date => {
+    setSelectedDate(date);
+  };
+
+  return (
+    <div>
+      <DatePicker
+        selected={selectedDate}
+        onChange={handleDateChange}
+        dateFormat="dd/MM/yyyy"
+        placeholderText="Виберіть дату"
+      />
+    </div>
+  );
+};

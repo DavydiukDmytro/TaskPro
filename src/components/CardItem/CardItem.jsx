@@ -1,5 +1,6 @@
 import css from './CardItem.module.css';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
+import { Calendar } from 'components/Calendar/Calendar';
 
 export const CardItem = ({ card }) => {
   return (
@@ -23,7 +24,8 @@ export const CardItem = ({ card }) => {
           </div>
           <div>
             <h4 className={css.infoTitle}>Deadline</h4>
-            <p className={css.info}>12/05/2023</p>
+            {/* <p className={css.info}>12/05/2023</p> */}
+            <Calendar />
           </div>
         </div>
         <ul className={css.iconList}>

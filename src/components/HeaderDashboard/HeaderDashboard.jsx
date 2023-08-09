@@ -1,3 +1,4 @@
+import { Calendar } from 'components/Calendar/Calendar';
 import css from './HeaderDashboard.module.css';
 
 export const HeaderDashboard = () => {
