@@ -1,13 +1,14 @@
 .logoWrapp {
   display: flex;
   align-items: center;
-  margin-bottom: 64px;
+  margin-bottom: 70px;
   padding: 0 14px;
 }
 
 @media (min-width: 768px) {
   .logoWrapp {
     padding: 0 24px;
+    margin-bottom: 60px;
   }
 }
 
