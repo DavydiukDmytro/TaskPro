@@ -6,10 +6,10 @@ import { Button } from 'components/Button/Button';
 
 export const CardSection = () => {
   return (
-    <li className={css.cardContainer}>
+    <div className={css.cardContainer}>
       <CardTitle title="To do" />
       <CardList />
       <Button type="button" text="Add another card" />
-    </li>
+    </div>
   );
 };
