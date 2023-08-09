@@ -18,7 +18,7 @@
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 24px);
   overflow: hidden;
-  background-color: var(--color-primary-bg);
+  background-color: var(--header-bg);
   border-radius: 8px;
   border: 1px solid rgba(190, 219, 176, 0.5);
 }
@@ -32,8 +32,8 @@
   background-color: initial;
   border: none;
   cursor: pointer;
+    z-index: 1;
+
 }
 
-.svg {
-  stroke: #fff;
-}
+
