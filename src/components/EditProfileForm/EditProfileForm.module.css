@@ -6,7 +6,6 @@
   position: relative;
   flex-direction: column;
   align-items: center;
-  background-color: var(--primary-bg-color);
 }
 .form__title {
   position: absolute;
@@ -15,6 +14,7 @@
   font-family: 'Poppins';
   font-size: 18px;
   font-weight: 500;
+  border-radius: 8px;
   color: var(--primary-text-color);
 }
 
@@ -83,6 +83,13 @@
 
 .photo:hover::before {
   background-color: var(--plus-active-color);
+}
+
+.photo__img {
+  width: 68px;
+  height: 68px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .svg {

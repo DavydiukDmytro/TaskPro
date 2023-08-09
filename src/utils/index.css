@@ -37,6 +37,7 @@ html[data-theme='dark'] {
   --header-bg:#161616;
   --priority-default: rgba(255, 255, 255, 0.30);
   --help-bg: #1f1f1f;
+  --modal-bg-color: #151515;
 }
 
 /* light theme */
@@ -76,6 +77,7 @@ html[data-theme='light'] {
   --header-bg:#fcfcfc;
   --priority-default: rgba(22, 22, 22, 0.30);
   --help-bg: #f6f6f6;
+  --modal-bg-color: #fcfcfc;
 }
 
 /* violet theme */
@@ -115,6 +117,7 @@ html[data-theme='violet'] {
   --header-bg:#fcfcfc;
   --priority-default: rgba(22, 22, 22, 0.30);
    --help-bg: rgba(236, 237, 253, 0.40);
+   --modal-bg-color: #fcfcfc;
 }
 
 *,

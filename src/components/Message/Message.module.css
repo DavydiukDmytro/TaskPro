@@ -6,8 +6,10 @@
   padding: 20px 0;
   border-radius: 8px;
   text-align: center;
-  background: #151515;
-  color: #fff;
+  background-color: var(--bg-button);
+  color: var(--primary-text-color);
+  border: 3px solid var(--accent-color);
+  overflow: hidden;
 }
 @media (min-width: 375px) {
   .container {

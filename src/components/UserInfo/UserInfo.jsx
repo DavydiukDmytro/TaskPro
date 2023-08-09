@@ -34,7 +34,7 @@ export const UserInfo = () => {
       </div>
 
       {showEditForm && (
-        <Modal>
+        <Modal handleClose={handleCloseForm}>
           <EditProfileForm user={user} onClose={handleCloseForm} />
         </Modal>
       )}
