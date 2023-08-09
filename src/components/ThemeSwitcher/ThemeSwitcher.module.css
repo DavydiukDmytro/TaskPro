@@ -1,11 +1,26 @@
 .dropdown {
   position: relative;
+  z-index: 1;
 }
 .btn {
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
   color: var(--primary-text-color);
   cursor: pointer;
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.02;
+}
+.svg {
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  fill: var(--primary-text-color);
+  /* display: none; */
 }
 /* .btn::after {
   content: url(../../assets/svg/symbol-defs.svg#icon-chevron-down);
@@ -26,5 +41,15 @@
   border: 1px solid #bedbb0;
 }
 .item {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 14px;
   cursor: pointer;
+}
+
+.activeItem {
+  color: var(--active-color);
+}
+.item::first-letter {
+  text-transform: capitalize;
 }
