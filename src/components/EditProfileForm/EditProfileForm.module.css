@@ -93,6 +93,8 @@
 
 .svg {
   fill: var(--avatar-color);
+  padding-top: 5px;
+
 }
 .form__button {
   display: block;

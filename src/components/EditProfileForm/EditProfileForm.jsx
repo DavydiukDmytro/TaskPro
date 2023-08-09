@@ -77,11 +77,8 @@ export const EditProfileForm = ({ onClose }) => {
               alt="ProfilePhoto"
             />
           ) : (
-            <svg width={68} height={68}>
-              <use
-                className={css.svg}
-                href={defaultPhoto + '#icon-Group-1456q'}
-              />
+            <svg width={68} height={68} className={css.svg}>
+              <use href={defaultPhoto + '#icon-Group-1456q'} />
             </svg>
           )}
         </div>
