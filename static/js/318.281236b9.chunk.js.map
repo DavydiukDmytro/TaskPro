@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/318.281236b9.chunk.js","mappings":"2HAIA,UAJoB,WAClB,OAAO,iCACR,C","sources":["page/ScreensPage/ScreensPage.jsx"],"sourcesContent":["const ScreensPage = () => {\n  return <p>Boards</p>;\n};\n\nexport default ScreensPage;\n"],"names":[],"sourceRoot":""}
