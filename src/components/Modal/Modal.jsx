@@ -25,7 +25,7 @@ export const Modal = ({ handleClose, children }) => {
             }}
             className={css.close}
           >
-            <svg width={18} height={18}>
+            <svg width={18} height={18} stroke="var(--primary-text-color)">
               <use className={css.svg} href={svgSprite + '#icon-x-close'} />
             </svg>
           </button>
