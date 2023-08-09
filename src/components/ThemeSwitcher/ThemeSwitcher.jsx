@@ -8,7 +8,7 @@ export const ThemeSwitcher = () => {
   const themes = ['light', 'dark', 'violet'];
 
   return (
-    <div className="dropdown">
+    <div className={css.dropdown}>
       <button className={css.btn} onClick={() => setIsOpen(!isOpen)}>
         Theme
       </button>
