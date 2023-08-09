@@ -20,9 +20,10 @@
   height: 32px;
   border-radius: 8px;
   overflow: hidden;
-  background-color: var(--avatar-bg-color);
+  background-color: var(--avatar-bg);
 }
 
 .svg {
   fill: var(--avatar-color);
+  padding-top: 2px;
 }

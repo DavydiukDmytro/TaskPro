@@ -13,6 +13,8 @@ html[data-theme='dark'] {
   --bg-icon: #ffffff;
   --card-line: rgba(255, 255, 255, 0.1);
   --avatar-bg-color: #1f1f1f;
+  --avatar-bg: rgba(255, 255, 255, 0.5);
+
   --avatar-color: #151515;
   --plus-bg-color: #bedbb0;
   --plus-active-color: #9dc888;
@@ -53,6 +55,8 @@ html[data-theme='light'] {
   --bg-icon: #161616;
   --card-line: rgba(22, 22, 22, 0.1);
   --avatar-bg-color: #f6f6f7;
+  --avatar-bg:rgb(22, 22, 22, 0.3);
+
   --avatar-color: #fcfcfc;
   --plus-bg-color: #bedbb0;
   --plus-active-color: #9dc888;
@@ -93,6 +97,8 @@ html[data-theme='violet'] {
   --bg-icon: #5255bc;
   --card-line: rgba(22, 22, 22, 0.1);
   --avatar-bg-color: #ecedfd;
+  --avatar-bg:#D6D8FF;
+
   --avatar-color: #ffffff;
   --plus-bg-color: #b8bcfd;
   --plus-active-color: #979cea;
