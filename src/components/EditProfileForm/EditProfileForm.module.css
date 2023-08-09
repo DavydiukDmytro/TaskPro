@@ -7,6 +7,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 .form__title {
   position: absolute;
   top: 0;
@@ -38,21 +39,25 @@
   border-color: var(--accent-color);
   color: var(--primary-text-color);
 }
+
 @media screen and (min-width: 375px) {
   .input__field {
     width: 100%;
   }
 }
+
 @media screen and (min-width: 376px) and (max-width: 767px) {
   .input__field {
     width: 287px;
   }
 }
+
 @media screen and (min-width: 768px) {
   .input__field {
     width: 352px;
   }
 }
+
 .photo {
   position: relative;
   display: flex;
@@ -61,8 +66,10 @@
   width: 68px;
   height: 68px;
   cursor: pointer;
-  background-color: var(--avatar-bg-color);
+  background-color: var(--avatar-bg);
+  border-radius: 8px;
 }
+
 .photo::before {
   content: '+';
   position: absolute;
@@ -93,6 +100,7 @@
 
 .svg {
   fill: var(--avatar-color);
+  padding-top: 5px;
 }
 .form__button {
   display: block;
@@ -109,6 +117,7 @@
   cursor: pointer;
   color: var(--button-color);
 }
+
 .form__button:hover {
   background-color: var(--active-color);
 }
