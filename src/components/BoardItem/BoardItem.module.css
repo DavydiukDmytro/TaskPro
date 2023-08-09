@@ -1,0 +1,67 @@
+.boardItem {
+  height: 61px;
+}
+
+.button {
+  width: 16px;
+  height: 16px;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  color: var(--secondary-text-color);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 24px;
+  padding-right: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  height: 100%;
+  width: 100%;
+  fill: var(--sidebar-bg);
+}
+
+.active {
+  composes: link;
+  color: var(--sidebar-color);
+  position: relative;
+  background-color: var(--board-active);
+  fill: transparent;
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  border-radius: 4px 0px 0px 4px;
+  background-color: var(--logout-button);
+  top: 0;
+  right: 0;
+}
+.svg {
+  margin-right: 8px;
+  fill: transparent;
+}
+
+.wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.active .svg {
+  fill: transparent;
+  color: var(--sidebar-color);
+}

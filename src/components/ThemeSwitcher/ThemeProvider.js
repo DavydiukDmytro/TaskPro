@@ -1,7 +1,7 @@
 import { useTheme } from 'hooks/useTheme';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateTheme, updateUser } from 'store/user/operationAuth';
+import { updateTheme } from 'store/user/operationAuth';
 import { getTheme } from 'store/user/selectorsAuth';
 
 const ThemeContext = createContext();
@@ -12,9 +12,7 @@ export const ThemeProvider = ({ children }) => {
   const dispatch = useDispatch();
   const userTheme = useSelector(getTheme);
 
-  // const [currentTheme, setCurrentTheme] = useState(userTheme);
   const { setTheme } = useTheme(userTheme);
-  console.log(userTheme);
 
   useEffect(() => {
     setTheme(userTheme);

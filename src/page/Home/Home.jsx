@@ -3,15 +3,14 @@ import { ThemeSwitcher } from 'components/ThemeSwitcher/ThemeSwitcher';
 import { UserInfo } from '../../components/UserInfo';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Header } from 'components/Header/Header';
+import { ScreensPage } from 'page/ScreensPage';
 
 export const Home = () => {
   return (
     <>
-      <header>
-        <button>open sidebar</button>
-        <ThemeSwitcher />
-        <UserInfo />
-      </header>
+      <Header />
+      <ScreensPage />
       <main>
         <Suspense fallback={<p>DDDD</p>}>
           <Outlet />

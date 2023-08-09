@@ -43,20 +43,32 @@ export const EditProfileForm = ({ user, onClose }) => {
     input.type = 'file';
     input.addEventListener('change', event => {
       const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = () => {
-        setUserPhoto(reader.result);
-      };
-      reader.readAsDataURL(file);
+      // const reader = new FileReader();
+      setUserPhoto(file);
+      // reader.onload = () => {
+      //   setUserPhoto(reader.result);
+      // };
+      // reader.readAsDataURL(file);
     });
     input.click();
   };
   const handleSubmit = (user, { resetForm }) => {
-    const updatedUser = {
-      ...user,
-      avatarUrl: userPhoto,
-    };
-    dispatch(updateUser(updatedUser));
+    const formData = new FormData();
+
+    let updateData = {};
+    if (!user.password) {
+      updateData.email = user.email;
+      updateData.name = user.name;
+    } else {
+      updateData.email = user.email;
+      updateData.name = user.name;
+      updateData.password = user.password;
+    }
+
+    formData.append('avatar', userPhoto);
+    formData.append('updateInfo', JSON.stringify(updateData));
+    dispatch(updateUser(formData));
+
     resetForm();
     onClose();
   };

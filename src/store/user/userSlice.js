@@ -2,12 +2,19 @@ import {
   handleFulfilledUser,
   handleFulfilledUserLogOut,
   handleFulfilledUserTheme,
+  handleFulfilledUserUpdate,
   handlePendingUser,
   handleRejectedUser,
 } from './hundleReducerAuth';
 
 const { createSlice, isAnyOf } = require('@reduxjs/toolkit');
-const { login, register, logOut, updateTheme } = require('./operationAuth');
+const {
+  login,
+  register,
+  logOut,
+  updateTheme,
+  updateUser,
+} = require('./operationAuth');
 
 const initialState = {
   user: { name: null, email: null, avatarUrl: null, theme: 'dark' },
@@ -22,7 +29,7 @@ const defaultStatus = {
   fulfilled: 'fulfilled',
   rejected: 'rejected',
 };
-const customArr = [register, login, logOut, updateTheme];
+const customArr = [register, login, logOut, updateTheme, updateUser];
 const customArrStatusActions = status => customArr.map(el => el[status]);
 
 const userSlice = createSlice({
@@ -33,6 +40,7 @@ const userSlice = createSlice({
       .addCase(register.fulfilled, handleFulfilledUser)
       .addCase(login.fulfilled, handleFulfilledUser)
       .addCase(updateTheme.fulfilled, handleFulfilledUserTheme)
+      .addCase(updateUser.fulfilled, handleFulfilledUserUpdate)
       .addCase(logOut.fulfilled, handleFulfilledUserLogOut)
       .addMatcher(
         isAnyOf(...customArrStatusActions(defaultStatus.pending)),

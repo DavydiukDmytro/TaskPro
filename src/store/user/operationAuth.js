@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://task-pro.onrender.com';
 
@@ -21,11 +20,13 @@ export const register = createAsyncThunk(
       return res.data;
     } catch (error) {
       const newError = {
-        message: error.message,
         status: error.request.status,
       };
-      toast.success('Oh! You are not registered! Try again.');
-
+      if (error.response.data.message) {
+        newError.message = error.response.data.message;
+      } else {
+        newError.message = error.message;
+      }
       return thunkAPI.rejectWithValue(newError);
     }
   }
@@ -38,11 +39,13 @@ export const login = createAsyncThunk('user/login', async (body, thunkAPI) => {
     return res.data;
   } catch (error) {
     const newError = {
-      message: error.message,
       status: error.request.status,
     };
-    toast.success('Oh! You are not logged in. Register or try again.');
-
+    if (error.response.data.message) {
+      newError.message = error.response.data.message;
+    } else {
+      newError.message = error.message;
+    }
     return thunkAPI.rejectWithValue(newError);
   }
 });
@@ -52,7 +55,14 @@ export const logOut = createAsyncThunk('user/logout', async (_, thunkAPI) => {
     await axios.post('/api/user/logout');
     clearAuthHeader();
   } catch (error) {
-    const newError = { message: error.message, status: error.request.status };
+    const newError = {
+      status: error.request.status,
+    };
+    if (error.response.data.message) {
+      newError.message = error.response.data.message;
+    } else {
+      newError.message = error.message;
+    }
     return thunkAPI.rejectWithValue(newError);
   }
 });
@@ -66,11 +76,13 @@ export const updateTheme = createAsyncThunk(
       return res.data;
     } catch (error) {
       const newError = {
-        message: error.message,
         status: error.request.status,
       };
-      toast.success('Something went wrong. Try later!');
-
+      if (error.response.data.message) {
+        newError.message = error.response.data.message;
+      } else {
+        newError.message = error.message;
+      }
       return thunkAPI.rejectWithValue(newError);
     }
   }
@@ -84,11 +96,13 @@ export const updateUser = createAsyncThunk(
       return res.data;
     } catch (error) {
       const newError = {
-        message: error.message,
         status: error.request.status,
       };
-      toast.success('Something went wrong. Try later!');
-
+      if (error.response.data.message) {
+        newError.message = error.response.data.message;
+      } else {
+        newError.message = error.message;
+      }
       return thunkAPI.rejectWithValue(newError);
     }
   }

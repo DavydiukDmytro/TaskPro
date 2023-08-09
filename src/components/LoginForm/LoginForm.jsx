@@ -1,23 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import { login } from '../../store/user/operationAuth';
-import { object, string } from 'yup';
 import css from './LoginForm.module.css';
-import { getIsLoggin } from 'store/user/selectorsAuth';
+import { getIsLogin } from 'store/user/selectorsAuth';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import svgSprite from '../../assets/svg/symbol-defs.svg';
-
-const schema = object({
-  email: string().trim().email('Enter your email correct').required('Required'),
-  password: string()
-    .trim()
-    .matches(/^[a-zA-Z0-9_]+$/, 'Enter your password correct')
-    .min(8)
-    .max(64)
-    .required('Required'),
-});
+import { loginSchema } from 'utils/validation';
 
 const initialValuesForm = {
   email: '',
@@ -27,7 +17,7 @@ const initialValuesForm = {
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const isLogIn = useSelector(getIsLoggin);
+  const isLogIn = useSelector(getIsLogin);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -38,7 +28,6 @@ const LoginForm = () => {
   }, [isLogIn, navigate]);
 
   const handleSubmit = async (values, { resetForm }) => {
-    console.log(values);
     await dispatch(login(values));
     resetForm();
   };
@@ -51,7 +40,7 @@ const LoginForm = () => {
     <Formik
       initialValues={initialValuesForm}
       onSubmit={handleSubmit}
-      validationSchema={schema}
+      validationSchema={loginSchema}
       validateOnBlur
     >
       {({
