@@ -20,9 +20,9 @@ export const UserInfo = () => {
 
   return (
     <div>
-      <div className={css.user}>
+      <div className={css.user} onClick={handleEditClick}>
         <h2 className={css.user__name}>{user.name || 'Profile'}</h2>
-        <div className={css.photo} onClick={handleEditClick}>
+        <div className={css.photo}>
           {user.avatarUrl ? (
             <img className={css.photo__img} src={user.avatarUrl} alt="avatar" />
           ) : (

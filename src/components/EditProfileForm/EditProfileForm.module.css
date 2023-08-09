@@ -28,13 +28,12 @@
   font-family: 'Poppins';
   font-size: 14px;
   font-weight: 400;
-  color: var(--input-inactive-color);
-  background-color: var(--primary-bg-color);
-  border-width: 1px;
-  border-color: var(--input-inactive-color);
+  color: var(--primary-text-color);
+  background-color: var(--header-bg);
+  border: 1px solid var(--input-inactive-color);
 }
 
-.input__field:active,
+.input__field:focus,
 .input__field:hover {
   border-color: var(--accent-color);
   color: var(--primary-text-color);
