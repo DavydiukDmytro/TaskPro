@@ -18,9 +18,10 @@
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 24px);
   overflow: hidden;
-  background-color: var(--color-primary-bg);
+  background-color: var(--modal-bg-color);
   border-radius: 8px;
   border: 1px solid rgba(190, 219, 176, 0.5);
+  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
 }
 
 .close {
