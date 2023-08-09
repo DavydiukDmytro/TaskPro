@@ -31,7 +31,7 @@ export const handleRejectedUser = (state, { payload }) => {
 };
 
 export const handleFulfilledUserLogOut = state => {
-  state.user = { name: null, email: null, avatarUrl: null };
+  state.user = { name: null, email: null, avatarUrl: null, theme: 'dark' };
   state.token = null;
   state.isLoggedIn = false;
   state.isLoading = false;
