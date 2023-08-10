@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom';
 import css from './BlankPage.module.css';
 
 const BlankPage = () => {
