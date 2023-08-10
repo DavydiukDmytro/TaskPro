@@ -1,0 +1,6 @@
+.datepicker {
+  color: var(--primary-text-color);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
