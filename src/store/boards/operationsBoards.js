@@ -4,10 +4,11 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://task-pro.onrender.com';
 
 export const getAllBoards = createAsyncThunk(
-  'board/getAllBoards',
+  'boards/getAllBoards',
   async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get('/api/board/');
+      const { data } = await axios.get('/api/board');
+      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -16,7 +17,7 @@ export const getAllBoards = createAsyncThunk(
 );
 
 export const getBoardByID = createAsyncThunk(
-  'board/getBoardByID',
+  'boards/getBoardByID',
   async (id, thunkAPI) => {
     try {
       const { data } = await axios.get(`/api/board/${id}`);
@@ -28,7 +29,7 @@ export const getBoardByID = createAsyncThunk(
 );
 
 export const addBoard = createAsyncThunk(
-  'board/addBoard',
+  'boards/addBoard',
   async (board, thunkAPI) => {
     try {
       const { data } = await axios.post('/api/board', board);
@@ -40,7 +41,7 @@ export const addBoard = createAsyncThunk(
 );
 
 export const updateBoard = createAsyncThunk(
-  'board/updateBoard',
+  'boards/updateBoard',
   async ({ _id, title, icon, background }, thunkAPI) => {
     try {
       const { data } = await axios.patch(`/api/board/${_id}`, {
@@ -56,7 +57,7 @@ export const updateBoard = createAsyncThunk(
 );
 
 export const deleteBoard = createAsyncThunk(
-  'board/deleteBoard',
+  'boards/deleteBoard',
   async (id, thunkAPI) => {
     try {
       const { data } = await axios.delete(`/api/board/${id}`);

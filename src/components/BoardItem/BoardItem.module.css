@@ -65,3 +65,7 @@
   fill: transparent;
   color: var(--sidebar-color);
 }
+
+.box {
+  display: flex;
+}

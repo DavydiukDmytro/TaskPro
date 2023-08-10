@@ -27,19 +27,17 @@ import {
 
 export const BoardsList = () => {
   const boards = useSelector(selectAllBoards);
-  // const isLoading = useSelector(selectBoardsIsLoading);
-  // // const error = useSelector(selectErrorBoards);
+  const isLoading = useSelector(selectBoardsIsLoading);
+  const error = useSelector(selectErrorBoards);
 
-  console.log(boards);
-  // console.log(boards.title);
 
+console.log(boards);
   return (
     <ul className={css.list}>
       {boards.map(board => (
         <BoardItem
-          key={board.id}
-          icon={`icon-sprite-class-${board.iconId}`}
-          title={board.title}
+          key={board._id}
+       board={board}
         />
       ))}
     </ul>
