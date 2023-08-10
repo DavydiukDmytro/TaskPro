@@ -16,13 +16,13 @@ export const Calendar = () => {
   };
 
   return (
-    <div>
-      <DatePicker
-        selected={startDate}
-        onChange={handleDateChange}
-        dateFormat="dd/MM/yyyy"
-        customInput={<CustomInput />}
-      />
-    </div>
+    <DatePicker
+      selected={startDate}
+      onChange={handleDateChange}
+      dateFormat="dd/MM/yyyy"
+      customInput={<CustomInput />}
+      calendarClassName={css.dateArea}
+      minDate={new Date()}
+    />
   );
 };

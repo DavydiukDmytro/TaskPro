@@ -1,6 +1,14 @@
 .datepicker {
   color: var(--primary-text-color);
   background-color: transparent;
+  font-size: 10px;
+  letter-spacing: -0.2px;
   border: none;
   cursor: pointer;
+  width: 53px;
+  height: 15px;
+}
+.dateArea {
+  color: var(--primary-text-color);
+  background-color: var(--bg-button);
 }
