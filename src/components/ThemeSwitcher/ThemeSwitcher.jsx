@@ -18,7 +18,7 @@ export const ThemeSwitcher = () => {
             <use href={icon1 + '#icon-chevron-down'} />
           </svg>
         ) : (
-          <svg className={css.svg} width={16} height={16}>
+          <svg className={css.svg1} width={16} height={16}>
             <use href={icon1 + '#icon-chevron-up'} />
           </svg>
         )}

@@ -19,8 +19,15 @@
   width: 16px;
   height: 16px;
   margin-left: 4px;
+  margin-bottom: 8px;
   fill: var(--primary-text-color);
-  /* display: none; */
+}
+.svg1 {
+  width: 16px;
+  height: 16px;
+  margin-top: 8px;
+  margin-left: 4px;
+  fill: var(--primary-text-color);
 }
 /* .btn::after {
   content: url(../../assets/svg/symbol-defs.svg#icon-chevron-down);

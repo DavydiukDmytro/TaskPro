@@ -1,8 +1,8 @@
 <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <symbol id="icon-chevron-down" viewBox="0 0 30 32">
-      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.824" d="m7.529 12.235 7.529 7.529 7.529-7.529"/>
-    </symbol>
+<symbol id="icon-chevron-down" viewBox="0 0 32 32">
+<path d="M9 18c0.278 0 0.555 0.116 0.753 0.341l6.247 7.14 6.247-7.14c0.364-0.416 0.995-0.458 1.411-0.094s0.458 0.995 0.094 1.411l-7 8c-0.19 0.217-0.464 0.341-0.753 0.341s-0.563-0.125-0.753-0.341l-7-8c-0.364-0.416-0.322-1.047 0.094-1.411 0.19-0.166 0.424-0.247 0.658-0.247z"></path>
+</symbol>
     <symbol id="icon-chevron-up" viewBox="0 0 30 32">
 <path d="M23 14c-0.278 0-0.555-0.116-0.753-0.341l-6.247-7.14-6.247 7.14c-0.364 0.416-0.995 0.458-1.411 0.094s-0.458-0.995-0.094-1.411l7-8c0.19-0.217 0.464-0.341 0.753-0.341s0.563 0.125 0.753 0.341l7 8c0.364 0.416 0.322 1.047-0.094 1.411-0.19 0.166-0.424 0.247-0.658 0.247z"></path>
 </symbol>
