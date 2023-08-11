@@ -1,6 +1,6 @@
 import css from './CardItem.module.css';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
-import { Calendar } from 'components/Calendar/Calendar';
+// import { Calendar } from 'components/Calendar/Calendar';
 
 export const CardItem = ({ task }) => {
   const { title, description, priority, deadline, _id, column } = task;

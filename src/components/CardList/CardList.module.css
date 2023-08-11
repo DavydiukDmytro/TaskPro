@@ -1,16 +1,16 @@
 .list {
-  width: fit-content; /* Ширина по содержимому */
+  width: fit-content; 
   display: flex;
   flex-direction: column;
   gap: 8px;
-  height: 60vh;
-  /* height: 480px; */
+  /* max-height: calc(100vh - 180px); */
   overflow: auto;
   overflow-x: none;
   box-sizing: border-box;
   padding-right: 4px;
   margin-bottom: 14px;
 }
+
 
 /* @media screen and (min-width: 768px) {
   .list {

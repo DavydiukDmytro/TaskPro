@@ -30,8 +30,6 @@ export const BoardsList = () => {
   const isLoading = useSelector(selectBoardsIsLoading);
   const error = useSelector(selectErrorBoards);
 
-
-console.log(boards);
   return (
     <ul className={css.list}>
       {boards.map(board => (
