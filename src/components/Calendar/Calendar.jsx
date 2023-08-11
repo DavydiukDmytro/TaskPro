@@ -19,6 +19,7 @@ export const Calendar = () => {
     <DatePicker
       selected={startDate}
       onChange={handleDateChange}
+      // locale="en-GB"
       dateFormat="dd/MM/yyyy"
       customInput={<CustomInput />}
       calendarClassName={css.dateArea}
