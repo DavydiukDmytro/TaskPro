@@ -4,11 +4,14 @@ import { CardTitle } from 'components/CardTitle/CardTitle';
 import { CardList } from 'components/CardList/CardList';
 import { Button } from 'components/Button/Button';
 
-export const CardSection = () => {
+export const CardSection = ({ column }) => {
+
+  const isColumn = column.tasks.length > 0;
+
   return (
     <div className={css.cardContainer}>
-      <CardTitle title="To do" />
-      <CardList />
+      <CardTitle title={column.title} />
+      {isColumn && <CardList tasks={column.tasks} />}
       <Button type="button" text="Add another card" />
     </div>
   );

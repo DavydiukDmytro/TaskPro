@@ -76,6 +76,10 @@
   letter-spacing: -0.2px;
 }
 
+.info::first-letter {
+  text-transform: uppercase;
+}
+
 .iconList {
   display: flex;
   gap: 8px;

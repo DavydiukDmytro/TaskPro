@@ -2,16 +2,12 @@ import css from './CardItem.module.css';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
 import { Calendar } from 'components/Calendar/Calendar';
 
-export const CardItem = ({ card }) => {
+export const CardItem = ({ task }) => {
+  const { title, description, priority, deadline, _id, column } = task;
   return (
     <li className={css.card}>
-      <h3 className={css.title}>The Watch Spot Design</h3>
-      <p className={css.text}>
-        Create a visually stunning and eye-catching watch dial design that
-        embodies our brand's essence of sleek aesthetics and modern elegance.
-        Your design should be unique, innovative, and reflective of the latest
-        trends in watch design.
-      </p>
+      <h3 className={css.title}>{title}</h3>
+      <p className={css.text}>{description}</p>
 
       <div className={css.container}>
         <div className={css.infoBox}>
@@ -19,13 +15,13 @@ export const CardItem = ({ card }) => {
             <h4 className={css.infoTitle}>Priority</h4>
             <div className={css.priority}>
               <div className={css.circle}></div>
-              <p className={css.info}>High</p>
+              <p className={css.info}>{priority}</p>
             </div>
           </div>
           <div>
             <h4 className={css.infoTitle}>Deadline</h4>
-            {/* <p className={css.info}>12/05/2023</p> */}
-            <Calendar />
+            <p className={css.info}>{deadline}</p>
+            {/* <Calendar /> */}
           </div>
         </div>
         <ul className={css.iconList}>
