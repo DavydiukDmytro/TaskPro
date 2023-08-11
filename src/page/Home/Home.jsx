@@ -17,17 +17,13 @@ export const Home = () => {
   }, [dispatch]);
 
   const isBoards = boards.length > 0;
-
   return (
     <>
       <Header />
-      {!isBoards ? <BlankPage /> : <ScreensPage />}
-      {/* <ScreensPage /> */}
-      <main>
+      {!isBoards ? <BlankPage /> : <ScreensPage board={boards[1]} />}
         <Suspense fallback={<p>DDDD</p>}>
           <Outlet />
         </Suspense>
-      </main>
       <Sidebar />
     </>
   );

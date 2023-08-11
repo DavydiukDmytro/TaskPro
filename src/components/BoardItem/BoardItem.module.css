@@ -31,6 +31,7 @@
   height: 100%;
   width: 100%;
   fill: var(--sidebar-bg);
+  color: var(--secondary-text-color);
 }
 
 .active {
@@ -57,8 +58,12 @@
 }
 
 .wrapper {
-  display: flex;
+  display: none;
   gap: 8px;
+}
+
+.active .wrapper {
+  display: flex;
 }
 
 .active .svg {
@@ -68,4 +73,5 @@
 
 .box {
   display: flex;
+  align-items: center;
 }
