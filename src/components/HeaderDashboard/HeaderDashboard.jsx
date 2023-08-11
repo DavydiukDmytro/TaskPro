@@ -1,9 +1,9 @@
 import css from './HeaderDashboard.module.css';
 
-export const HeaderDashboard = () => {
+export const HeaderDashboard = ({title}) => {
   return (
     <div className={css.boardHeader}>
-      <h1 className={css.title}>Project office</h1>
+      <h1 className={css.title}>{title}</h1>
       <p className={css.title}>Filters</p>
     </div>
   );
