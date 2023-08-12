@@ -35,8 +35,8 @@ const customArrStatusActions = status => customArr.map(el => el[status]);
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  extraReducers: buider => {
-    buider
+  extraReducers: builder => {
+    builder
       .addCase(register.fulfilled, handleFulfilledUser)
       .addCase(login.fulfilled, handleFulfilledUser)
       .addCase(updateTheme.fulfilled, handleFulfilledUserTheme)

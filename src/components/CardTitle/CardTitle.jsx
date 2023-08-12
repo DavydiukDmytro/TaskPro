@@ -1,7 +1,7 @@
 import css from './CardTitle.module.css';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
 
-export const CardTitle = ({ title }) => {
+export const CardTitle = ({ title, id }) => {
   return (
     <div className={css.cardTitle}>
       <h2>{title}</h2>
