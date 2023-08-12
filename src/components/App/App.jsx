@@ -5,9 +5,10 @@ import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 import { SharedLayoutStart } from '../SharedLayoutStart';
 import { Home } from 'page/Home';
+
+import { NewBoard } from '../NewBoard/NewBoard';
 
 // import { Welcome } from '../../page/Welcome';
 // import { Auth } from '../../page/Auth';
@@ -23,7 +24,6 @@ const RegistrationForm = lazy(() => import('../RegisterForm/RegistrationForm'));
 const LoginForm = lazy(() => import('../LoginForm/LoginForm'));
 const ScreensPage = lazy(() => import('../../page/ScreensPage/ScreensPage'));
 
-
 export const App = () => {
   // const dispatch = useDispatch();
   // useEffect(() => {
@@ -31,10 +31,13 @@ export const App = () => {
   // }, [dispatch]);
 
   return (
+    // <NewBoard></NewBoard>
+
     <ThemeProvider>
       <Routes>
         <Route path="/" element={<SharedLayoutStart />}>
           <Route index element={<StartPage />} />
+
           <Route path="/auth" element={<AuthPage />}>
             <Route path="register" element={<RegistrationForm />} />
             <Route path="login" element={<LoginForm />} />

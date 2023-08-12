@@ -1,0 +1,128 @@
+.wrapper {
+    position: relative;
+    width: 350px;
+    height: 433px;
+    border-radius: 8px;
+    background: #151515;
+    padding: 24px;
+
+    @media screen and (max-width: 375px) 
+    {
+    width: 335px;       
+    }
+}
+
+.close {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    display: inline-block;
+    padding: 7px;
+    background-color: initial;
+    border: none;
+    cursor: pointer;
+}
+
+.svg {
+    stroke: #fff;
+}
+
+
+.h1 {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.inputTitle {
+    width: 100%;
+    height: 49px;
+    border-radius: 8px;
+    background-color:#1F1F1F;
+    color: #BEDBB0; 
+    padding-left: 20px;
+    border: 1px solid #BEDBB0;
+    margin-bottom: 24px;
+}
+
+.iconsTitle {
+    color:#FFFFFF;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 17px;   
+}
+
+.radioBlock_1{
+    margin-top:0px;    
+    margin-bottom: 24px;
+}
+
+.radioBlock_2 {
+    display: flex;
+    margin-top: 0px;
+    margin-bottom: 4px;
+}
+
+.radioBlock_3 {
+    display: flex;
+    margin-top: 0px;
+    margin-bottom: 40px;
+}
+
+.iconsType {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.svgStyle{
+    fill:#FFFFFF80;
+    width:18px;
+    height:18px;
+    margin-right: 6px;
+    cursor: pointer;
+    
+    &:hover { fill: white; }
+    &:active { fill: blue; }
+}
+
+
+.imgStyle {
+    fill: #FFFFFF80;
+    width: 28px;
+    height: 28px;
+    margin-right: 4px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:hover { border: 2px solid white; }
+    &:active { border: 2px solid blue; }
+}
+
+.formButton{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    height: 49px;
+    background-color: #BEDBB0;
+    color: #161616;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.buttonIcon {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+    background-color: #161616;
+    border-radius: 8px;
+    fill: white;
+}
+
