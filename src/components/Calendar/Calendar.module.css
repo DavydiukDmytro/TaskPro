@@ -1,6 +1,17 @@
 .datepicker {
   color: var(--primary-text-color);
   background-color: transparent;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: -0.2px;
+  text-align: start;
   border: none;
   cursor: pointer;
+  width: 53px;
+  height: 15px;
+  padding-left: 0;
+}
+.dateArea {
+  color: var(--primary-text-color);
+  background-color: var(--bg-button);
 }
