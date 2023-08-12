@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { supportReducer } from './support/supportSlice';
 import { userReducer } from './user/userSlice';
 // import {
 //   FLUSH,
@@ -19,6 +20,7 @@ import { userReducer } from './user/userSlice';
 
 export const store = configureStore({
   reducer: {
+    support: supportReducer,
     user: userReducer,
   },
 });
