@@ -1,6 +1,7 @@
 import { Background } from 'components/Background/Background';
 import { HeaderDashboard } from 'components/HeaderDashboard/HeaderDashboard';
 import { MainDashboard } from 'components/MainDashboard/MainDashboard';
+import BlankPage from 'page/BlankPage/BlankPage';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBoardByID } from 'store/boards/operationsBoards';
@@ -16,10 +17,15 @@ const ScreensPage = ({ board }) => {
   }, [dispatch, board]);
 
   return (
-    <Background>
-      <HeaderDashboard title={board.title} />
-      <MainDashboard id={board._id} />
-    </Background>
+    <>
+      {board && (
+        <Background>
+          <HeaderDashboard title={board.title} />
+          <MainDashboard id={board._id} />
+        </Background>
+      )}
+    </>
+
   );
 };
 
