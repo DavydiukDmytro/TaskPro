@@ -1,10 +1,10 @@
 import { AuthSection } from 'components/AuthSection/AuthSection';
 import { StartContainer } from 'components/StartContainer/StartContainer';
-
+import { AddCard } from 'components/AddCard';
 const Auth = () => {
   return (
     <StartContainer>
-      <AuthSection />
+      <AddCard />
     </StartContainer>
   );
 };
