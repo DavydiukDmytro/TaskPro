@@ -1,7 +1,9 @@
 import React, { forwardRef, useState } from 'react';
-import DatePicker from 'react-datepicker';
+import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import css from './Calendar.module.css';
+import enGB from 'date-fns/locale/en-GB';
+registerLocale('enGB', enGB);
 
 export const Calendar = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -19,7 +21,7 @@ export const Calendar = () => {
     <DatePicker
       selected={startDate}
       onChange={handleDateChange}
-      // locale="en-GB"
+      locale="enGB"
       dateFormat="dd/MM/yyyy"
       customInput={<CustomInput />}
       calendarClassName={css.dateArea}

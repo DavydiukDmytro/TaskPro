@@ -172,6 +172,10 @@ a {
 
 /*Calendar castom style*/
 
+.react-datepicker__input-container,
+.react-datepicker-wrapper {
+  display: flex;
+}
 .react-datepicker__header,
 .react-datepicker__month,
 .react-datepicker__day,
