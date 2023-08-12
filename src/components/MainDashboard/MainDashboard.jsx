@@ -1,11 +1,17 @@
 import { Button } from 'components/Button/Button';
 import css from './MainDashboard.module.css';
 import { CardSection } from 'components/CardSection/CardSeection';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentBoard } from 'store/boards/selectorsBoards';
+import { addColumn } from 'store/boards/operationsBoards';
 
-export const MainDashboard = () => {
+export const MainDashboard = ({ id }) => {
   const board = useSelector(selectCurrentBoard);
+  const dispatch = useDispatch();
+
+  // const onClick = (data) => {
+  //   dispatch(addColumn(data));
+  // };
 
   return (
     <div className={css.board}>
@@ -15,20 +21,10 @@ export const MainDashboard = () => {
             <CardSection column={column} />
           </li>
         ))}
-        {/* <li>
-          <CardSection />
-        </li>
-        <li>
-          <CardSection />
-        </li>
-        <li>
-          <CardSection />
-        </li>
-        <li>
-          <CardSection />
-        </li> */}
       </ul>
-
+      {/* <div onClick={() => onClick({ boardId: id, title: 'NewColumn14' })}>
+        Button
+      </div> */}
       <div className={css.columnButton}>
         <Button
           isContrast={false}

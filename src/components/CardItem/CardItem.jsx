@@ -1,9 +1,25 @@
 import css from './CardItem.module.css';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
 // import { Calendar } from 'components/Calendar/Calendar';
+import { useDispatch } from 'react-redux';
+import { deleteTask, updateTaskById } from 'store/boards/operationsBoards';
 
 export const CardItem = ({ task }) => {
   const { title, description, priority, deadline, _id, column } = task;
+  const dispatch = useDispatch();
+
+const data = {
+  title: 'NTask2',
+  description:
+    'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
+  priority: 'low',
+  deadline: '12/12/2023',
+  columnId: column._id,
+};
+  const onclick = () => {
+    dispatch(updateTaskById(_id, data));
+  }
+
   return (
     <li className={css.card}>
       <h3 className={css.title}>{title}</h3>
@@ -40,7 +56,7 @@ export const CardItem = ({ task }) => {
             </button>
           </li>
           <li>
-            <button className={css.button}>
+            <button className={css.button} onClick={()=>onclick()}>
               <svg width={16} height={16} stroke="currentColor">
                 <use href={svgSprite + '#icon-pencil'} />
               </svg>

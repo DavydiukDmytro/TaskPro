@@ -11,6 +11,7 @@ import BlankPage from 'page/BlankPage/BlankPage';
 export const Home = () => {
   const dispatch = useDispatch();
   const boards = useSelector(selectAllBoards);
+  console.log(boards);
 
   useEffect(() => {
     dispatch(getAllBoards());
@@ -20,11 +21,17 @@ export const Home = () => {
   return (
     <>
       <Header />
-      {!isBoards ? <BlankPage /> : <ScreensPage board={boards[1]} />}
+      {/* <ScreensPage /> */}
+      {!isBoards ? <BlankPage /> : <ScreensPage board={boards[1]}  />}
+
+      <main>
         <Suspense fallback={<p>DDDD</p>}>
           <Outlet />
         </Suspense>
+      </main>
       <Sidebar />
     </>
+
+
   );
 };

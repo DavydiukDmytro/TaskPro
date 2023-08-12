@@ -6,8 +6,8 @@ import {
   addColumn,
   addTask,
   updateBoard,
-  updateTaskById,
   updateColumnById,
+  updateTaskById,
   deleteBoard,
   deleteColumn,
   deleteTask,
@@ -22,6 +22,8 @@ import {
   handleFulfilledAddColumn,
   handleFulfilledAddTask,
   handleFulfilledUpdate,
+  handleFulfilledUpdateColumn,
+  handleFulfilledUpdateTask,
   handleFulfilledDelete,
   handleFulfilledDeleteColumn,
   handleFulfilledDeleteTask,
@@ -42,8 +44,8 @@ const arrThunks = [
   addColumn,
   addTask,
   updateBoard,
-  updateTaskById,
   updateColumnById,
+  updateTaskById,
   deleteBoard,
   deleteColumn,
   deleteTask,
@@ -62,6 +64,8 @@ const boardsSlice = createSlice({
       .addCase(addColumn.fulfilled, handleFulfilledAddColumn)
       .addCase(addTask.fulfilled, handleFulfilledAddTask)
       .addCase(updateBoard.fulfilled, handleFulfilledUpdate)
+      .addCase(updateColumnById.fulfilled, handleFulfilledUpdateColumn)
+      .addCase(updateTaskById.fulfilled, handleFulfilledUpdateTask)
       .addCase(deleteBoard.fulfilled, handleFulfilledDelete)
       .addCase(deleteColumn.fulfilled, handleFulfilledDeleteColumn)
       .addCase(deleteTask.fulfilled, handleFulfilledDeleteTask)

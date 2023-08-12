@@ -8,7 +8,7 @@ export const BoardItem = ({ board }) => {
   const { _id, icon, title } = board;
   const dispatch = useDispatch();
 
-  const handleDeleteBoard = async id => {
+  const handleDeleteBoard = id => {
     dispatch(deleteBoard(id));
   };
 
@@ -22,8 +22,7 @@ export const BoardItem = ({ board }) => {
       >
         <div className={css.box}>
           <svg width={16} height={16} stroke="currentColor" className={css.svg}>
-            <use href={sprite + '#icon-colors'} />
-            {/* <use href={sprite + { icon }} /> */}
+            <use href={sprite + `#icon-${icon}`} />
           </svg>
           <p className={css.title}>{title}</p>
         </div>
