@@ -47,7 +47,7 @@ export const handleFulfilledUpdateColumn = (state, { payload }) => {
 };
 export const handleFulfilledUpdateTask = (state, { payload }) => {
   const index = state.currentBoard.findIndex(
-    state => state._id === payload._id
+    state => state.id === payload.id
   );
   if (index !== -1) {
     state.currentBoard[index].title = payload.title;
