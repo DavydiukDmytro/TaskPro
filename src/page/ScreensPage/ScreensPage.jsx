@@ -1,15 +1,21 @@
 import { Background } from 'components/Background/Background';
 import { HeaderDashboard } from 'components/HeaderDashboard/HeaderDashboard';
 import { MainDashboard } from 'components/MainDashboard/MainDashboard';
-import BlankPage from 'page/BlankPage/BlankPage';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBoardByID } from 'store/boards/operationsBoards';
-import { selectCurrentBoard } from 'store/boards/selectorsBoards';
+import {
+  selectAllBoards,
+  selectCurrentBoard,
+} from 'store/boards/selectorsBoards';
 
-const ScreensPage = ({ board }) => {
+const ScreensPage = () => {
   const dispatch = useDispatch();
   const currentBoard = useSelector(selectCurrentBoard);
+
+  const boards = useSelector(selectAllBoards);
+  const board = boards[1];
+
   console.log('currentBoard:', currentBoard);
 
   useEffect(() => {
@@ -25,7 +31,6 @@ const ScreensPage = ({ board }) => {
         </Background>
       )}
     </>
-
   );
 };
 

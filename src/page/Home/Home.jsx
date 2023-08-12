@@ -19,13 +19,9 @@ export const Home = () => {
   return (
     <>
       <Header />
-      <ScreensPage board={boards[1]} />
-
-      <main>
         <Suspense fallback={<p>DDDD</p>}>
           <Outlet />
         </Suspense>
-      </main>
       <Sidebar />
     </>
   );
