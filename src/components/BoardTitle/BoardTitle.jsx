@@ -16,7 +16,7 @@ export const BoardTitle = () => {
   //   hex,
   // ];
   const handleAddBoard = () => {
-    dispatch(addBoard({ title: 'My New Board8', icon: 'lightning' }));
+    dispatch(addBoard({ title: 'My New Board2', icon: 'lightning' }));
   };
 
   return (

@@ -31,7 +31,7 @@ export const handleFulfilledAddTask = (state, { payload }) => {
 };
 
 export const handleFulfilledUpdate = (state, { payload }) => {
-  const index = state.items.findIndex(board => board.id === payload.id);
+  const index = state.items.findIndex(state => state._id === payload._id);
   if (index !== -1) {
     state.items[index] = payload;
   }
@@ -46,17 +46,16 @@ export const handleFulfilledUpdateColumn = (state, { payload }) => {
   }
 };
 export const handleFulfilledUpdateTask = (state, { payload }) => {
-  const index = state.currentBoard.findIndex(
-    state => state.id === payload.id
-  );
+  const index = state.currentBoard.findIndex(state => state.id === payload.id);
   if (index !== -1) {
     state.currentBoard[index].title = payload.title;
   }
 };
 
-export const handleFulfilledDelete = (state, { payload }) => {
-  const index = state.items.findIndex(state => state.id === payload.id);
-  state.items.splice(index, 1);
+export const handleFulfilledDelete = (state, action) => {
+  const deletedId = action.meta.arg;
+  const updatedItems = state.items.filter(item => item._id !== deletedId);
+  return { ...state, items: updatedItems };
 };
 
 export const handleFulfilledDeleteColumn = (state, { payload }) => {

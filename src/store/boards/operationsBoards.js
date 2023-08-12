@@ -42,6 +42,7 @@ export const addBoard = createAsyncThunk(
 export const updateBoard = createAsyncThunk(
   'boards/updateBoard',
   async ({ _id, title, icon, background }, thunkAPI) => {
+    console.log(_id, title, icon, background);
     try {
       const { data } = await axios.patch(`/api/board/${_id}`, {
         title,
