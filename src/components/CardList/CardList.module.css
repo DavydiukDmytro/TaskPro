@@ -1,9 +1,10 @@
 .list {
-  width: fit-content; 
+  width: fit-content; /* Ширина по содержимому */
   display: flex;
   flex-direction: column;
   gap: 8px;
-height: calc(100vh - 180px);
+  height: 60vh;
+  /* height: 480px; */
   overflow: auto;
   overflow-x: none;
   box-sizing: border-box;
