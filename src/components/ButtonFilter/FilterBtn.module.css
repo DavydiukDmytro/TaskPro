@@ -1,19 +1,20 @@
 .filt {
-  texttransform: non;
+  text-transform: none;
   display: fle;
   gap: 8px;
-  alignitems: cente;
+  align-items: cente;
 }
 .box {
   display: flex;
-  justifycontent: enter;
-  alignitems: center;
-  borderradius: 8px;
+  justify-content: enter;
+  align-items: center;
+  border-radius: 8px;
   transition: all 250ms linear;
   cursor: pointe;
-}
-.box:hover {
-  transform: scale(1.1);
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 .svgIcon {
   width: 14px;
