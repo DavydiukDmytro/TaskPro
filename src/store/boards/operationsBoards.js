@@ -129,9 +129,7 @@ export const deleteTask = createAsyncThunk(
 
 export const updateTaskById = createAsyncThunk(
   'boards/updateTaskById ',
-  async ({_id, ...task}, thunkAPI) => {
-    console.log('id:', _id);
-    console.log('task:', task);
+  async ({ _id, ...task }, thunkAPI) => {
     try {
       const { data } = await axios.patch(`/api/task/${_id}`, task);
       return data;

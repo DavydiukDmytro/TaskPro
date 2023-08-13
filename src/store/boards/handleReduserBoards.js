@@ -20,7 +20,13 @@ export const handleFulfilledAdd = (state, { payload }) => {
 };
 
 export const handleFulfilledAddColumn = (state, { payload }) => {
-  state.currentBoard.push(payload);
+  const newColumn = {
+    title: payload.title,
+    _id: payload._id,
+    tasks: [],
+  };
+
+  state.currentBoard.push(newColumn);
 };
 
 export const handleFulfilledAddTask = (state, { payload }) => {
