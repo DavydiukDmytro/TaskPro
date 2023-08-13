@@ -67,7 +67,6 @@ export const deleteBoard = createAsyncThunk(
   }
 );
 
-
 export const addColumn = createAsyncThunk(
   'boards/addColumn',
   async (column, thunkAPI) => {
@@ -83,7 +82,6 @@ export const addColumn = createAsyncThunk(
 export const deleteColumn = createAsyncThunk(
   'boards/deleteColumn',
   async (id, thunkAPI) => {
-    console.log(id);
     try {
       const { data } = await axios.delete(`/api/column/${id}`);
       return data;
@@ -105,23 +103,9 @@ export const updateColumnById = createAsyncThunk(
   }
 );
 
-// export const getTask = createAsyncThunk(
-//   'boards/getTask',
-//   async (_, thunkAPI) => {
-//     try {
-//       const { data } = await axios.get('/api/task');
-//       console.log(data);
-//       return data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
 export const addTask = createAsyncThunk(
   'boards/addTask',
   async (task, thunkAPI) => {
-    console.log(task);
     try {
       const { data } = await axios.post('/api/task', task);
       return data;
@@ -144,10 +128,10 @@ export const deleteTask = createAsyncThunk(
 );
 
 export const updateTaskById = createAsyncThunk(
-  'boards/pdateTaskById ',
+  'boards/updateTaskById ',
   async (id, task, thunkAPI) => {
-    console.log(task);
-
+    console.log('id:', id);
+    console.log('task:', task);
     try {
       const { data } = await axios.patch(`/api/task/${id}`, task);
       return data;
