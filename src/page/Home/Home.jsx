@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllBoards } from 'store/boards/operationsBoards';
 import { selectAllBoards } from 'store/boards/selectorsBoards';
 
+
 export const Home = () => {
   const dispatch = useDispatch();
   const boards = useSelector(selectAllBoards);
@@ -19,7 +20,7 @@ export const Home = () => {
   return (
     <>
       <Header />
-        <Suspense fallback={<p>DDDD</p>}>
+        <Suspense fallback={<p>DDDD</p>}>   
           <Outlet />
         </Suspense>
       <Sidebar />
