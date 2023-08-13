@@ -1,23 +1,20 @@
 import { NavLink } from 'react-router-dom';
 import sprite from '../../assets/svg/symbol-defs.svg';
 import css from './BoardItem.module.css';
-import { useDispatch } from 'react-redux';
 import { deleteBoard } from 'store/boards/operationsBoards';
 import { useState } from 'react';
 import { Modal } from 'components/Modal';
 import { NewBoard } from 'components/NewBoard';
+import { useDispatch } from 'react-redux';
 
 export const BoardItem = ({ board }) => {
   const [isEditBoard, setIsEditBoard] = useState(false);
   const { _id, icon, title, background } = board;
   const dispatch = useDispatch();
 
-  const urlTitle = title.split(' ').join('-').toLowerCase();
-
   const handleDeleteBoard = id => {
     dispatch(deleteBoard(id));
   };
-
   const handleEditBoard = () => {
     setIsEditBoard(true);
   };
@@ -28,7 +25,7 @@ export const BoardItem = ({ board }) => {
         className={({ isActive }) => {
           return isActive ? css.active : css.link;
         }}
-        to={`/home/${urlTitle}`}
+        to={`/home/${board._id}`}
       >
         <div className={css.box}>
           <svg width={16} height={16} stroke="currentColor" className={css.svg}>

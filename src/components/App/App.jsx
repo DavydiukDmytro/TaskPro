@@ -14,6 +14,7 @@ const AuthPage = lazy(() => import('../../page/Auth/Auth'));
 const RegistrationForm = lazy(() => import('../RegisterForm/RegistrationForm'));
 const LoginForm = lazy(() => import('../LoginForm/LoginForm'));
 const ScreensPage = lazy(() => import('../../page/ScreensPage/ScreensPage'));
+const BlankPage = lazy(() => import('../../page/BlankPage/BlankPage'));
 
 export const App = () => {
   return (
@@ -42,7 +43,8 @@ export const App = () => {
             </PrivateRoute>
           }
         >
-          <Route path=":boardName" element={<ScreensPage />} />
+          <Route path=":boardId" element={<ScreensPage />} />
+          <Route index element={<BlankPage />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/" />} />
