@@ -8,8 +8,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { SharedLayoutStart } from '../SharedLayoutStart';
 import { Home } from 'page/Home';
 
-import { NewBoard } from '../NewBoard/NewBoard';
-
 // import { Welcome } from '../../page/Welcome';
 // import { Auth } from '../../page/Auth';
 // import { Home } from '../../page/Home';
@@ -31,8 +29,6 @@ export const App = () => {
   // }, [dispatch]);
 
   return (
-    // <NewBoard></NewBoard>
-
     <ThemeProvider>
       <Routes>
         <Route path="/" element={<SharedLayoutStart />}>
