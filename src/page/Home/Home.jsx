@@ -5,7 +5,6 @@ import { Header } from 'components/Header/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBoards } from 'store/boards/operationsBoards';
 import { selectAllBoards } from 'store/boards/selectorsBoards';
-import BlankPage from 'page/BlankPage/BlankPage';
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -24,13 +23,10 @@ export const Home = () => {
     }
   }, [boards, hasRedirected, navigate]);
 
-  const isBoards = boards.length > 0;
   return (
     <>
       <Header />
       <Sidebar />
-      {/* {!isBoards && <BlankPage />} */}
-
       <Suspense fallback={<p>DDDD</p>}>
         <Outlet />
       </Suspense>
