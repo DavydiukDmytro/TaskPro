@@ -24,10 +24,17 @@ export const handleFulfilledAddColumn = (state, { payload }) => {
 };
 
 export const handleFulfilledAddTask = (state, { payload }) => {
-  const index = state.currentBoard.findIndex(
-    state => state._id === payload.column
+  // const index = state.currentBoard.findIndex(
+  //   state => state._id === payload.column
+  // );
+  // state.currentBoard[index].task.push(payload);
+  const columnIndex = state.currentBoard.findIndex(
+    column => column._id === payload.column
   );
-  state.currentBoard[index].task.push(payload);
+
+  if (columnIndex !== -1) {
+    state.currentBoard[columnIndex].tasks.push(payload);
+  }
 };
 
 export const handleFulfilledUpdate = (state, { payload }) => {
