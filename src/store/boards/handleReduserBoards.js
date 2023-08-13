@@ -24,14 +24,21 @@ export const handleFulfilledAddColumn = (state, { payload }) => {
 };
 
 export const handleFulfilledAddTask = (state, { payload }) => {
-  const index = state.currentBoard.findIndex(
-    state => state._id === payload.column
+  // const index = state.currentBoard.findIndex(
+  //   state => state._id === payload.column
+  // );
+  // state.currentBoard[index].task.push(payload);
+  const columnIndex = state.currentBoard.findIndex(
+    column => column._id === payload.column
   );
-  state.currentBoard[index].unshift(payload);
+
+  if (columnIndex !== -1) {
+    state.currentBoard[columnIndex].tasks.push(payload);
+  }
 };
 
 export const handleFulfilledUpdate = (state, { payload }) => {
-  const index = state.items.findIndex(board => board.id === payload.id);
+  const index = state.items.findIndex(state => state._id === payload._id);
   if (index !== -1) {
     state.items[index] = payload;
   }
@@ -45,30 +52,44 @@ export const handleFulfilledUpdateColumn = (state, { payload }) => {
     state.currentBoard[index].title = payload.title;
   }
 };
+
 export const handleFulfilledUpdateTask = (state, { payload }) => {
-  const index = state.currentBoard.findIndex(
-    state => state.id === payload.id
-  );
+  const index = state.currentBoard.findIndex(state => state.id === payload.id);
   if (index !== -1) {
     state.currentBoard[index].title = payload.title;
   }
 };
 
-export const handleFulfilledDelete = (state, { payload }) => {
-  const index = state.items.findIndex(state => state.id === payload.id);
-  state.items.splice(index, 1);
+export const handleFulfilledDelete = (state, action) => {
+  const deletedId = action.meta.arg;
+  const updatedItems = state.items.filter(item => item._id !== deletedId);
+  return { ...state, items: updatedItems };
 };
 
-export const handleFulfilledDeleteColumn = (state, { payload }) => {
-  const index = state.currentBoard.findIndex(state => state.id === payload.id);
-  state.currentBoard.splice(index, 1);
-};
-
-export const handleFulfilledDeleteTask = (state, { payload }) => {
-  const index = state.currentBoard.findIndex(
-    state => state.tasks._id === payload._id
+export const handleFulfilledDeleteColumn = (state, action) => {
+  const deletedId = action.meta.arg;
+  const updatedItems = state.currentBoard.filter(
+    item => item._id !== deletedId
   );
-  state.currentBoard.tasks[index].splice(index, 1);
+  return { ...state, currentBoard: updatedItems };
+};
+
+export const handleFulfilledDeleteTask = (state, action) => {
+  const deletedId = action.meta.arg;
+
+  const columnIndex = state.currentBoard.findIndex(column => {
+    return column.tasks.some(task => task._id === deletedId);
+  });
+
+  if (columnIndex !== -1) {
+    const taskIndex = state.currentBoard[columnIndex].tasks.findIndex(
+      task => task._id === deletedId
+    );
+
+    if (taskIndex !== -1) {
+      state.currentBoard[columnIndex].tasks.splice(taskIndex, 1);
+    }
+  }
 };
 
 export const handleRejected = (state, action) => {

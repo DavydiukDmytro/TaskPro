@@ -1,35 +1,41 @@
 import css from './BoardTitle.module.css';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
-import { useDispatch } from 'react-redux';
-import { addBoard } from 'store/boards/operationsBoards';
+import { Modal } from 'components/Modal';
+import { NewBoard } from 'components/NewBoard';
+import { useState } from 'react';
 
 export const BoardTitle = () => {
-  const dispatch = useDispatch();
-  // const icons = [
-  //   project,
-  //   star,
-  //   loading,
-  //   pazzle,
-  //   container,
-  //   lightning,
-  //   colors,
-  //   hex,
-  // ];
+  const [isOpenModalAdd, setIsOpenModalAdd] = useState(false);
   const handleAddBoard = () => {
-    dispatch(addBoard({ title: 'My New Board8', icon: 'lightning' }));
+    setIsOpenModalAdd(true);
   };
 
   return (
-    <div className={css.wrapper}>
-      <h2 className={css.title}>My boards</h2>
-      <div className={css.container}>
-        <p className={css.text}>Create a new board</p>
-        <button className={css.button} onClick={() => handleAddBoard()}>
-          <svg width={20} height={20} className={css.icon}>
-            <use href={svgSprite + '#icon-plus'} />
-          </svg>
-        </button>
+    <>
+      <div className={css.wrapper}>
+        <h2 className={css.title}>My boards</h2>
+        <div className={css.container}>
+          <p className={css.text}>Create a new board</p>
+          <button className={css.button} onClick={() => handleAddBoard()}>
+            <svg width={20} height={20} className={css.icon}>
+              <use href={svgSprite + '#icon-plus'} />
+            </svg>
+          </button>
+        </div>
       </div>
-    </div>
+      {isOpenModalAdd && (
+        <Modal
+          handleClose={() => {
+            setIsOpenModalAdd(false);
+          }}
+        >
+          <NewBoard
+            handleClose={() => {
+              setIsOpenModalAdd(false);
+            }}
+          />
+        </Modal>
+      )}
+    </>
   );
 };

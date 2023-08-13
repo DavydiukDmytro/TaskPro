@@ -12,6 +12,8 @@
   padding-left: 0;
 }
 .dateArea {
+  font-size: 14px;
   color: var(--primary-text-color);
   background-color: var(--bg-button);
+  border: none;
 }

@@ -1,11 +1,22 @@
 import { Button } from 'components/Button/Button';
 import css from './MainDashboard.module.css';
 import { CardSection } from 'components/CardSection/CardSeection';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectCurrentBoard } from 'store/boards/selectorsBoards';
+import { useDispatch } from 'react-redux';
+import { addColumn } from 'store/boards/operationsBoards';
 
 export const MainDashboard = ({ id }) => {
+  const dispatch = useDispatch();
   const board = useSelector(selectCurrentBoard);
+
+  console.log(board);
+
+  const handleAddСolumn = async() => {
+   await dispatch(addColumn({ title: 'Column5', boardId: id }));
+    console.log(board);
+  };
+
   return (
     <div className={css.board}>
       <ul className={css.columnList}>
@@ -15,12 +26,13 @@ export const MainDashboard = ({ id }) => {
           </li>
         ))}
       </ul>
- 
+
       <div className={css.columnButton}>
         <Button
           isContrast={false}
           type={'button'}
           text={'Add another column'}
+          action={handleAddСolumn}
         />
       </div>
     </div>

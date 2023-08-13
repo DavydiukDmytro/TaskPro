@@ -1,11 +1,31 @@
 import css from './CardItem.module.css';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
 // import { Calendar } from 'components/Calendar/Calendar';
+import { useDispatch } from 'react-redux';
+import { deleteTask, updateTaskById } from 'store/boards/operationsBoards';
 
 export const CardItem = ({ task }) => {
-  // _id, column
-  const { title, description, priority, deadline } = task;
+  const dispatch = useDispatch();
+// column; 
+  const { title, description, priority, deadline, _id, } = task;
 
+  const editData = {
+    title: 'task2',
+    description:
+      'gfut hgfu6 vjkyhrui6 futrrkjdf guyt ftudryw guytiumkhiy bjhfsd cfgdrt  vdhge vhfdyte  cfdre vhgrjht xfgsgt',
+    priority: 'low',
+  };
+
+  const handleEditTask = () => {
+    dispatch(updateTaskById(_id, editData));
+  };
+
+    const handleDeleteTask = () => {
+      dispatch(deleteTask(_id));
+    };
+
+
+  // console.log("task:", task);
   return (
     <li className={css.card}>
       <h3 className={css.title}>{title}</h3>
@@ -42,14 +62,14 @@ export const CardItem = ({ task }) => {
             </button>
           </li>
           <li>
-            <button className={css.button}>
+            <button className={css.button} onClick={() => handleEditTask()}>
               <svg width={16} height={16} stroke="currentColor">
                 <use href={svgSprite + '#icon-pencil'} />
               </svg>
             </button>
           </li>
           <li>
-            <button className={css.button}>
+            <button className={css.button} onClick={() => handleDeleteTask()}>
               <svg width={16} height={16} stroke="currentColor">
                 <use href={svgSprite + '#icon-trash-04'} />
               </svg>

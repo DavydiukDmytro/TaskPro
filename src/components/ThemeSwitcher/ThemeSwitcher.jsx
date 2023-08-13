@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { useThemeContext } from './ThemeProvider';
 import icon1 from '../../assets/svg/symbol-defs.svg';
 import css from './ThemeSwitcher.module.css';
+import { getTheme } from 'store/user/selectorsAuth';
+import { useSelector } from 'react-redux';
 
 export const ThemeSwitcher = () => {
+  const userTheme = useSelector(getTheme);
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTheme, setActiveTheme] = useState('light');
+  const [activeTheme, setActiveTheme] = useState(userTheme);
   const { handleThemeChange } = useThemeContext();
   const themes = ['light', 'dark', 'violet'];
 

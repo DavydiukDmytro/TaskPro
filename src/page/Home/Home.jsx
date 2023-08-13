@@ -3,15 +3,12 @@ import { Suspense, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
 // import { ScreensPage } from 'page/ScreensPage';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getAllBoards } from 'store/boards/operationsBoards';
-import { selectAllBoards } from 'store/boards/selectorsBoards';
 
 
 export const Home = () => {
   const dispatch = useDispatch();
-  const boards = useSelector(selectAllBoards);
-  console.log(boards);
 
   useEffect(() => {
     dispatch(getAllBoards());
@@ -20,9 +17,9 @@ export const Home = () => {
   return (
     <>
       <Header />
-        <Suspense fallback={<p>DDDD</p>}>   
-          <Outlet />
-        </Suspense>
+      <Suspense fallback={<p>DDDD</p>}>
+        <Outlet />
+      </Suspense>
       <Sidebar />
     </>
   );
