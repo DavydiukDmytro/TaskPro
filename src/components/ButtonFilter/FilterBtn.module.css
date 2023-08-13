@@ -10,10 +10,9 @@
     alignItems: center;
     borderRadius: 8px;
     transition: all 250ms linear;
-    /* cursor: pointe;
-    &:hover: {
-              transform: scale(1.1);
-            }; */
+    cursor: pointe;
+    &:hover: transform: scale(1.1);
+            
 };
 .svgIcon {
     width: 14px;
