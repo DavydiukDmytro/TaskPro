@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import sprite from '../../assets/svg/symbol-defs.svg';
 import css from './BoardItem.module.css';
 import { useDispatch } from 'react-redux';
-import { deleteBoard } from 'store/boards/operationsBoards';
+import { deleteBoard, updateBoard } from 'store/boards/operationsBoards';
 
 export const BoardItem = ({ board }) => {
   const { _id, icon, title } = board;
@@ -10,6 +10,10 @@ export const BoardItem = ({ board }) => {
 
   const handleDeleteBoard = id => {
     dispatch(deleteBoard(id));
+  };
+
+  const handleEditBoard = () => {
+    dispatch(updateBoard({ _id, title: 'Edit board3', icon: 'star' }));
   };
 
   return (
@@ -28,7 +32,7 @@ export const BoardItem = ({ board }) => {
         </div>
 
         <div className={css.wrapper}>
-          <button className={css.button}>
+          <button className={css.button} onClick={() => handleEditBoard()}>
             <svg width={16} height={16} stroke="currentColor">
               <use href={sprite + '#icon-pencil'} />
             </svg>
