@@ -11,8 +11,6 @@ import { PublicRoute } from 'components/PublicRoute/PublicRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIsRefresh } from 'store/user/selectorsAuth';
 import { refreshUser } from 'store/user/operationAuth';
-import { Modal } from 'components/Modal';
-import { Loader } from 'components/Loader';
 
 const StartPage = lazy(() => import('../../page/Start/Start'));
 const AuthPage = lazy(() => import('../../page/Auth/Auth'));
@@ -29,9 +27,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefresh ? (
-    <Modal>
-      <Loader />
-    </Modal>
+    <p></p>
   ) : (
     <ThemeProvider>
       <Routes>

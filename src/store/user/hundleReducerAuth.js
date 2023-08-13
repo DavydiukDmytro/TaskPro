@@ -39,7 +39,7 @@ export const handleFulfilledUserLogOut = state => {
 };
 
 export const handleFulfilledAuthRefreshUser = (state, { payload }) => {
-  state.user = payload;
+  state.user = payload.user;
   state.isLoggedIn = true;
   state.isRefreshing = false;
   state.isLoading = false;
