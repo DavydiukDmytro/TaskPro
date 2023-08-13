@@ -1,11 +1,10 @@
 .header {
   display: flex;
   gap: 14px;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   padding: 14px 20px;
   background-color: var(--header-bg);
-  width: 100%;
 }
 
 @media (min-width: 768px) {

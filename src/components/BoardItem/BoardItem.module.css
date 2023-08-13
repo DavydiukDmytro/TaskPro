@@ -9,11 +9,12 @@
   padding: 0;
   background-color: transparent;
   color: var(--secondary-text-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  opacity: 0.5;
 
   &:hover {
-    color: var(--primary-text-color);
+    opacity: 1;
   }
 }
 
@@ -30,6 +31,7 @@
   height: 100%;
   width: 100%;
   fill: var(--sidebar-bg);
+  color: var(--secondary-text-color);
 }
 
 .active {
@@ -37,7 +39,7 @@
   color: var(--sidebar-color);
   position: relative;
   background-color: var(--board-active);
-  fill: var(--board-active);
+  fill: transparent;
 }
 
 .active::after {
@@ -52,15 +54,24 @@
 }
 .svg {
   margin-right: 8px;
-  fill: var(--sidebar-bg);
+  fill: transparent;
 }
 
 .wrapper {
-  display: flex;
+  display: none;
   gap: 8px;
 }
 
+.active .wrapper {
+  display: flex;
+}
+
 .active .svg {
-  fill: var(--board-active);
+  fill: transparent;
   color: var(--sidebar-color);
+}
+
+.box {
+  display: flex;
+  align-items: center;
 }

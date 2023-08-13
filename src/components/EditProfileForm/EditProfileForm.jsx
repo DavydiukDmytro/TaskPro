@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../store/user/operationAuth';
 import defaultPhoto from '../../assets/svg/symbol-defs.svg';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import css from './EditProfileForm.module.css';
+import { getUser } from 'store/user/selectorsAuth';
+import { updateUserSchema } from 'utils/validation';
 
-export const EditProfileForm = ({ user, onClose }) => {
+export const EditProfileForm = ({ onClose }) => {
+  const user = useSelector(getUser);
+
   const dispatch = useDispatch();
-  const [userPhoto, setUserPhoto] = useState(user.user);
+  const [userPhoto, setUserPhoto] = useState(user.avatarUrl);
+  const [userPreview, setUserPreview] = useState(user.avatarUrl);
   const [showPassword, setShowPassword] = React.useState(false);
-
   const initialValues = {
     name: user.name,
     avatarUrl: user.avatarUrl || defaultPhoto,
@@ -19,36 +22,17 @@ export const EditProfileForm = ({ user, onClose }) => {
     password: user.password,
   };
 
-  const EMAIL_REGX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-  const PASSWORD_REGEX =
-    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,64}$/;
-
-  const validationSchema = Yup.object().shape({
-    name: Yup.string()
-      .min(2, 'Too Short!')
-      .max(32, 'Too Long!')
-      .required('Name is required'),
-    email: Yup.string()
-      .matches(EMAIL_REGX, 'Invalid email address')
-      .email('Invalid email')
-      .required('Email is required'),
-    password: Yup.string()
-      .matches(PASSWORD_REGEX, 'Please enter a strong password')
-      .required('Password is required'),
-  });
-
-  const openModal = () => {
+  const handlePhotoChange = () => {
     const input = document.createElement('input');
     input.type = 'file';
     input.addEventListener('change', event => {
       const file = event.target.files[0];
-      // const reader = new FileReader();
+      const reader = new FileReader();
       setUserPhoto(file);
-      // reader.onload = () => {
-      //   setUserPhoto(reader.result);
-      // };
-      // reader.readAsDataURL(file);
+      reader.onload = () => {
+        setUserPreview(reader.result);
+      };
+      reader.readAsDataURL(file);
     });
     input.click();
   };
@@ -80,24 +64,21 @@ export const EditProfileForm = ({ user, onClose }) => {
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchema}
+      validationSchema={updateUserSchema}
       onSubmit={handleSubmit}
     >
       <Form className={css.form}>
         <p className={css.form__title}>Edit profile</p>
-        <div className={css.photo} onClick={openModal}>
-          {userPhoto ? (
+        <div className={css.photo} onClick={handlePhotoChange}>
+          {userPreview ? (
             <img
               className={css.photo__img}
-              src={userPhoto}
+              src={userPreview}
               alt="ProfilePhoto"
             />
           ) : (
-            <svg width={68} height={68}>
-              <use
-                className={css.svg}
-                href={defaultPhoto + '#icon-Group-1456q'}
-              />
+            <svg width={68} height={68} className={css.svg}>
+              <use href={defaultPhoto + '#icon-Group-1456q'} />
             </svg>
           )}
         </div>

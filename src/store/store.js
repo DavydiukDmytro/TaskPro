@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { supportReducer } from './support/supportSlice';
 import { userReducer } from './user/userSlice';
+import { boardsReduser } from './boards/boardsSlice';
 // import {
 //   FLUSH,
 //   REHYDRATE,
@@ -19,6 +21,8 @@ import { userReducer } from './user/userSlice';
 
 export const store = configureStore({
   reducer: {
+    support: supportReducer,
     user: userReducer,
+    boards: boardsReduser,
   },
 });

@@ -7,14 +7,14 @@ import {
   handleRejectedUser,
 } from './hundleReducerAuth';
 
-const { createSlice, isAnyOf } = require('@reduxjs/toolkit');
-const {
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import {
   login,
   register,
   logOut,
   updateTheme,
   updateUser,
-} = require('./operationAuth');
+} from './operationAuth';
 
 const initialState = {
   user: { name: null, email: null, avatarUrl: null, theme: 'dark' },
@@ -35,8 +35,8 @@ const customArrStatusActions = status => customArr.map(el => el[status]);
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  extraReducers: buider => {
-    buider
+  extraReducers: builder => {
+    builder
       .addCase(register.fulfilled, handleFulfilledUser)
       .addCase(login.fulfilled, handleFulfilledUser)
       .addCase(updateTheme.fulfilled, handleFulfilledUserTheme)

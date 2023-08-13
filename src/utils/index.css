@@ -8,39 +8,40 @@ html[data-theme='dark'] {
   --accent-color: #bedbb0;
   --input-inactive-color: rgba(190, 219, 176, 0.4);
   --active-color: #9dc888;
-
   --button-color: #161616;
   --bg-button: #121212;
   --bg-icon: #ffffff;
-
   --card-line: rgba(255, 255, 255, 0.1);
   --avatar-bg-color: #1f1f1f;
+  --avatar-bg: rgba(255, 255, 255, 0.5);
+
   --avatar-color: #151515;
   --plus-bg-color: #bedbb0;
   --plus-active-color: #9dc888;
   --scrollbar: #121212;
   --scrollbar-bg: rgb(255, 255, 255, 0.1);
   --secondary-bg-color: #121212;
+  --modal-bg-color: #151515;
+  --blank-page-text: rgba(255, 255, 255, 0.5);
+  --blank-page-bg: #1f1f1f;
   --logout-button: #bedbb0;
   --logout-button-accent: #9dc888;
-   --sidebar-color: #ffffff;
-
+  --sidebar-color: #ffffff;
   --board-active: #1f1f1f;
-
   --sidebar-bg: #121212;
-  --sidebar-border: rgba(255, 255, 255, 0.10);
-
-  --add-button-color:#121212;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --add-button-color: #121212;
   --add-button-bg: #bedbb0;
   --add-button-bg-accent: #9dc888;
-
   --logo-color: #fff;
   --logo-bg: #1f1f1f;
-
-  --overlay:rgba(21, 21, 21, 0.50);
-    --header-bg:#161616;
-
-
+  --overlay: rgba(21, 21, 21, 0.5);
+  --header-bg: #161616;
+  --priority-default: rgba(255, 255, 255, 0.3);
+  --help-bg: #1f1f1f;
+  --modal-bg-color: #151515;
+  --add-btn-color: #161616;
+  --add-btn-fill: #ffffff;
 }
 
 /* light theme */
@@ -56,27 +57,35 @@ html[data-theme='light'] {
   --bg-icon: #161616;
   --card-line: rgba(22, 22, 22, 0.1);
   --avatar-bg-color: #f6f6f7;
+  --avatar-bg: rgb(22, 22, 22, 0.1);
+
   --avatar-color: #fcfcfc;
   --plus-bg-color: #bedbb0;
   --plus-active-color: #9dc888;
   --scrollbar: rgba(22, 22, 22, 0.1);
   --scrollbar-bg: #e8e8e8;
   --secondary-bg-color: #ffffff;
+  --modal-bg-color: #fcfcfc;
+  --blank-page-text: rgba(22, 22, 22, 0.7);
+  --blank-page-bg: #f6f6f7;
   --logout-button: #bedbb0;
   --logout-button-accent: #9dc888;
-  --sidebar-color:: #161616;
+  --sidebar-color: #161616;
   --board-active: #f6f6f6;
   --sidebar-bg: #ffffff;
-  --sidebar-border: rgba(22, 22, 22, 0.10);
-  --add-button-color:#121212;
+  --sidebar-border: rgba(22, 22, 22, 0.1);
+  --add-button-color: #121212;
   --add-button-bg: #bedbb0;
   --add-button-bg-accent: #9dc888;
   --logo-color: #fff;
   --logo-bg: #1f1f1f;
-  --overlay:rgba(21, 21, 21, 0.30);
-  --header-bg:#fcfcfc;
-
-
+  --overlay: rgba(21, 21, 21, 0.3);
+  --header-bg: #fcfcfc;
+  --priority-default: rgba(22, 22, 22, 0.3);
+  --help-bg: #f6f6f6;
+  --modal-bg-color: #fcfcfc;
+  --add-btn-color: #161616;
+  --add-btn-fill: #ffffff;
 }
 
 /* violet theme */
@@ -92,26 +101,35 @@ html[data-theme='violet'] {
   --bg-icon: #5255bc;
   --card-line: rgba(22, 22, 22, 0.1);
   --avatar-bg-color: #ecedfd;
+  --avatar-bg: #d6d8ff;
+
   --avatar-color: #ffffff;
   --plus-bg-color: #b8bcfd;
   --plus-active-color: #979cea;
   --scrollbar: #b8bcfd;
   --scrollbar-bg: #ffffff;
   --secondary-bg-color: #ffffff;
+  --modal-bg-color: #fcfcfc;
+  --blank-page-text: rgba(22, 22, 22, 0.7);
+  --blank-page-bg: #ecedfd;
   --logout-button: #ffffff;
   --logout-button-accent: #b8bcfd;
   --sidebar-color: #ffffff;
   --board-active: rgb(255, 255, 255, 0.5);
   --sidebar-bg: #5255bc;
-  --sidebar-border: rgba(255, 255, 255, 0.10);
-  --add-button-color:#ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --add-button-color: #ffffff;
   --add-button-bg: #b8bcfd;
   --add-button-bg-accent: #a9adf5;
   --logo-color: #5255bc;
   --logo-bg: #ecedfd;
-  --overlay:rgba(21, 21, 21, 0.30);
-    --header-bg:#fcfcfc;
-
+  --overlay: rgba(21, 21, 21, 0.3);
+  --header-bg: #fcfcfc;
+  --priority-default: rgba(22, 22, 22, 0.3);
+  --help-bg: rgba(236, 237, 253, 0.4);
+  --modal-bg-color: #fcfcfc;
+  --add-btn-color: #ffffff;
+  --add-btn-fill: #161616;
 }
 
 *,
@@ -157,6 +175,28 @@ img {
 a {
   text-decoration: none;
 }
+
+/*Calendar castom style*/
+.react-datepicker__month-container,
+.react-datepicker__header,
+.react-datepicker__month,
+.react-datepicker__day,
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  background-color: var(--bg-button);
+  color: var(--primary-text-color);
+}
+.react-datepicker__day--disabled {
+  color: var(--priority-default);
+}
+.react-datepicker__day:hover {
+  background-color: var(--accent-color);
+  color: var(--blank-page-bg);
+  border-radius: 50%;
+}
+
+/*End Calendar castom style*/
+
 @font-face {
   font-family: 'Poppins';
   font-style: normal;

@@ -28,7 +28,6 @@ const RegistrationForm = () => {
   }, [isLogIn, navigate]);
 
   const handleSubmit = async (values, { resetForm }) => {
-    console.log(values);
     await dispatch(register(values));
     resetForm();
   };

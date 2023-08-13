@@ -2,8 +2,9 @@
   width: 197px;
   height: 238px;
   border-radius: 8px;
-  background: #1f1f1f;
+  background-color: var(--help-bg);
   padding: 14px;
+  margin-bottom: 24px;
 
   @media screen and (min-width: 768px) {
     width: 212px;
@@ -12,14 +13,13 @@
   }
 }
 
-
 .imgWrapper {
   width: 54px;
   height: 78px;
 }
 
 .text {
-  color: var(--primary-text-color);
+  color: var(--sidebar-color);
   font-size: 12px;
   line-height: 20px;
   letter-spacing: -0.28px;
@@ -30,6 +30,31 @@
   }
 }
 
+.button {
+  margin-top: 19px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--sidebar-color);
+  font-size: 12px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.btnTitle {
+  color: var(--sidebar-color);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.24px;
+  fill: currentColor;
+
+  &:disabled {
+    background: #b4adad;
+  }
+}
 
 .button {
   margin-top: 19px;
@@ -42,30 +67,15 @@
   font-size: 12px;
   font-weight: 500;
   border: none;
+ fill: var(--sidebar-color);
 }
 
-.btnTitle {
-  color: var(--primary-text-color);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: -0.24px;
-  &:disabled {
-    background: #b4adad;
-  }
-}
+/* .icon {
+  stroke: var(--bg-icon);
 
-
-
-.icon {
-stroke: var(--bg-icon);
-fill: transparent;
-width: 18px;
-height: 18px;
-
-}
+  fill: transparent;
+} */
 
 .logo {
   color: var(--accent-color);
-
 }
-

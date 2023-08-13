@@ -23,14 +23,15 @@ export const handleFulfilledUserUpdate = (state, { payload }) => {
 
 export const handlePendingUser = state => {
   state.isLoading = true;
+  state.error = null;
 };
 export const handleRejectedUser = (state, { payload }) => {
   state.isLoading = false;
-  state.error = payload;
+  state.error = payload.message;
 };
 
 export const handleFulfilledUserLogOut = state => {
-  state.user = { name: null, email: null, avatarUrl: null };
+  state.user = { name: null, email: null, avatarUrl: null, theme: 'dark' };
   state.token = null;
   state.isLoggedIn = false;
   state.isLoading = false;

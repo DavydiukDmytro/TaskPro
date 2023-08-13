@@ -6,6 +6,8 @@ export const getIsLogin = state => state.user.isLoggedIn;
 
 export const getTheme = state => state.user.user.theme;
 
-export const getIsLoading = state => state.auth.isLoading;
+export const getIsLoading = state => state.user.isLoading;
 
-export const getError = state => state.auth.error;
+export const getError = state => state.user.error;
+
+
