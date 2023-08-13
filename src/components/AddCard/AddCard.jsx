@@ -127,19 +127,23 @@ export const AddCard = () => {
             </div>
             <div className={css.wrap}>
               <label className={css.textLabel}>Deadline</label>
-              <Field
-                component="select"
-                className={css.select}
-                id="date"
-                name="date"
-              >
-                <option className={css.option} value="CanedarValue">
-                  {'CanedarValue'}
-                </option>
-                <option className={css.option} value="CanedarValue1">
-                  {'CanedarValue'}
-                </option>
-              </Field>
+              <div className={css.wrapPosition}>
+                <Field
+                  placeholder="Calendar Date"
+                  className={css.inputCalendar}
+                  type="text"
+                  name="date"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  values={values.date}
+                />
+                {touched.date && errors.date && (
+                  <p className={css.form__error}>{errors.date}</p>
+                )}
+                <svg width={16} height={16} className={css.svgDown}>
+                  <use href={svgSprite + '#icon-Vector'} />
+                </svg>
+              </div>
             </div>
             <div className={css.wrapButton}>
               <button type="submit" className={css.button}>
