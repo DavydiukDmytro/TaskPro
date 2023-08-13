@@ -12,6 +12,8 @@ export const BoardItem = ({ board }) => {
   const { _id, icon, title, background } = board;
   const dispatch = useDispatch();
 
+  const urlTitle = title.split(' ').join('-').toLowerCase();
+
   const handleDeleteBoard = id => {
     dispatch(deleteBoard(id));
   };
@@ -26,7 +28,7 @@ export const BoardItem = ({ board }) => {
         className={({ isActive }) => {
           return isActive ? css.active : css.link;
         }}
-        to={`/home/${title}`}
+        to={`/home/${urlTitle}`}
       >
         <div className={css.box}>
           <svg width={16} height={16} stroke="currentColor" className={css.svg}>

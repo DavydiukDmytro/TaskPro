@@ -6,18 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getBoardByID } from 'store/boards/operationsBoards';
 import {
   selectAllBoards,
-  selectCurrentBoard,
 } from 'store/boards/selectorsBoards';
 
 const ScreensPage = () => {
   const dispatch = useDispatch();
-  const currentBoard = useSelector(selectCurrentBoard);
 
   const boards = useSelector(selectAllBoards);
   const board = boards[1];
 
-  
-  console.log('currentBoard:', currentBoard);
 
   useEffect(() => {
     if (board) dispatch(getBoardByID(board._id));

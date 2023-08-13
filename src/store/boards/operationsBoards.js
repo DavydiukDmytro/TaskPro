@@ -129,11 +129,9 @@ export const deleteTask = createAsyncThunk(
 
 export const updateTaskById = createAsyncThunk(
   'boards/updateTaskById ',
-  async (id, task, thunkAPI) => {
-    console.log('id:', id);
-    console.log('task:', task);
+  async ({ _id, ...task }, thunkAPI) => {
     try {
-      const { data } = await axios.patch(`/api/task/${id}`, task);
+      const { data } = await axios.patch(`/api/task/${_id}`, task);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
