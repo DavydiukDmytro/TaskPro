@@ -16,6 +16,7 @@ const ScreensPage = () => {
   const boards = useSelector(selectAllBoards);
   const board = boards[1];
 
+  
   console.log('currentBoard:', currentBoard);
 
   useEffect(() => {
