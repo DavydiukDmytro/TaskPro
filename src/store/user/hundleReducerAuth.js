@@ -37,3 +37,20 @@ export const handleFulfilledUserLogOut = state => {
   state.isLoading = false;
   state.error = null;
 };
+
+export const handleFulfilledAuthRefreshUser = (state, { payload }) => {
+  state.user = payload;
+  state.isLoggedIn = true;
+  state.isRefreshing = false;
+  state.isLoading = false;
+  state.error = null;
+};
+
+export const handlePendingAuthRefreshUser = state => {
+  state.isRefreshing = true;
+  state.isLoading = true;
+};
+export const handleRejectedAuthRefreshUser = state => {
+  state.isRefreshing = false;
+  state.isLoading = false;
+};
