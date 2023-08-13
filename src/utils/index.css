@@ -40,6 +40,8 @@ html[data-theme='dark'] {
   --priority-default: rgba(255, 255, 255, 0.3);
   --help-bg: #1f1f1f;
   --modal-bg-color: #151515;
+  --add-btn-color: #161616;
+  --add-btn-fill: #ffffff;
 }
 
 /* light theme */
@@ -82,6 +84,8 @@ html[data-theme='light'] {
   --priority-default: rgba(22, 22, 22, 0.3);
   --help-bg: #f6f6f6;
   --modal-bg-color: #fcfcfc;
+  --add-btn-color: #161616;
+  --add-btn-fill: #ffffff;
 }
 
 /* violet theme */
@@ -124,6 +128,8 @@ html[data-theme='violet'] {
   --priority-default: rgba(22, 22, 22, 0.3);
   --help-bg: rgba(236, 237, 253, 0.4);
   --modal-bg-color: #fcfcfc;
+  --add-btn-color: #ffffff;
+  --add-btn-fill: #161616;
 }
 
 *,

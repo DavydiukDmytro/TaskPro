@@ -32,12 +32,16 @@
   color: var(--primary-text-color);
   background-color: var(--header-bg);
   border: 1px solid var(--input-inactive-color);
-}
+  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+  box-sizing: border-box;
+  opacity: 0.4;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-.input__field:focus,
-.input__field:hover {
-  border-color: var(--accent-color);
-  color: var(--primary-text-color);
+  &:focus {
+    outline: none;
+    opacity: 1;
+    border-color: var(--accent-color);
+  }
 }
 
 @media screen and (min-width: 375px) {
@@ -115,12 +119,13 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--button-color);
+  &:hover {
+    background-color: var(--active-color);
+  }
 }
 
-.form__button:hover {
-  background-color: var(--active-color);
-}
 .errors {
   position: absolute;
   bottom: 25px;
