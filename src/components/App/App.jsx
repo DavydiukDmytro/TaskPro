@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { ThemeProvider } from '../ThemeSwitcher/ThemeProvider';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 import { ToastContainer } from 'react-toastify';
@@ -8,6 +8,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { SharedLayoutStart } from '../SharedLayoutStart';
 import { Home } from 'page/Home';
 import { PublicRoute } from 'components/PublicRoute/PublicRoute';
+import { useDispatch, useSelector } from 'react-redux';
+import { getIsRefresh } from 'store/user/selectorsAuth';
+import { refreshUser } from 'store/user/operationAuth';
 
 const StartPage = lazy(() => import('../../page/Start/Start'));
 const AuthPage = lazy(() => import('../../page/Auth/Auth'));
@@ -17,7 +20,16 @@ const ScreensPage = lazy(() => import('../../page/ScreensPage/ScreensPage'));
 const BlankPage = lazy(() => import('../../page/BlankPage/BlankPage'));
 
 export const App = () => {
-  return (
+  const dispatch = useDispatch();
+  const isRefresh = useSelector(getIsRefresh);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefresh ? (
+    <p></p>
+  ) : (
     <ThemeProvider>
       <Routes>
         <Route path="/" element={<SharedLayoutStart />}>
