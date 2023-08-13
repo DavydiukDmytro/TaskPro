@@ -11,13 +11,13 @@ import {
 
 const ScreensPage = () => {
   const dispatch = useDispatch();
-  const currentBoard = useSelector(selectCurrentBoard);
+  // const currentBoard = useSelector(selectCurrentBoard);
 
   const boards = useSelector(selectAllBoards);
   const board = boards[1];
 
   
-  console.log('currentBoard:', currentBoard);
+  // console.log('currentBoard:', currentBoard);
 
   useEffect(() => {
     if (board) dispatch(getBoardByID(board._id));
