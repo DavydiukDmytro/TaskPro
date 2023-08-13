@@ -58,9 +58,14 @@ export const handleFulfilledDelete = (state, action) => {
   return { ...state, items: updatedItems };
 };
 
-export const handleFulfilledDeleteColumn = (state, { payload }) => {
-  const index = state.currentBoard.findIndex(state => state.id === payload.id);
-  state.currentBoard.splice(index, 1);
+export const handleFulfilledDeleteColumn = (state, action) => {
+  // const index = state.currentBoard.findIndex(state => state.id === payload.id);
+  // state.currentBoard.splice(index, 1);
+   const deletedId = action.meta.arg;
+   const updatedItems = state.currentBoard.filter(
+     item => item._id !== deletedId
+   );
+   return { ...state, currentBoard: updatedItems };
 };
 
 export const handleFulfilledDeleteTask = (state, { payload }) => {

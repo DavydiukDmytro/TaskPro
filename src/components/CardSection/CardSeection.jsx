@@ -5,6 +5,7 @@ import { CardList } from 'components/CardList/CardList';
 import { Button } from 'components/Button/Button';
 
 export const CardSection = ({ column }) => {
+  
   const isColumn = column.tasks.length > 0;
   return (
     <div className={css.cardContainer}>

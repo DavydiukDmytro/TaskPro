@@ -13,7 +13,6 @@ export const BoardItem = ({ board }) => {
   };
 
   const handleEditBoard = () => {
-    console.log('edit');
     dispatch(updateBoard({ _id, title: 'Edit board3', icon: 'star' }));
   };
 

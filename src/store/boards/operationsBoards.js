@@ -42,7 +42,6 @@ export const addBoard = createAsyncThunk(
 export const updateBoard = createAsyncThunk(
   'boards/updateBoard',
   async ({ _id, title, icon, background }, thunkAPI) => {
-    console.log(_id, title, icon, background);
     try {
       const { data } = await axios.patch(`/api/board/${_id}`, {
         title,
@@ -68,18 +67,6 @@ export const deleteBoard = createAsyncThunk(
   }
 );
 
-// export const getColumns = createAsyncThunk(
-//   'boards/getColumns',
-//   async (_, thunkAPI) => {
-//     try {
-//       const { data } = await axios.get('/api/column');
-//       console.log(data);
-//       return data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
 
 export const addColumn = createAsyncThunk(
   'boards/addColumn',
@@ -96,6 +83,7 @@ export const addColumn = createAsyncThunk(
 export const deleteColumn = createAsyncThunk(
   'boards/deleteColumn',
   async (id, thunkAPI) => {
+    console.log(id);
     try {
       const { data } = await axios.delete(`/api/column/${id}`);
       return data;
