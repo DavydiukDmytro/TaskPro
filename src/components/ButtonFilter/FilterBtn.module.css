@@ -1,0 +1,24 @@
+.filt {
+    textTransform: non;
+    display: fle;
+    gap: 8px;
+    alignItems: cente;  
+};
+.box {
+    display: flex;
+    justifyContent: enter;
+    alignItems: center;
+    borderRadius: 8px;
+    transition: all 250ms linear;
+    cursor: pointe;
+    &:hover: transform: scale(1.1);
+            
+};
+.svgIcon {
+    width: 14px;
+    height: 4px;
+    color: var(--primary-text-color),
+};
+.typography {
+    color: var(--primary-text-color),
+};

@@ -6,6 +6,7 @@ import { Header } from 'components/Header/Header';
 import { useDispatch } from 'react-redux';
 import { getAllBoards } from 'store/boards/operationsBoards';
 
+
 export const Home = () => {
   const dispatch = useDispatch();
 
