@@ -9,12 +9,10 @@ export const BoardsList = () => {
   // const error = useSelector(selectErrorBoards);
 
   return (
-    <div className={css.wrapper}>
       <ul className={css.list}>
         {boards.map(board => (
           <BoardItem key={board._id} board={board} />
         ))}
       </ul>
-    </div>
   );
 };
