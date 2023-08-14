@@ -5,6 +5,7 @@ import { Header } from 'components/Header/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBoards } from 'store/boards/operationsBoards';
 import { selectAllBoards } from 'store/boards/selectorsBoards';
+import { AddColumn } from '../../components/AddColumn';
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ export const Home = () => {
   return (
     <>
       <Header />
+      <AddColumn />
       <Sidebar />
       <Suspense fallback={<p>DDDD</p>}>
         <Outlet />

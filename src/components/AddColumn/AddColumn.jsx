@@ -37,8 +37,8 @@ export const AddColumn = ({ handleClose, boardId }) => {
         handleSubmit,
       }) => (
         <Form className={css.form}>
+          <p className={css.text}>Add column</p>
           <div className={css.form__field}>
-            <p className={css.text}>Add column</p>
             <input
               className={css.form__input}
               autoComplete="title"
@@ -52,14 +52,14 @@ export const AddColumn = ({ handleClose, boardId }) => {
               <p className={css.form__error}>{errors.title}</p>
             )}
           </div>
-          <div className={css.wrapButton}>
-            <button type="submit" className={css.button}>
-              <svg width="28px" height="28px" className={css.icon}>
-                <use href={svgSprite + '#icon-plus'} />
-              </svg>
-              Add
-            </button>
-          </div>
+          {/* <div className={css.wrapButton}> */}
+          <button type="submit" className={css.button}>
+            <svg width="28px" height="28px" className={css.icon}>
+              <use href={svgSprite + '#icon-plus'} />
+            </svg>
+            Add
+          </button>
+          {/* </div> */}
         </Form>
       )}
     </Formik>

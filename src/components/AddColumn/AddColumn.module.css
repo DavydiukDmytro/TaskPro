@@ -1,51 +1,16 @@
-.wrapper {
-  position: relative;
-  display: flex;
-  padding: 14px;
-  flex-direction: column;
-  background: var(--modal-bg-color);
-}
-.wrap {
-  display: flex;
-  flex-direction: column;
-  padding-top: 10px;
-}
-@media screen and (min-width: 375px) {
-  .wrapper {
-    width: 335px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .wrapper {
-    width: 350px;
-  }
-}
-
-.buttonClose {
-  position: absolute;
-  right: 14px;
-  top: 14px;
-  display: inline-block;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  background-color: initial;
-  color: var(--button-color);
-}
-
-.svg {
-  stroke: var(--primary-text-color);
-}
-
 .form {
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
 }
 .text {
-  margin-right: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
   font-family: 'Poppins';
   font-size: 18px;
   font-weight: 500;
@@ -55,13 +20,12 @@
   padding-top: 4px;
 }
 
-.form__field {
-  width: 100%;
-  padding-bottom: 14px;
-}
-
 .form__input {
-  width: 100%;
+  /* width: 100%; */
+  position: relative;
+  height: 49px;
+  margin-bottom: 14px;
+  margin-top: 51px;
   padding: 14px 18px;
   font-family: 'Poppins';
   font-size: 14px;
@@ -81,11 +45,36 @@
     opacity: 1;
   }
 }
+
+/* .buttonClose {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  display: inline-block;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: initial;
+  color: var(--button-color);
+} */
+
+/* .svg {
+  stroke: var(--primary-text-color);
+} */
+
+.form__field {
+  width: 100%;
+
+  /* padding-bottom: 14px; */
+}
+
 .button {
   width: 100%;
   display: flex;
+  height: 49px;
   justify-content: center;
   align-items: center;
+  align-self: flex-start;
   font-family: 'Poppins';
   border: none;
   border-radius: 8px;
@@ -116,10 +105,30 @@
 }
 
 .form__error {
+  position: absolute;
+  bottom: 90px;
+  right: 30px;
   color: rgb(190, 219, 176, 0.8);
-  font-family: Poppins;
+  font-family: 'Poppins';
   font-size: 12px;
-  margin: 0 auto;
-  text-align: center;
+  /* margin: 0 auto;
+  text-align: center; */
   padding-top: 10px;
+}
+@media screen and (min-width: 375px) {
+  .form {
+    width: 287px;
+  }
+  .form__input {
+    width: 287px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    width: 302px;
+  }
+  .form__input {
+    width: 302px;
+  }
 }

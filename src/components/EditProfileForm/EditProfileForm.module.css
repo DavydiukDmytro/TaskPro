@@ -15,7 +15,6 @@
   font-family: 'Poppins';
   font-size: 18px;
   font-weight: 500;
-  border-radius: 8px;
   color: var(--primary-text-color);
 }
 
@@ -107,8 +106,8 @@
   padding-top: 5px;
 }
 .form__button {
-  display: block;
   width: 100%;
+  display: block;
   min-height: 49px;
   background-color: var(--accent-color);
   border-radius: 8px;
