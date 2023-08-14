@@ -22,7 +22,7 @@ export const NewBoard = ({ handleClose }) => {
   return (
     <>
       <form onSubmit={formik.handleSubmit} className={css.formTitle}>
-        <p className={css.h1}>New board</p>
+        <p className={css.modalTitle}>New board</p>
         <label>
           <input
             className={css.inputTitle}
@@ -33,13 +33,14 @@ export const NewBoard = ({ handleClose }) => {
             value={formik.values.title}
           />
         </label>
-
+        
+        <div className={css.iconWrapper}>
         <p className={css.iconsTitle}>Icons</p>
-        <div className={css.radioBlock_1}>
+        {/* <div className={css.radioBlock_1}> */}
           {Object.values(iconArr).map(icon => (
-            <label key={icon}>
+            <label className={css.radioBlock_1} key={icon}>
               <input
-                className={css.iconsType}
+                className={css.inputStyled}
                 name="icon"
                 type="radio"
                 id={icon}
@@ -53,8 +54,10 @@ export const NewBoard = ({ handleClose }) => {
               </svg>
             </label>
           ))}
+        {/* </div> */}
         </div>
 
+        <div className={css.bgLabel} > 
         <p className={css.iconsTitle}>Background</p>
         <div className={css.radioBlock_2}>
           {backgroundOptions.map(option => (
@@ -76,6 +79,7 @@ export const NewBoard = ({ handleClose }) => {
             </label>
           ))}
         </div>
+        </div> 
 
         <button className={css.formButton} type="submit">
           <svg width="28px" height="28px" className={css.buttonIcon}>
