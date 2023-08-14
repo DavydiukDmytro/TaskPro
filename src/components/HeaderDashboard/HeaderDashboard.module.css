@@ -22,6 +22,9 @@
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.28px;
+  background-color: var(--avatar-bg-color);
+  padding: 8px;
+  border-radius: 8px;
 }
 
 @media screen and (min-width: 768px) {
@@ -29,4 +32,3 @@
     font-size: 18px;
   }
 }
-
