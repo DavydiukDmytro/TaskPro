@@ -32,6 +32,7 @@
   width: 100%;
   fill: var(--sidebar-bg);
   color: var(--secondary-text-color);
+
 }
 
 .active {
@@ -50,7 +51,7 @@
   border-radius: 4px 0px 0px 4px;
   background-color: var(--logout-button);
   top: 0;
-  right: 0;
+  right:0px;
 }
 .svg {
   margin-right: 8px;
@@ -74,4 +75,15 @@
 .box {
   display: flex;
   align-items: center;
+}
+
+.title {
+  max-width: 128px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: normal;
+  position: relative;
 }

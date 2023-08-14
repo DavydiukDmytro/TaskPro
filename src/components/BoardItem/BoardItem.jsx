@@ -31,7 +31,7 @@ export const BoardItem = ({ board }) => {
           <svg width={16} height={16} stroke="currentColor" className={css.svg}>
             <use href={sprite + `#icon-${icon}`} />
           </svg>
-          <p className={css.title}>{title}</p>
+          <p  className={css.title}>{title}</p>
         </div>
 
         <div className={css.wrapper}>
