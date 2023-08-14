@@ -91,6 +91,8 @@ export const NewBoard = ({
                   className={css.imgStyle}
                   src={option.image}
                   alt={option.label}
+                  width={28}
+                  height={28}
                 />
               </label>
             ))}
