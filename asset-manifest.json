@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/TaskPro/static/css/main.378eee17.css",
-    "main.js": "/TaskPro/static/js/main.5eee4ec2.js",
+    "main.css": "/TaskPro/static/css/main.9b30bdc6.css",
+    "main.js": "/TaskPro/static/js/main.85d6896a.js",
     "static/css/805.e6524e73.chunk.css": "/TaskPro/static/css/805.e6524e73.chunk.css",
     "static/js/805.0dad9cd0.chunk.js": "/TaskPro/static/js/805.0dad9cd0.chunk.js",
     "static/css/560.06f53582.chunk.css": "/TaskPro/static/css/560.06f53582.chunk.css",
@@ -27,8 +27,8 @@
     "static/media/plant.png": "/TaskPro/static/media/plant.21b2c7457c079fd14b2b.png",
     "static/media/symbol-defs.svg": "/TaskPro/static/media/symbol-defs.b66f5693c99a4f32da7f500bdede133f.svg",
     "index.html": "/TaskPro/index.html",
-    "main.378eee17.css.map": "/TaskPro/static/css/main.378eee17.css.map",
-    "main.5eee4ec2.js.map": "/TaskPro/static/js/main.5eee4ec2.js.map",
+    "main.9b30bdc6.css.map": "/TaskPro/static/css/main.9b30bdc6.css.map",
+    "main.85d6896a.js.map": "/TaskPro/static/js/main.85d6896a.js.map",
     "805.e6524e73.chunk.css.map": "/TaskPro/static/css/805.e6524e73.chunk.css.map",
     "805.0dad9cd0.chunk.js.map": "/TaskPro/static/js/805.0dad9cd0.chunk.js.map",
     "560.06f53582.chunk.css.map": "/TaskPro/static/css/560.06f53582.chunk.css.map",
@@ -43,7 +43,7 @@
     "251.8a5c1c33.chunk.js.map": "/TaskPro/static/js/251.8a5c1c33.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.378eee17.css",
-    "static/js/main.5eee4ec2.js"
+    "static/css/main.9b30bdc6.css",
+    "static/js/main.85d6896a.js"
   ]
 }
