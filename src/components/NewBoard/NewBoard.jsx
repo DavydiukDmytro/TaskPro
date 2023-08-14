@@ -26,7 +26,7 @@ export const NewBoard = ({
       icon,
       background,
     },
-    validate,
+    // validate,
     onSubmit: values => {
       edit
         ? dispatch(updateBoard({ _id: id, ...values }))

@@ -69,6 +69,7 @@ const NotFoundPage = () => {
           >
             {count}
           </span>{' '}
+          sec
           <br />
           or
           <br />
@@ -81,7 +82,7 @@ const NotFoundPage = () => {
               textDecoration: 'underline',
               fontSize: '14px',
             }}
-            to="/"
+            to="/home"
           >
             {} Go to Home Page
           </Link>
