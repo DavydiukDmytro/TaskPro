@@ -1,19 +1,22 @@
 import { NavLink } from 'react-router-dom';
 import sprite from '../../assets/svg/symbol-defs.svg';
 import css from './BoardItem.module.css';
+import { deleteBoard } from 'store/boards/operationsBoards';
+import { useState } from 'react';
+import { Modal } from 'components/Modal';
+import { NewBoard } from 'components/NewBoard';
 import { useDispatch } from 'react-redux';
-import { deleteBoard, updateBoard } from 'store/boards/operationsBoards';
 
 export const BoardItem = ({ board }) => {
-  const { _id, icon, title } = board;
+  const [isEditBoard, setIsEditBoard] = useState(false);
+  const { _id, icon, title, background } = board;
   const dispatch = useDispatch();
 
   const handleDeleteBoard = id => {
     dispatch(deleteBoard(id));
   };
-
   const handleEditBoard = () => {
-    dispatch(updateBoard({ _id, title: 'Edit board3', icon: 'star' }));
+    setIsEditBoard(true);
   };
 
   return (
@@ -22,7 +25,7 @@ export const BoardItem = ({ board }) => {
         className={({ isActive }) => {
           return isActive ? css.active : css.link;
         }}
-        to={`/home/${title}`}
+        to={`/home/${board._id}`}
       >
         <div className={css.box}>
           <svg width={16} height={16} stroke="currentColor" className={css.svg}>
@@ -44,6 +47,24 @@ export const BoardItem = ({ board }) => {
           </button>
         </div>
       </NavLink>
+      {isEditBoard && (
+        <Modal
+          handleClose={() => {
+            setIsEditBoard(false);
+          }}
+        >
+          <NewBoard
+            handleClose={() => {
+              setIsEditBoard(false);
+            }}
+            edit={true}
+            title={title}
+            icon={icon}
+            background={background}
+            id={_id}
+          />
+        </Modal>
+      )}
     </li>
   );
 };

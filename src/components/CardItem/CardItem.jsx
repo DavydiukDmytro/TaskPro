@@ -3,27 +3,28 @@ import svgSprite from '../../assets/svg/symbol-defs.svg';
 // import { Calendar } from 'components/Calendar/Calendar';
 import { useDispatch } from 'react-redux';
 import { deleteTask, updateTaskById } from 'store/boards/operationsBoards';
+import { Calendar } from 'components/Calendar/Calendar';
 
 export const CardItem = ({ task }) => {
   const dispatch = useDispatch();
-// column; 
-  const { title, description, priority, deadline, _id, } = task;
+  // column;
+  const { title, description, priority, _id } = task;
 
   const editData = {
-    title: 'task2',
+    _id,
+    title: 'task8',
     description:
-      'gfut hgfu6 vjkyhrui6 futrrkjdf guyt ftudryw guytiumkhiy bjhfsd cfgdrt  vdhge vhfdyte  cfdre vhgrjht xfgsgt',
+      'skdu7gvbiw hgfu6 vjkyhrui6 futrrkjdf guyt ftudryw guytiumkhiy bjhfsd cfgdrt  vdhge vhfdyte  cfdre vhgrjht xfgsgt',
     priority: 'low',
   };
 
   const handleEditTask = () => {
-    dispatch(updateTaskById(_id, editData));
+    dispatch(updateTaskById(editData));
   };
 
-    const handleDeleteTask = () => {
-      dispatch(deleteTask(_id));
-    };
-
+  const handleDeleteTask = () => {
+    dispatch(deleteTask(_id));
+  };
 
   // console.log("task:", task);
   return (
@@ -42,8 +43,8 @@ export const CardItem = ({ task }) => {
           </div>
           <div>
             <h4 className={css.infoTitle}>Deadline</h4>
-            <p className={css.info}>{deadline}</p>
-            {/* <Calendar /> */}
+            {/* <p className={css.info}>{deadline}</p> */}
+            <Calendar />
           </div>
         </div>
         <ul className={css.iconList}>

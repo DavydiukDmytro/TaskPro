@@ -3,18 +3,27 @@ import sprite from '../../assets/svg/symbol-defs.svg';
 import { useFormik } from 'formik';
 import { backgroundOptions, iconArr } from './option';
 import { useDispatch } from 'react-redux';
-import { addBoard } from 'store/boards/operationsBoards';
+import { addBoard, updateBoard } from 'store/boards/operationsBoards';
 
-export const NewBoard = ({ handleClose }) => {
+export const NewBoard = ({
+  handleClose,
+  edit = false,
+  background = 'none',
+  icon = 'project',
+  title = '',
+  id,
+}) => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      title: '',
-      icon: 'project',
-      background: 'none',
+      title,
+      icon,
+      background,
     },
     onSubmit: values => {
-      dispatch(addBoard(values));
+      edit
+        ? dispatch(updateBoard({ _id: id, ...values }))
+        : dispatch(addBoard(values));
       handleClose();
     },
   });
@@ -22,7 +31,7 @@ export const NewBoard = ({ handleClose }) => {
   return (
     <>
       <form onSubmit={formik.handleSubmit} className={css.formTitle}>
-        <p className={css.modalTitle}>New board</p>
+        <p className={css.modalTitle}>{edit ? 'Edit board' : 'New board'}</p>
         <label>
           <input
             className={css.inputTitle}
@@ -85,7 +94,7 @@ export const NewBoard = ({ handleClose }) => {
           <svg width="28px" height="28px" className={css.buttonIcon}>
             <use href={sprite + '#icon-plus'} />
           </svg>
-          Create
+          {edit ? 'Edit' : 'Create'}
         </button>
       </form>
     </>

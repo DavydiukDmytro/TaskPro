@@ -1,0 +1,26 @@
+.filt {
+  text-transform: none;
+  display: fle;
+  gap: 8px;
+  align-items: cente;
+}
+.box {
+  display: flex;
+  justify-content: enter;
+  align-items: center;
+  border-radius: 8px;
+  transition: all 250ms linear;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+.svgIcon {
+  width: 14px;
+  height: 4px;
+  color: var(--primary-text-color);
+}
+.typography {
+  color: var(--primary-text-color);
+}

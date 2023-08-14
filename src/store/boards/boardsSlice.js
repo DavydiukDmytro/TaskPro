@@ -28,6 +28,8 @@ import {
   handleFulfilledDeleteColumn,
   handleFulfilledDeleteTask,
   handleRejected,
+  handleRejectedGetBoardById,
+  handlePendingGetBoardId,
 } from './handleReduserBoards';
 
 export const initialBoards = {
@@ -39,7 +41,6 @@ export const initialBoards = {
 
 const arrThunks = [
   getAllBoards,
-  getBoardByID,
   addBoard,
   addColumn,
   addTask,
@@ -69,6 +70,8 @@ const boardsSlice = createSlice({
       .addCase(deleteBoard.fulfilled, handleFulfilledDelete)
       .addCase(deleteColumn.fulfilled, handleFulfilledDeleteColumn)
       .addCase(deleteTask.fulfilled, handleFulfilledDeleteTask)
+      .addCase(getBoardByID.pending, handlePendingGetBoardId)
+      .addCase(getBoardByID.rejected, handleRejectedGetBoardById)
       .addMatcher(isAnyOf(...getAction('pending')), handlePending)
       .addMatcher(isAnyOf(...getAction('fulfilled')), handleFulfilled)
       .addMatcher(isAnyOf(...getAction('rejected')), handleRejected),
