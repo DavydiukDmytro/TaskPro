@@ -1,7 +1,30 @@
+.wrapper {
+  max-height: 130px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  margin-right: -5px;
+  padding-right: 4px;
+  margin-bottom: 40px;
+}
+
 .list {
   display: flex;
   flex-direction: column;
   gap: 4px;
-margin-bottom: 40px;
 }
 
+.wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wrapper:-webkit-scrollbar-track {
+  border-radius: 12px;
+  /* background: var(--active-color); */
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background: var(--secondary-text-color);
+  /* height: 18px; */
+  margin-right: -5px;
+}

@@ -1,3 +1,8 @@
+export const handlePendingGetBoardId = state => {
+  state.isLoading = true;
+  state.currentBoard = [];
+};
+
 export const handlePending = state => {
   state.isLoading = true;
 };
@@ -20,14 +25,16 @@ export const handleFulfilledAdd = (state, { payload }) => {
 };
 
 export const handleFulfilledAddColumn = (state, { payload }) => {
-  state.currentBoard.push(payload);
+  const newColumn = {
+    title: payload.title,
+    _id: payload._id,
+    tasks: [],
+  };
+
+  state.currentBoard.push(newColumn);
 };
 
 export const handleFulfilledAddTask = (state, { payload }) => {
-  // const index = state.currentBoard.findIndex(
-  //   state => state._id === payload.column
-  // );
-  // state.currentBoard[index].task.push(payload);
   const columnIndex = state.currentBoard.findIndex(
     column => column._id === payload.column
   );
@@ -54,9 +61,18 @@ export const handleFulfilledUpdateColumn = (state, { payload }) => {
 };
 
 export const handleFulfilledUpdateTask = (state, { payload }) => {
-  const index = state.currentBoard.findIndex(state => state.id === payload.id);
-  if (index !== -1) {
-    state.currentBoard[index].title = payload.title;
+  const columnIndex = state.currentBoard.findIndex(
+    column => column._id === payload.column
+  );
+
+  if (columnIndex !== -1) {
+    const taskIndex = state.currentBoard[columnIndex].tasks.findIndex(
+      task => task._id === payload._id
+    );
+
+    if (taskIndex !== -1) {
+      state.currentBoard[columnIndex].tasks[taskIndex] = payload;
+    }
   }
 };
 
@@ -95,4 +111,10 @@ export const handleFulfilledDeleteTask = (state, action) => {
 export const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+};
+
+export const handleRejectedGetBoardById = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+  state.currentBoard = [];
 };

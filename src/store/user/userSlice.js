@@ -1,9 +1,12 @@
 import {
+  handleFulfilledAuthRefreshUser,
   handleFulfilledUser,
   handleFulfilledUserLogOut,
   handleFulfilledUserTheme,
   handleFulfilledUserUpdate,
+  handlePendingAuthRefreshUser,
   handlePendingUser,
+  handleRejectedAuthRefreshUser,
   handleRejectedUser,
 } from './hundleReducerAuth';
 
@@ -14,6 +17,7 @@ import {
   logOut,
   updateTheme,
   updateUser,
+  refreshUser,
 } from './operationAuth';
 
 const initialState = {
@@ -21,6 +25,7 @@ const initialState = {
   token: null,
   isLoading: false,
   isLoggedIn: false,
+  isRefreshing: false,
   error: null,
 };
 
@@ -42,6 +47,9 @@ const userSlice = createSlice({
       .addCase(updateTheme.fulfilled, handleFulfilledUserTheme)
       .addCase(updateUser.fulfilled, handleFulfilledUserUpdate)
       .addCase(logOut.fulfilled, handleFulfilledUserLogOut)
+      .addCase(refreshUser.fulfilled, handleFulfilledAuthRefreshUser)
+      .addCase(refreshUser.pending, handlePendingAuthRefreshUser)
+      .addCase(refreshUser.rejected, handleRejectedAuthRefreshUser)
       .addMatcher(
         isAnyOf(...customArrStatusActions(defaultStatus.pending)),
         handlePendingUser
