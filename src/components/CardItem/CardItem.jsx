@@ -1,14 +1,12 @@
 import css from './CardItem.module.css';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
-// import { Calendar } from 'components/Calendar/Calendar';
 import { useDispatch } from 'react-redux';
 import { deleteTask, updateTaskById } from 'store/boards/operationsBoards';
-import { Calendar } from 'components/Calendar/Calendar';
 
 export const CardItem = ({ task }) => {
   const dispatch = useDispatch();
   // column;
-  const { title, description, priority, _id } = task;
+  const { title, description, priority, _id, deadline } = task;
 
   const editData = {
     _id,
@@ -43,8 +41,7 @@ export const CardItem = ({ task }) => {
           </div>
           <div>
             <h4 className={css.infoTitle}>Deadline</h4>
-            {/* <p className={css.info}>{deadline}</p> */}
-            <Calendar />
+            <p className={css.info}>{deadline}</p>
           </div>
         </div>
         <ul className={css.iconList}>

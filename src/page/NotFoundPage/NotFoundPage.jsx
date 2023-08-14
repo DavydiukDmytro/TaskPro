@@ -11,7 +11,7 @@ const NotFoundPage = () => {
       setCount(prevCount => prevCount - 1);
     }, 1000);
     if (count === 0) {
-      navigate('/');
+      navigate('/home');
     }
     return () => clearInterval(interval);
   }, [count, navigate]);
