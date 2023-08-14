@@ -1,24 +1,43 @@
+
 .filt {
-    textTransform: non;
-    display: fle;
-    gap: 8px;
-    alignItems: cente;  
-};
-.box {
+    text-transform: none;
+    padding: 0px;
+    margin: 0px;
+    hight: 20px;
+    width: 64px;
+    justify-content: center;
     display: flex;
-    justifyContent: enter;
-    alignItems: center;
-    borderRadius: 8px;
-    transition: all 250ms linear;
-    cursor: pointe;
-    &:hover: transform: scale(1.1);
-            
-};
-.svgIcon {
-    width: 14px;
-    height: 4px;
-    color: var(--primary-text-color),
+    gap: 8px;
+    align-items: center;
+    border: none; 
+    background: transparent;
+    transition: none;
+    cursor: pointer;
+    color: var(--primary-text-color);
+    &:hover {
+        transform: scale(1.1);
+    }
+
 };
 .typography {
-    color: var(--primary-text-color),
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: var(--primary-text-color);
+    
+};
+
+.box {
+ 
+    display: flex;      
+    border-radius: 8px;
+    transition: all 250ms linear;
+    
+}
+.svgIcon {
+    width: 14px;
+    height: 14px;
+    stroke: var( --primary-text-color);
+    fill: var(--primary-bg-color);
 };
