@@ -13,7 +13,6 @@ const ScreensPage = () => {
   const dispatch = useDispatch();
   const boards = useSelector(selectAllBoards);
   const board = boards.find(item => item._id === boardId);
-
   useEffect(() => {
     dispatch(getBoardByID(boardId));
   }, [boardId, dispatch]);

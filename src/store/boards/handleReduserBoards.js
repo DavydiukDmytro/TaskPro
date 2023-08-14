@@ -1,3 +1,8 @@
+export const handlePendingGetBoardId = state => {
+  state.isLoading = true;
+  state.currentBoard = [];
+};
+
 export const handlePending = state => {
   state.isLoading = true;
 };
@@ -106,4 +111,10 @@ export const handleFulfilledDeleteTask = (state, action) => {
 export const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+};
+
+export const handleRejectedGetBoardById = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+  state.currentBoard = [];
 };

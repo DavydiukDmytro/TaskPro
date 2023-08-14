@@ -11,8 +11,7 @@ export const MainDashboard = ({ id }) => {
   const board = useSelector(selectCurrentBoard);
 
   const handleAddСolumn = async () => {
-    await dispatch(addColumn({ title: 'Column5', boardId: id }));
-    console.log(board);
+    await dispatch(addColumn({ title: 'Column6', boardId: id }));
   };
 
   return (
