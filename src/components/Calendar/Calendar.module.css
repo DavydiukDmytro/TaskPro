@@ -1,15 +1,22 @@
 .datepicker {
-  color: var(--primary-text-color);
+  color: var(--accent-color);
   background-color: transparent;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 400;
   letter-spacing: -0.2px;
   text-align: start;
   border: none;
   cursor: pointer;
-  width: 53px;
-  height: 15px;
   padding-left: 0;
+}
+.datepicker::before {
+  content: 'Today, ';
+  margin-right: 2px;
+}
+.svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--accent-color);
 }
 .dateArea {
   font-size: 14px;

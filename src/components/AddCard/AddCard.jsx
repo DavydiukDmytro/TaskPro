@@ -123,8 +123,11 @@ export const AddCard = ({ handleClose, columnId }) => {
                 <span className={`${css.сustom__radio} ${css.color4}`}></span>
               </label>
             </div>
+            <p className={css.textLabel} id="my-radio-group">
+              Deadline
+            </p>
+            <Calendar />
           </div>
-          <Calendar />
           <div className={css.wrapButton}>
             <button type="submit" className={css.button}>
               <svg width="28px" height="28px" className={css.icon}>

@@ -1,6 +1,7 @@
 import React, { forwardRef, useState } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import icon1 from '../../assets/svg/symbol-defs.svg';
 import css from './Calendar.module.css';
 import enGB from 'date-fns/locale/en-GB';
 import { useFormikContext } from 'formik';
@@ -18,6 +19,9 @@ export const Calendar = () => {
       ref={ref}
     >
       {value}
+      <svg className={css.svg} width={18} height={18}>
+        <use href={icon1 + '#icon-chevron-down'} />
+      </svg>
     </button>
   ));
 
@@ -32,7 +36,7 @@ export const Calendar = () => {
       selected={startDate}
       onChange={handleDateChange}
       locale="enGB"
-      dateFormat="dd/MM/yyyy"
+      dateFormat="MMMM d"
       customInput={<CustomInput />}
       calendarClassName={css.dateArea}
       minDate={new Date()}

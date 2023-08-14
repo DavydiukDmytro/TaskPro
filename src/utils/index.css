@@ -228,6 +228,9 @@ a {
   color: transparent;
   pointer-events: none;
 }
+.react-datepicker__triangle {
+  display: none;
+}
 
 /*End Calendar castom style*/
 
