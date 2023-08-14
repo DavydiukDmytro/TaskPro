@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useThemeContext } from './ThemeProvider';
 import icon1 from '../../assets/svg/symbol-defs.svg';
 import css from './ThemeSwitcher.module.css';
@@ -11,6 +11,20 @@ export const ThemeSwitcher = () => {
   const [activeTheme, setActiveTheme] = useState(userTheme);
   const { handleThemeChange } = useThemeContext();
   const themes = ['light', 'dark', 'violet'];
+
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (!event.target.closest(`.${css.dropdown}`)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
     <div className={css.dropdown}>
