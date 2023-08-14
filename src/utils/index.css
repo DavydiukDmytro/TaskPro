@@ -183,8 +183,6 @@ a {
   display: flex;
 }
 .react-datepicker {
-  /* width: 233px;
-  height: 254px; */
   padding: 18px 20px;
 }
 .react-datepicker__header,
