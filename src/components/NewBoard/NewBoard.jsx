@@ -4,6 +4,11 @@ import { useFormik } from 'formik';
 import { backgroundOptions, iconArr } from './option';
 import { useDispatch } from 'react-redux';
 import { addBoard, updateBoard } from 'store/boards/operationsBoards';
+import {
+  boardEditSchema,
+  boardSchema,
+} from '../../utils/validation/boardSchema';
+
 export const NewBoard = ({
   handleClose,
   edit = false,
@@ -13,12 +18,15 @@ export const NewBoard = ({
   id,
 }) => {
   const dispatch = useDispatch();
+  let validate;
+  edit ? (validate = boardEditSchema) : (validate = boardSchema);
   const formik = useFormik({
     initialValues: {
       title,
       icon,
       background,
     },
+    validate,
     onSubmit: values => {
       edit
         ? dispatch(updateBoard({ _id: id, ...values }))
