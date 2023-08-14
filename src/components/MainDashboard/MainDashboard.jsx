@@ -10,19 +10,23 @@ export const MainDashboard = ({ id }) => {
   const dispatch = useDispatch();
   const board = useSelector(selectCurrentBoard);
 
+  console.log(board);
+
   const handleAddСolumn = async () => {
     await dispatch(addColumn({ title: 'Column6', boardId: id }));
   };
 
   return (
     <div className={css.board}>
-      <ul className={css.columnList}>
-        {board.map(column => (
-          <li key={column._id}>
-            <CardSection column={column} />
-          </li>
-        ))}
-      </ul>
+      {board.length > 0 && (
+        <ul className={css.columnList}>
+          {board.map(column => (
+            <li key={column._id}>
+              <CardSection column={column} />
+            </li>
+          ))}
+        </ul>
+      )}
 
       <div className={css.columnButton}>
         <Button
