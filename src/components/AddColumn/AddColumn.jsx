@@ -1,69 +1,67 @@
 import { Formik, Form } from 'formik';
+import { useDispatch } from 'react-redux';
+import { addColumn } from 'store/boards/operationsBoards';
 import { object, string } from 'yup';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
 import css from './AddColumn.module.css';
 
-const initialValues = {
-  title: '',
-};
+export const AddColumn = ({ handleClose, boardId }) => {
+  const dispath = useDispatch();
+  const initialValues = {
+    title: '',
+  };
 
-const schema = object({
-  title: string().trim().required('Required'),
-});
+  const schema = object({
+    title: string().trim().required('Required'),
+  });
 
-export const AddColumn = () => {
   const handleSubmit = async (values, { resetForm }) => {
+    dispath(addColumn({ boardId: boardId, ...values }));
+    handleClose();
     resetForm();
   };
 
   return (
-    <div className={css.wrapper}>
-      <button className={css.buttonClose}>
-        <svg width={18} height={18}>
-          <use className={css.svg} href={svgSprite + '#icon-x-close'} />
-        </svg>
-      </button>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validationSchema={schema}
-        validateOnBlur
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-        }) => (
-          <Form className={css.form}>
-            <div className={css.form__field}>
-              <p className={css.text}>Add column</p>
-              <input
-                className={css.form__input}
-                autoComplete="title"
-                placeholder="Tittle"
-                type="text"
-                name="title"
-                onChange={handleChange}
-                value={values.title}
-              />
-              {touched.title && errors.title && (
-                <p className={css.form__error}>{errors.title}</p>
-              )}
-            </div>
-            <div className={css.wrapButton}>
-              <button type="submit" className={css.button}>
-                <svg width="28px" height="28px" className={css.icon}>
-                  <use href={svgSprite + '#icon-plus'} />
-                </svg>
-                Add
-              </button>
-            </div>
-          </Form>
-        )}
-      </Formik>
-    </div>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+      validationSchema={schema}
+      validateOnBlur
+    >
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+      }) => (
+        <Form className={css.form}>
+          <div className={css.form__field}>
+            <p className={css.text}>Add column</p>
+            <input
+              className={css.form__input}
+              autoComplete="title"
+              placeholder="Tittle"
+              type="text"
+              name="title"
+              onChange={handleChange}
+              value={values.title}
+            />
+            {touched.title && errors.title && (
+              <p className={css.form__error}>{errors.title}</p>
+            )}
+          </div>
+          <div className={css.wrapButton}>
+            <button type="submit" className={css.button}>
+              <svg width="28px" height="28px" className={css.icon}>
+                <use href={svgSprite + '#icon-plus'} />
+              </svg>
+              Add
+            </button>
+          </div>
+        </Form>
+      )}
+    </Formik>
   );
 };
