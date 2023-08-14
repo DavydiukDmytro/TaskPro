@@ -26,7 +26,7 @@ const ScreensPage = () => {
   return (
     <>
       {board && (
-        <Background>
+        <Background img={board.background}>
           <HeaderDashboard title={board.title} />
           <MainDashboard id={board._id} />
         </Background>

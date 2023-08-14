@@ -4,7 +4,6 @@ import { useFormik } from 'formik';
 import { backgroundOptions, iconArr } from './option';
 import { useDispatch } from 'react-redux';
 import { addBoard, updateBoard } from 'store/boards/operationsBoards';
-
 export const NewBoard = ({
   handleClose,
   edit = false,
@@ -42,10 +41,10 @@ export const NewBoard = ({
             value={formik.values.title}
           />
         </label>
-        
+
         <div className={css.iconWrapper}>
-        <p className={css.iconsTitle}>Icons</p>
-        {/* <div className={css.radioBlock_1}> */}
+          <p className={css.iconsTitle}>Icons</p>
+          {/* <div className={css.radioBlock_1}> */}
           {Object.values(iconArr).map(icon => (
             <label className={css.radioBlock_1} key={icon}>
               <input
@@ -63,32 +62,32 @@ export const NewBoard = ({
               </svg>
             </label>
           ))}
-        {/* </div> */}
+          {/* </div> */}
         </div>
 
-        <div className={css.bgLabel} > 
-        <p className={css.iconsTitle}>Background</p>
-        <div className={css.radioBlock_2}>
-          {backgroundOptions.map(option => (
-            <label key={option.value}>
-              <input
-                className={css.iconsType}
-                name="background"
-                type="radio"
-                value={option.value}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                checked={formik.values.background === option.value}
-              />
-              <img
-                className={css.imgStyle}
-                src={option.image}
-                alt={option.label}
-              />
-            </label>
-          ))}
+        <div className={css.bgLabel}>
+          <p className={css.iconsTitle}>Background</p>
+          <div className={css.radioBlock_2}>
+            {backgroundOptions.map(option => (
+              <label key={option.value}>
+                <input
+                  className={css.iconsType}
+                  name="background"
+                  type="radio"
+                  value={option.value}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  checked={formik.values.background === option.value}
+                />
+                <img
+                  className={css.imgStyle}
+                  src={option.image}
+                  alt={option.label}
+                />
+              </label>
+            ))}
+          </div>
         </div>
-        </div> 
 
         <button className={css.formButton} type="submit">
           <svg width="28px" height="28px" className={css.buttonIcon}>

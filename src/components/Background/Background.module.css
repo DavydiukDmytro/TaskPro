@@ -1,4 +1,6 @@
 .main {
+  background-size: cover;
+  background-repeat: no-repeat;
   height: calc(100vh - 60px);
   background-color: var(--avatar-bg-color);
 }
@@ -11,6 +13,6 @@
 
 @media screen and (min-width: 1440px) {
   .main {
-   padding-left: 260px;
+    padding-left: 260px;
   }
 }
