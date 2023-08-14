@@ -1,10 +1,11 @@
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
 import { ThemeProvider } from '../ThemeSwitcher/ThemeProvider';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { NotFoundPage } from '../../page/NotFoundPage';
 import { SharedLayoutStart } from '../SharedLayoutStart';
 import { Home } from 'page/Home';
 import { PublicRoute } from 'components/PublicRoute/PublicRoute';
@@ -58,8 +59,7 @@ export const App = () => {
           <Route path=":boardId" element={<ScreensPage />} />
           <Route index element={<BlankPage />} />
         </Route>
-
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <ToastContainer
         position="top-right"
