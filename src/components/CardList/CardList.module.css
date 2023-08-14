@@ -1,27 +1,20 @@
 .list {
-  width: fit-content; /* Ширина по содержимому */
+  width: fit-content;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-height: calc(100vh - 322px);
+  height: calc(100vh - 322px);
   overflow: auto;
   overflow-x: none;
   box-sizing: border-box;
-  padding-right: 4px;
   margin-bottom: 14px;
 }
 
 @media screen and (min-width: 768px) {
   .list {
-    max-height: calc(100vh - 358px);
+    height: calc(100vh - 358px);
   }
 }
-
-/* @media screen and (min-width: 1440px) {
-  .list {
-  max-height: calc(100vh - 200px);
-  }
-} */
 
 .list::-webkit-scrollbar {
   width: 8px;

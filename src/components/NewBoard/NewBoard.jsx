@@ -77,9 +77,9 @@ export const NewBoard = ({
           <p className={css.iconsTitle}>Background</p>
           <div className={css.radioBlock_2}>
             {backgroundOptions.map(option => (
-              <label key={option.value}>
+              <label key={option.value} className={css.imgWrapp}>
                 <input
-                  className={css.iconsType}
+                  className={`${css.iconsType} ${css.imgStyle}`}
                   name="background"
                   type="radio"
                   value={option.value}

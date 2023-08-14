@@ -16,8 +16,9 @@ export const MainDashboard = ({ id }) => {
   };
 
   return (
-    <>
-      <div className={css.board}>
+ <>
+    <div className={css.board}>
+      {board.length > 0 && (
         <ul className={css.columnList}>
           {board.map(column => (
             <li key={column._id}>
@@ -25,6 +26,7 @@ export const MainDashboard = ({ id }) => {
             </li>
           ))}
         </ul>
+      )}
 
         <div className={css.columnButton}>
           <Button
