@@ -11,9 +11,8 @@
   display: flex;
   align-items: center;
 }
-.datepicker::before {
-  content: 'Today, ';
-  margin-right: 2px;
+.datepicker span {
+  margin-right: 8px;
 }
 .svg {
   width: 18px;
