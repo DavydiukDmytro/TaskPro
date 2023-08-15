@@ -24,9 +24,10 @@ export const CardItem = ({ task }) => {
     dispatch(deleteTask(_id));
   };
 
-  // console.log("task:", task);
+    const priorityClass =css[priority];
+
   return (
-    <li className={css.card}>
+    <li className={`${css.card} ${priorityClass}`}>
       <h3 className={css.title}>{title}</h3>
       <p className={css.text}>{description}</p>
 
@@ -35,8 +36,10 @@ export const CardItem = ({ task }) => {
           <div>
             <h4 className={css.infoTitle}>Priority</h4>
             <div className={css.priority}>
-              <div className={css.circle}></div>
-              <p className={css.info}>{priority}</p>
+              <div className={`${css.circle} ${priorityClass}`}></div>
+              <p className={css.info}>
+                {priority === 'none' ? 'Without' : priority}
+              </p>
             </div>
           </div>
           <div>
