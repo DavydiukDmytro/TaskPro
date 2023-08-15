@@ -5,7 +5,6 @@ import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// import { NotFoundPage } from '../../page/NotFoundPage';
 import { SharedLayoutStart } from '../SharedLayoutStart';
 import { Home } from 'page/Home';
 import { PublicRoute } from 'components/PublicRoute/PublicRoute';
