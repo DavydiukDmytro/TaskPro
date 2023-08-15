@@ -24,7 +24,7 @@ export const CardItem = ({ task }) => {
     dispatch(deleteTask(_id));
   };
 
-    const priorityClass =css[priority];
+  const priorityClass = css[priority];
 
   return (
     <li className={`${css.card} ${priorityClass}`}>
