@@ -28,7 +28,6 @@ export const CardItem = ({ task }) => {
 
   const date = new Date();
   const formattedDate = format(date, 'dd/MM/yyyy');
-  console.log(formattedDate);
 
   return (
     <li className={`${css.card} ${priorityClass}`}>
