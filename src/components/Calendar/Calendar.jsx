@@ -1,6 +1,7 @@
 import React, { forwardRef, useState } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import icon1 from '../../assets/svg/symbol-defs.svg';
 import css from './Calendar.module.css';
 import enGB from 'date-fns/locale/en-GB';
 import { useFormikContext } from 'formik';
@@ -10,6 +11,7 @@ registerLocale('enGB', enGB);
 export const Calendar = () => {
   const { setFieldValue } = useFormikContext();
   const [startDate, setStartDate] = useState(new Date());
+  const [isOpen, setIsOpen] = useState(false);
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <button
       type={'button'}
@@ -18,6 +20,15 @@ export const Calendar = () => {
       ref={ref}
     >
       {value}
+      {!isOpen ? (
+        <svg className={css.svg} width={18} height={18}>
+          <use href={icon1 + '#icon-chevron-down'} />
+        </svg>
+      ) : (
+        <svg className={css.svg1} width={18} height={18}>
+          <use href={icon1 + '#icon-chevron-up'} />
+        </svg>
+      )}
     </button>
   ));
 
@@ -32,10 +43,12 @@ export const Calendar = () => {
       selected={startDate}
       onChange={handleDateChange}
       locale="enGB"
-      dateFormat="dd/MM/yyyy"
+      dateFormat="MMMM d"
       customInput={<CustomInput />}
       calendarClassName={css.dateArea}
       minDate={new Date()}
+      onCalendarOpen={() => setIsOpen(true)}
+      onCalendarClose={() => setIsOpen(false)}
     />
   );
 };

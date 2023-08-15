@@ -178,55 +178,63 @@ a {
 
 /*Calendar castom style*/
 
-.react-datepicker__input-container,
+.react-datepicker-popper[data-placement^='top']
+  .react-datepicker__input-container,
 .react-datepicker-wrapper {
   display: flex;
 }
-.react-datepicker {
+.react-datepicker-popper[data-placement^='top'] .react-datepicker {
   padding: 18px 20px;
 }
-.react-datepicker__header,
-.react-datepicker__month,
-.react-datepicker__day,
-.react-datepicker__current-month,
-.react-datepicker__day-name {
+.react-datepicker-popper[data-placement^='top'] .react-datepicker__header,
+.react-datepicker-popper[data-placement^='top'] .react-datepicker__month,
+.react-datepicker-popper[data-placement^='top'] .react-datepicker__day,
+.react-datepicker-popper[data-placement^='top']
+  .react-datepicker__current-month,
+.react-datepicker-popper[data-placement^='top'] .react-datepicker__day-name {
   background-color: var(--bg-button);
   color: var(--primary-text-color);
 }
-.react-datepicker {
+.react-datepicker-popper[data-placement^='top'] .react-datepicker {
   border: 1px solid var(--accent-color);
   border-radius: 8px;
 }
-.react-datepicker__current-month {
+.react-datepicker-popper[data-placement^='top']
+  .react-datepicker__current-month {
   margin-bottom: 14px;
 }
-.react-datepicker__day,
-.react-datepicker__day-name {
+.react-datepicker-popper[data-placement^='top'] .react-datepicker__day,
+.react-datepicker-popper[data-placement^='top'] .react-datepicker__day-name {
   width: 22px;
   height: 22px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-.react-datepicker__header {
+.react-datepicker-popper[data-placement^='top'] .react-datepicker__header {
   background-color: transparent;
 }
-.react-datepicker__day--disabled {
+.react-datepicker-popper[data-placement^='top']
+  .react-datepicker__day--disabled {
   color: var(--priority-default);
 }
-.react-datepicker__day:hover {
+.react-datepicker-popper[data-placement^='top'] .react-datepicker__day:hover {
   background-color: var(--accent-color);
   color: var(--blank-page-bg);
   border-radius: 50%;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.react-datepicker-popper {
+.react-datepicker-popper[data-placement^='top'] .react-datepicker-popper {
   transition: position 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.react-datepicker__day--outside-month {
+.react-datepicker-popper[data-placement^='top']
+  .react-datepicker__day--outside-month {
   color: transparent;
   pointer-events: none;
+}
+.react-datepicker-popper[data-placement^='top'] .react-datepicker__triangle {
+  display: none;
 }
 
 /*End Calendar castom style*/

@@ -77,7 +77,7 @@
   font-size: 12px;
   font-weight: 400;
   letter-spacing: -0.2px;
-  color: var(--primary-text-color);
+  color: var(--blank-page-text);
   padding-top: 10px;
   padding-bottom: 8px;
 }
