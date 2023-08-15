@@ -6,9 +6,11 @@ import { useState } from 'react';
 import { Modal } from 'components/Modal';
 import { NewBoard } from 'components/NewBoard';
 import { useDispatch } from 'react-redux';
+import { Delete } from 'components/Delete';
 
 export const BoardItem = ({ board }) => {
   const [isEditBoard, setIsEditBoard] = useState(false);
+  const [isDelete, setIsDelete] = useState(false);
   const { _id, icon, title, background } = board;
   const dispatch = useDispatch();
 
@@ -31,7 +33,7 @@ export const BoardItem = ({ board }) => {
           <svg width={16} height={16} stroke="currentColor" className={css.svg}>
             <use href={sprite + `#icon-${icon}`} />
           </svg>
-          <p  className={css.title}>{title}</p>
+          <p className={css.title}>{title}</p>
         </div>
 
         <div className={css.wrapper}>
@@ -40,13 +42,24 @@ export const BoardItem = ({ board }) => {
               <use href={sprite + '#icon-pencil'} />
             </svg>
           </button>
-          <button className={css.button} onClick={() => handleDeleteBoard(_id)}>
+          <button className={css.button} onClick={() => setIsDelete(true)}>
             <svg width={16} height={16} stroke="currentColor">
               <use href={sprite + '#icon-trash-04'} />
             </svg>
           </button>
         </div>
       </NavLink>
+      {isDelete && (
+        <Modal>
+          <Delete
+            handleClose={() => setIsDelete(false)}
+            handleDelete={() => handleDeleteBoard(_id)}
+            text={
+              'You really want to remove the board with all the columns and cards?'
+            }
+          />
+        </Modal>
+      )}
       {isEditBoard && (
         <Modal
           handleClose={() => {

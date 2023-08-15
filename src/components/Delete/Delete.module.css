@@ -1,0 +1,32 @@
+.text {
+  color: var(--primary-text-color);
+}
+
+.wraperr {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cancel {
+  background-color: #cccccc;
+  color: #333333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: #aaaaaa;
+  }
+}
+.delete {
+  background-color: #ff4444;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: #ff0000;
+  }
+}

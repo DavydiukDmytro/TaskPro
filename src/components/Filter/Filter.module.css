@@ -47,9 +47,7 @@
 .act {
   color: var(--accent-color);
 }
-.text::first-letter {
-  text-transform: uppercase;
-}
+
 .priority.active {
   color: var(--blank-page-text);
 }
@@ -74,6 +72,10 @@
 }
 
 .priority:hover .circle {
+  border: 1px solid var(--primary-text-color);
+}
+
+.actCircle {
   border: 1px solid var(--primary-text-color);
 }
 
