@@ -2,7 +2,7 @@ import { Calendar } from 'components/Calendar/Calendar';
 import { format } from 'date-fns';
 import { Formik, Field, Form } from 'formik';
 import { useDispatch } from 'react-redux';
-import { addTask } from 'store/boards/operationsBoards';
+import { addTask, updateTaskById } from 'store/boards/operationsBoards';
 // import { useDispatch } from 'react-redux';
 // import {AddCard  } from '...';
 // import {CanedarValue } from '...';
@@ -10,12 +10,6 @@ import { object, string } from 'yup';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
 import css from './AddCard.module.css';
 
-const initialValuesForm = {
-  title: '',
-  description: '',
-  priority: 'none',
-  deadline: format(new Date(), 'dd/MM/yyyy'),
-};
 const schema = object({
   title: string().trim().required('Required'),
   description: string().trim().required('Required'),
@@ -23,13 +17,23 @@ const schema = object({
   deadline: string().trim().required('Required'),
 });
 
-export const AddCard = ({ handleClose, columnId }) => {
+export const AddCard = ({ edit = false, handleClose, columnId }) => {
   const dispatch = useDispatch();
   const handleSubmit = async (values, { resetForm }) => {
-    console.log(values);
-    await dispatch(addTask({ columnId, ...values }));
+    if (edit) {
+      dispatch(updateTaskById({ _id: edit._id, ...values }));
+    } else {
+      dispatch(addTask({ columnId, ...values }));
+    }
     handleClose();
     resetForm();
+  };
+
+  const initialValuesForm = {
+    title: edit ? edit.title : '',
+    description: edit ? edit.description : '',
+    priority: edit ? edit.priority : 'none',
+    deadline: edit ? edit.deadline : format(new Date(), 'dd/MM/yyyy'),
   };
 
   return (
@@ -51,7 +55,7 @@ export const AddCard = ({ handleClose, columnId }) => {
       }) => (
         <Form className={css.form}>
           <div className={css.form__field}>
-            <p className={css.text}>Add Card</p>
+            <p className={css.text}>{edit ? 'Edit Card' : 'Add Card'}</p>
             <input
               className={css.form__input}
               autoComplete="title"
@@ -74,10 +78,10 @@ export const AddCard = ({ handleClose, columnId }) => {
               name="description"
               onChange={handleChange}
               onBlur={handleBlur}
-              value={values.textarea}
+              value={values.description}
             />
-            {touched.textarea && errors.textarea && (
-              <p className={css.form__error}>{errors.textarea}</p>
+            {touched.description && errors.description && (
+              <p className={css.form__error}>{errors.description}</p>
             )}
           </div>
           <div className={css.wrap}>
@@ -133,7 +137,7 @@ export const AddCard = ({ handleClose, columnId }) => {
               <svg width="28px" height="28px" className={css.icon}>
                 <use href={svgSprite + '#icon-plus'} />
               </svg>
-              Add
+              {edit ? 'Edit' : 'Add'}
             </button>
           </div>
         </Form>

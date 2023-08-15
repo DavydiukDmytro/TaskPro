@@ -1,23 +1,18 @@
 import css from './CardItem.module.css';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
-import { deleteTask, updateTaskById } from 'store/boards/operationsBoards';
+import { deleteTask } from 'store/boards/operationsBoards';
+import { useState } from 'react';
+import { Modal } from 'components/Modal';
+import { AddCard } from 'components/AddCard';
 
 export const CardItem = ({ task }) => {
+  const [isOpenModalEdit, setIsOpenModalEdit] = useState(false);
   const dispatch = useDispatch();
-  // column;
-  const { title, description, priority, _id, deadline } = task;
-
-  const editData = {
-    _id,
-    title: 'task8',
-    description:
-      'skdu7gvbiw hgfu6 vjkyhrui6 futrrkjdf guyt ftudryw guytiumkhiy bjhfsd cfgdrt  vdhge vhfdyte  cfdre vhgrjht xfgsgt',
-    priority: 'low',
-  };
+  const { title, description, priority, _id, deadline, column } = task;
 
   const handleEditTask = () => {
-    dispatch(updateTaskById(editData));
+    setIsOpenModalEdit(true);
   };
 
   const handleDeleteTask = () => {
@@ -75,6 +70,21 @@ export const CardItem = ({ task }) => {
           </li>
         </ul>
       </div>
+      {isOpenModalEdit && (
+        <Modal
+          handleClose={() => {
+            setIsOpenModalEdit(false);
+          }}
+        >
+          <AddCard
+            handleClose={() => {
+              setIsOpenModalEdit(false);
+            }}
+            columnId={column}
+            edit={task}
+          />
+        </Modal>
+      )}
     </li>
   );
 };
