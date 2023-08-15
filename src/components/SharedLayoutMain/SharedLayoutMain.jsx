@@ -1,3 +1,4 @@
+import { Loader } from 'components/Loader';
 import { ThemeSwitcher } from 'components/ThemeSwitcher/ThemeSwitcher';
 import { UserInfo } from 'components/UserInfo';
 import { Suspense } from 'react';
@@ -12,7 +13,7 @@ const SharedLayoutMain = () => {
         <UserInfo />
       </header>
       <main>
-        <Suspense fallback={<p>DDDD</p>}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </main>
