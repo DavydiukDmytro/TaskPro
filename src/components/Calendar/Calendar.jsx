@@ -5,13 +5,14 @@ import icon1 from '../../assets/svg/symbol-defs.svg';
 import css from './Calendar.module.css';
 import enGB from 'date-fns/locale/en-GB';
 import { useFormikContext } from 'formik';
-import { format } from 'date-fns';
+import { format, isToday } from 'date-fns';
 registerLocale('enGB', enGB);
 
 export const Calendar = () => {
   const { setFieldValue } = useFormikContext();
   const [startDate, setStartDate] = useState(new Date());
   const [isOpen, setIsOpen] = useState(false);
+  const isTodayDate = isToday(startDate);
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <button
       type={'button'}
@@ -19,6 +20,7 @@ export const Calendar = () => {
       onClick={onClick}
       ref={ref}
     >
+      {isTodayDate ? <span>Today, </span> : null}
       {value}
       {!isOpen ? (
         <svg className={css.svg} width={18} height={18}>
