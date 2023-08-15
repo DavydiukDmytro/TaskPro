@@ -13,7 +13,8 @@
   content: 'Today, ';
   margin-right: 2px;
 }
-.svg {
+.svg,
+.svg1 {
   width: 18px;
   height: 18px;
   fill: var(--accent-color);

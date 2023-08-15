@@ -11,6 +11,7 @@ registerLocale('enGB', enGB);
 export const Calendar = () => {
   const { setFieldValue } = useFormikContext();
   const [startDate, setStartDate] = useState(new Date());
+  const [isOpen, setIsOpen] = useState(false);
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <button
       type={'button'}
@@ -19,9 +20,15 @@ export const Calendar = () => {
       ref={ref}
     >
       {value}
-      <svg className={css.svg} width={18} height={18}>
-        <use href={icon1 + '#icon-chevron-down'} />
-      </svg>
+      {!isOpen ? (
+        <svg className={css.svg} width={18} height={18}>
+          <use href={icon1 + '#icon-chevron-down'} />
+        </svg>
+      ) : (
+        <svg className={css.svg1} width={18} height={18}>
+          <use href={icon1 + '#icon-chevron-up'} />
+        </svg>
+      )}
     </button>
   ));
 
@@ -40,6 +47,8 @@ export const Calendar = () => {
       customInput={<CustomInput />}
       calendarClassName={css.dateArea}
       minDate={new Date()}
+      onCalendarOpen={() => setIsOpen(true)}
+      onCalendarClose={() => setIsOpen(false)}
     />
   );
 };
