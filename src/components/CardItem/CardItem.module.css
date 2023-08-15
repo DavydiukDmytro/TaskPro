@@ -2,9 +2,22 @@
   border-radius: 8px;
   background-color: var(--bg-button);
   padding: 14px 18px 14px 24px;
-  border-left: 4px solid var(--priority-default);
   width: 335px;
   box-sizing: border-box;
+}
+.card.none {
+  border-left: 4px solid var(--priority-default);
+}
+.card.low {
+  border-left: 4px solid #8fa1d0;
+}
+
+.card.medium {
+  border-left: 4px solid #e09cb5;
+}
+
+.card.high {
+  border-left: 4px solid #bedbb0;
 }
 
 .title {
@@ -57,7 +70,22 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
+}
+
+.circle.none {
   background-color: var(--priority-default);
+}
+
+.circle.low {
+  background-color: #8fa1d0;
+}
+
+.circle.medium {
+  background-color: #e09cb5;
+}
+
+.circle.high {
+  background-color: #bedbb0;
 }
 
 .infoTitle {
@@ -75,7 +103,9 @@
   font-weight: 400;
   letter-spacing: -0.2px;
 }
-
+.info::first-letter {
+  text-transform: uppercase;
+}
 .iconList {
   display: flex;
   gap: 8px;
