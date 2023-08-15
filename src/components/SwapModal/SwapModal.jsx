@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { swapTaskById } from 'store/boards/operationsBoards';
 import { selectCurrentBoard } from 'store/boards/selectorsBoards';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
+import css from './SwapModal.module.css';
 
 export const SwapModal = ({ handleClose, columnId, taskId }) => {
   const board = useSelector(selectCurrentBoard);
@@ -13,17 +14,19 @@ export const SwapModal = ({ handleClose, columnId, taskId }) => {
 
   return (
     <>
-      {board.map(column => (
-        <button
-          className={columnId === column._id ? 'active' : ''}
-          onClick={() => handleSwap(column._id)}
-        >
-          {column.title}
-          <svg width={16} height={16} stroke="currentColor">
-            <use href={svgSprite + '#icon-arrow-circle-broken-right'} />
-          </svg>
-        </button>
-      ))}
+      <div className={css.container}>
+        {board.map(column => (
+          <button
+            className={columnId === column._id ? css.active : css.button}
+            onClick={() => handleSwap(column._id)}
+          >
+            <span className={css.text}> {column.title}</span>
+            <svg width={16} height={16} className={css.svg}>
+              <use href={svgSprite + '#icon-arrow-circle-broken-right'} />
+            </svg>
+          </button>
+        ))}
+      </div>
     </>
   );
 };
