@@ -49,7 +49,9 @@
   gap: 4px;
   background-color: var(--primary-bg-color);
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--accent-color);
+
+  z-index: 10;
 }
 
 .close {
