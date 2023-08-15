@@ -73,6 +73,10 @@
   margin-right: 8px;
 }
 
+.priority:hover .circle {
+  border: 1px solid var(--primary-text-color);
+}
+
 .none {
   background-color: var(--priority-default);
 }

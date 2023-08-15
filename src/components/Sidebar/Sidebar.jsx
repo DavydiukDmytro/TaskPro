@@ -13,7 +13,7 @@ export const Sidebar = () => {
   const toggleSidebar = e => {
     const data = e.target.getAttribute('data-action');
     if (!data) return;
-     setSidebarVisible(!isSidebarVisible);
+    setSidebarVisible(!isSidebarVisible);
   };
 
   return (
@@ -27,7 +27,7 @@ export const Sidebar = () => {
             className={css.icon}
             data-action
           >
-            <use href={svgSprite + '#icon-menu'} />
+            <use href={svgSprite + '#icon-menu'} data-action />
           </svg>
         </button>
       )}
