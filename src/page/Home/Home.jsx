@@ -5,6 +5,7 @@ import { Header } from 'components/Header/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBoards } from 'store/boards/operationsBoards';
 import { selectAllBoards } from 'store/boards/selectorsBoards';
+import { Loader } from 'components/Loader';
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ export const Home = () => {
     <>
       <Header />
       <Sidebar />
-      <Suspense fallback={<p>DDDD</p>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </>
