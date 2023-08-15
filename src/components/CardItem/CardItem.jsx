@@ -53,8 +53,8 @@ export const CardItem = ({ task }) => {
         <ul className={css.iconList}>
           {formattedDate === deadline && (
             <li>
-              <button className={css.button}>
-                <svg width={16} height={16} stroke="var( --accent-color)">
+              <button className={css.light}>
+                <svg width={16} height={16} stroke="var(--accent-color)">
                   <use href={svgSprite + '#icon-bell'} />
                 </svg>
               </button>
