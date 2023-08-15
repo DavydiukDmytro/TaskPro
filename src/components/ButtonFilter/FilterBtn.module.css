@@ -34,7 +34,7 @@
   width: 14px;
   height: 14px;
   stroke: var(--primary-text-color);
-  fill: var(--primary-bg-color);
+  fill: transparent;
 }
 
 .wrapperPriopity {
