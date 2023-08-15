@@ -37,8 +37,8 @@ export const EditColumn = ({ handleClose, id, title = '' }) => {
         handleSubmit,
       }) => (
         <Form className={css.form}>
+          <p className={css.text}>Edit column</p>
           <div className={css.form__field}>
-            <p className={css.text}>Edit column</p>
             <input
               className={css.form__input}
               autoComplete="title"
@@ -52,14 +52,14 @@ export const EditColumn = ({ handleClose, id, title = '' }) => {
               <p className={css.form__error}>{errors.title}</p>
             )}
           </div>
-          <div className={css.wrapButton}>
-            <button type="submit" className={css.button}>
-              <svg width="28px" height="28px" className={css.icon}>
-                <use href={svgSprite + '#icon-plus'} />
-              </svg>
-              Edit
-            </button>
-          </div>
+          {/* <div className={css.wrapButton}> */}
+          <button type="submit" className={css.button}>
+            <svg width="28px" height="28px" className={css.icon}>
+              <use href={svgSprite + '#icon-plus'} />
+            </svg>
+            Edit
+          </button>
+          {/* </div> */}
         </Form>
       )}
     </Formik>

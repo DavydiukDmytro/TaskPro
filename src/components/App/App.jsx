@@ -5,7 +5,6 @@ import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { NotFoundPage } from '../../page/NotFoundPage';
 import { SharedLayoutStart } from '../SharedLayoutStart';
 import { Home } from 'page/Home';
 import { PublicRoute } from 'components/PublicRoute/PublicRoute';
@@ -19,6 +18,7 @@ const RegistrationForm = lazy(() => import('../RegisterForm/RegistrationForm'));
 const LoginForm = lazy(() => import('../LoginForm/LoginForm'));
 const ScreensPage = lazy(() => import('../../page/ScreensPage/ScreensPage'));
 const BlankPage = lazy(() => import('../../page/BlankPage/BlankPage'));
+const NotFoundPage = lazy(() => import('../../page/NotFoundPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
