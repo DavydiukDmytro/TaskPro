@@ -76,6 +76,20 @@ export const handleFulfilledUpdateTask = (state, { payload }) => {
   }
 };
 
+export const handleFulfilledSwapTask = (state, { payload, meta }) => {
+  const columnIndex = state.currentBoard.findIndex(
+    column => column._id === payload.column
+  );
+  state.currentBoard[columnIndex].tasks.push(payload);
+  const oldColumnIndex = state.currentBoard.findIndex(
+    column => column._id === meta.arg.oldColumn
+  );
+  const taskIndex = state.currentBoard[oldColumnIndex].tasks.findIndex(
+    task => task._id === payload._id
+  );
+  state.currentBoard[oldColumnIndex].tasks.splice(taskIndex, 1);
+};
+
 export const handleFulfilledDelete = (state, action) => {
   const deletedId = action.meta.arg;
   const updatedItems = state.items.filter(item => item._id !== deletedId);

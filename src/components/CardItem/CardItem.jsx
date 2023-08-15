@@ -1,13 +1,17 @@
 import css from './CardItem.module.css';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteTask } from 'store/boards/operationsBoards';
 import { useState } from 'react';
 import { Modal } from 'components/Modal';
 import { AddCard } from 'components/AddCard';
+import { SwapModal } from 'components/SwapModal';
+import { selectCurrentBoard } from 'store/boards/selectorsBoards';
 
 export const CardItem = ({ task }) => {
+  const board = useSelector(selectCurrentBoard);
   const [isOpenModalEdit, setIsOpenModalEdit] = useState(false);
+  const [isOpenModalSwap, setIsOpenModalSwap] = useState(false);
   const dispatch = useDispatch();
   const { title, description, priority, _id, deadline, column } = task;
 
@@ -51,7 +55,15 @@ export const CardItem = ({ task }) => {
             </button>
           </li>
           <li>
-            <button className={css.button}>
+            <button
+              className={css.button}
+              onClick={() => {
+                if (board.length < 2) {
+                  return;
+                }
+                setIsOpenModalSwap(true);
+              }}
+            >
               <svg width={16} height={16} stroke="currentColor">
                 <use href={svgSprite + '#icon-arrow-circle-broken-right'} />
               </svg>
@@ -73,6 +85,21 @@ export const CardItem = ({ task }) => {
           </li>
         </ul>
       </div>
+      {isOpenModalSwap && (
+        <Modal
+          handleClose={() => {
+            setIsOpenModalSwap(false);
+          }}
+        >
+          <SwapModal
+            columnId={column}
+            taskId={_id}
+            handleClose={() => {
+              setIsOpenModalSwap(false);
+            }}
+          />
+        </Modal>
+      )}
       {isOpenModalEdit && (
         <Modal
           handleClose={() => {

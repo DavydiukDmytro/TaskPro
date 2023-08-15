@@ -11,6 +11,7 @@ import {
   deleteBoard,
   deleteColumn,
   deleteTask,
+  swapTaskById,
 } from './operationsBoards';
 
 import {
@@ -30,6 +31,7 @@ import {
   handleRejected,
   handleRejectedGetBoardById,
   handlePendingGetBoardId,
+  handleFulfilledSwapTask,
 } from './handleReduserBoards';
 
 export const initialBoards = {
@@ -40,6 +42,7 @@ export const initialBoards = {
 };
 
 const arrThunks = [
+  swapTaskById,
   getAllBoards,
   addBoard,
   addColumn,
@@ -67,6 +70,7 @@ const boardsSlice = createSlice({
       .addCase(updateBoard.fulfilled, handleFulfilledUpdate)
       .addCase(updateColumnById.fulfilled, handleFulfilledUpdateColumn)
       .addCase(updateTaskById.fulfilled, handleFulfilledUpdateTask)
+      .addCase(swapTaskById.fulfilled, handleFulfilledSwapTask)
       .addCase(deleteBoard.fulfilled, handleFulfilledDelete)
       .addCase(deleteColumn.fulfilled, handleFulfilledDeleteColumn)
       .addCase(deleteTask.fulfilled, handleFulfilledDeleteTask)
