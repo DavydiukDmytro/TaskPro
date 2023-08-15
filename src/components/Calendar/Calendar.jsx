@@ -8,9 +8,21 @@ import { useFormikContext } from 'formik';
 import { format, isToday } from 'date-fns';
 registerLocale('enGB', enGB);
 
-export const Calendar = () => {
+export const Calendar = ({ editDate }) => {
+  let formattedDate = false;
+  if (editDate) {
+    const dateComponents = editDate.split('/');
+
+    const day = parseInt(dateComponents[0], 10);
+    const month = parseInt(dateComponents[1], 10) - 1;
+    const year = parseInt(dateComponents[2], 10);
+    formattedDate = new Date(year, month, day);
+  }
+
   const { setFieldValue } = useFormikContext();
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(
+    formattedDate ? formattedDate : new Date()
+  );
   const [isOpen, setIsOpen] = useState(false);
   const isTodayDate = isToday(startDate);
   const CustomInput = forwardRef(({ value, onClick }, ref) => (

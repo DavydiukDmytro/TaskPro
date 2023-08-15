@@ -13,6 +13,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import { filterReducer } from './filter/filterSlice';
 
 const persistConfig = {
   key: 'user',
@@ -27,6 +28,7 @@ const store = configureStore({
     user: persistedReducer,
     boards: boardsReduser,
     support: supportReducer,
+    filter: filterReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

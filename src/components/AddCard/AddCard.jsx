@@ -130,7 +130,7 @@ export const AddCard = ({ edit = false, handleClose, columnId }) => {
             <p className={css.textLabel} id="my-radio-group">
               Deadline
             </p>
-            <Calendar />
+            <Calendar editDate={edit.deadline} />
           </div>
           <div className={css.wrapButton}>
             <button type="submit" className={css.button}>

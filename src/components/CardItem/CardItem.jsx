@@ -6,10 +6,10 @@ import { useState } from 'react';
 import { Modal } from 'components/Modal';
 import { AddCard } from 'components/AddCard';
 import { SwapModal } from 'components/SwapModal';
-import { selectCurrentBoard } from 'store/boards/selectorsBoards';
+import { selectCurrentBoardFilter } from 'store/boards/selectorsBoards';
 
 export const CardItem = ({ task }) => {
-  const board = useSelector(selectCurrentBoard);
+  const board = useSelector(selectCurrentBoardFilter);
   const [isOpenModalEdit, setIsOpenModalEdit] = useState(false);
   const [isOpenModalSwap, setIsOpenModalSwap] = useState(false);
   const dispatch = useDispatch();
