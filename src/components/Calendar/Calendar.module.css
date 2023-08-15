@@ -8,15 +8,25 @@
   border: none;
   cursor: pointer;
   padding-left: 0;
+  display: flex;
+  align-items: center;
 }
 .datepicker::before {
   content: 'Today, ';
   margin-right: 2px;
 }
-.svg,
+.svg {
+  width: 18px;
+  height: 18px;
+  margin-left: 4px;
+  margin-bottom: 8px;
+  fill: var(--accent-color);
+}
 .svg1 {
   width: 18px;
   height: 18px;
+  margin-top: 8px;
+  margin-left: 4px;
   fill: var(--accent-color);
 }
 .dateArea {
