@@ -11,6 +11,7 @@ import { PublicRoute } from 'components/PublicRoute/PublicRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIsRefresh } from 'store/user/selectorsAuth';
 import { refreshUser } from 'store/user/operationAuth';
+import { NotFoundPage } from 'page/NotFoundPage';
 
 const StartPage = lazy(() => import('../../page/Start/Start'));
 const AuthPage = lazy(() => import('../../page/Auth/Auth'));
@@ -18,7 +19,6 @@ const RegistrationForm = lazy(() => import('../RegisterForm/RegistrationForm'));
 const LoginForm = lazy(() => import('../LoginForm/LoginForm'));
 const ScreensPage = lazy(() => import('../../page/ScreensPage/ScreensPage'));
 const BlankPage = lazy(() => import('../../page/BlankPage/BlankPage'));
-const NotFoundPage = lazy(() => import('../../page/NotFoundPage'));
 
 export const App = () => {
   const dispatch = useDispatch();

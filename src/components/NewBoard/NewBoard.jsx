@@ -4,9 +4,10 @@ import { useFormik } from 'formik';
 import { backgroundOptions, iconArr } from './option';
 import { useDispatch } from 'react-redux';
 import { addBoard, updateBoard } from 'store/boards/operationsBoards';
-import // boardEditSchema,
-// boardSchema,
-'../../utils/validation/boardSchema';
+import {
+  boardEditSchema,
+  boardSchema,
+} from '../../utils/validation/boardSchema';
 
 export const NewBoard = ({
   handleClose,
@@ -17,15 +18,18 @@ export const NewBoard = ({
   id,
 }) => {
   const dispatch = useDispatch();
-  // let validate;
-  // edit ? (validate = boardEditSchema) : (validate = boardSchema);
+
+  const validate = edit ? boardEditSchema : boardSchema;
+
   const formik = useFormik({
     initialValues: {
       title,
       icon,
       background,
     },
-    // validate,
+
+    validationSchema: validate,
+
     onSubmit: values => {
       edit
         ? dispatch(updateBoard({ _id: id, ...values }))
@@ -33,7 +37,7 @@ export const NewBoard = ({
       handleClose();
     },
   });
-
+  const { touched, errors } = formik;
   return (
     <>
       <form onSubmit={formik.handleSubmit} className={css.formTitle}>
@@ -48,6 +52,10 @@ export const NewBoard = ({
             value={formik.values.title}
           />
         </label>
+
+        {touched.title && errors.title && (
+          <p className={css.form__error}>{errors.title}</p>
+        )}
 
         <div className={css.iconWrapper}>
           <p className={css.iconsTitle}>Icons</p>

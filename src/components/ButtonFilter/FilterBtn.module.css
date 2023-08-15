@@ -1,43 +1,65 @@
-
 .filt {
-    text-transform: none;
-    padding: 0px;
-    margin: 0px;
-    hight: 20px;
-    width: 64px;
-    justify-content: center;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    border: none; 
-    background: transparent;
-    transition: none;
-    cursor: pointer;
-    color: var(--primary-text-color);
-    &:hover {
-        transform: scale(1.1);
-    }
-
-};
+  text-transform: none;
+  padding: 0px;
+  margin: 0px;
+  height: 20px;
+  width: 64px;
+  justify-content: center;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border: none;
+  background: transparent;
+  transition: none;
+  cursor: pointer;
+  color: var(--primary-text-color);
+  &:hover {
+    transform: scale(1.1);
+  }
+}
 .typography {
-    font-family: 'Poppins', sans-serif; 
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 27px;
-    color: var(--primary-text-color);
-    
-};
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  color: var(--primary-text-color);
+}
 
 .box {
- 
-    display: flex;      
-    border-radius: 8px;
-    transition: all 250ms linear;
-    
+  display: flex;
+  border-radius: 8px;
+  transition: all 250ms linear;
 }
 .svgIcon {
-    width: 14px;
-    height: 14px;
-    stroke: var( --primary-text-color);
-    fill: var(--primary-bg-color);
-};
+  width: 14px;
+  height: 14px;
+  stroke: var(--primary-text-color);
+  fill: var(--primary-bg-color);
+}
+
+.wrapperPriopity {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  padding: 20px;
+  color: var(--primary-text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  background-color: var(--primary-bg-color);
+  border-radius: 8px;
+  border: 1px solid #bedbb0;
+}
+
+.close {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  display: inline-block;
+  padding: 7px;
+  background-color: initial;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+}

@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { swapTaskById } from 'store/boards/operationsBoards';
-import { selectCurrentBoard } from 'store/boards/selectorsBoards';
+import { selectCurrentBoardFilter } from 'store/boards/selectorsBoards';
 import svgSprite from '../../assets/svg/symbol-defs.svg';
 import css from './SwapModal.module.css';
 
 export const SwapModal = ({ handleClose, columnId, taskId }) => {
-  const board = useSelector(selectCurrentBoard);
+  const board = useSelector(selectCurrentBoardFilter);
   const dispatch = useDispatch();
   const handleSwap = newId => {
     dispatch(swapTaskById({ _id: taskId, column: newId, oldColumn: columnId }));
