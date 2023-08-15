@@ -27,7 +27,8 @@ export const Filter = () => {
                 type={'button'}
                 onClick={() => dispatch(updateFilterValue(item))}
               >
-                {item === 'none' ? 'without' : item}
+                <div className={`${css.circle} ${css[item]}`}></div>
+                <span className={css.text}>{item === 'none' ? 'without' : item}</span>
               </button>
             </li>
           ))}

@@ -28,6 +28,8 @@
 }
 
 .priority {
+  display: inline-flex;
+  align-items: center;
   font-family: Poppins;
   color: var(--blank-page-text);
   font-size: 12px;
@@ -43,7 +45,7 @@
   }
 }
 
-.priority::first-letter {
+.text::first-letter {
   text-transform: uppercase;
 }
 .priority.active {
@@ -62,25 +64,26 @@
 }
 
 .circle {
+  display: block;
   width: 12px;
   height: 12px;
   border-radius: 50%;
   margin-right: 8px;
 }
 
-.circle.none {
+.none {
   background-color: var(--priority-default);
 }
 
-.circle.low {
+.low {
   background-color: #8fa1d0;
 }
 
-.circle.medium {
+.medium {
   background-color: #e09cb5;
 }
 
-.circle.high {
+.high {
   background-color: #bedbb0;
 }
 
