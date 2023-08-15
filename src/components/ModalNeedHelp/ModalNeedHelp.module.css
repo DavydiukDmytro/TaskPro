@@ -92,7 +92,7 @@
   letter-spacing: -0.28px;
   border-radius: 8px;
   border: 1px solid var(--accent-color);
-  background: inherit;
+  background: var(--primary-bg-color);
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
   box-sizing: border-box;
   opacity: 0.4;
