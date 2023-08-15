@@ -5,6 +5,19 @@ import css from './Filter.module.css';
 export const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
+
+  function capitalizeFirstLetter(str) {
+    if (typeof str !== 'string') {
+      throw new Error('Input should be a string');
+    }
+
+    if (str.length === 0) {
+      return str;
+    }
+
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   const priorityArr = ['none', 'low', 'medium', 'high'];
   return (
     <>
@@ -29,11 +42,13 @@ export const Filter = () => {
                 type={'button'}
                 onClick={() => dispatch(updateFilterValue(item))}
               >
-                <div className={`${css.circle} ${css[item]}`}></div>
-                <span
-                  className={`${css.text}, ${item === filter ? css.act : ''}`}
-                >
-                  {item === 'none' ? 'without' : item}
+                <div
+                  className={`${css.circle} ${
+                    item === filter ? css.actCircle : css.teadwawdxt
+                  } ${css[item]}`}
+                ></div>
+                <span className={item === filter ? css.act : css.text}>
+                  {item === 'none' ? 'Without' : capitalizeFirstLetter(item)}
                 </span>
               </button>
             </li>
