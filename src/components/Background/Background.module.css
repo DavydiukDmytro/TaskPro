@@ -13,9 +13,6 @@
 
 @media screen and (min-width: 1440px) {
   .main {
-    padding-left: 260px;
-    /* position: absolute;
-    top: 68px;
-    left: 260px; */
+   margin-left: 260px;
   }
 }
