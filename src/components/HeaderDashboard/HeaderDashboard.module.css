@@ -48,3 +48,19 @@
   border-radius: 8px;
   border: 1px solid #bedbb0;
 }
+
+.none {
+  background-color: var(--priority-default);
+}
+
+.low {
+  background-color: #8fa1d0;
+}
+
+.medium {
+  background-color: #e09cb5;
+}
+
+.high {
+  background-color: #bedbb0;
+}

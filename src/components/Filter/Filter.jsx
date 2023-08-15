@@ -1,8 +1,10 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateFilterValue } from 'store/filter/filterSlice';
+import { selectFilter } from 'store/filter/selectorsFilter';
 import css from './Filter.module.css';
 export const Filter = () => {
   const dispatch = useDispatch();
+  const filter = useSelector(selectFilter);
   const priorityArr = ['none', 'low', 'medium', 'high'];
   return (
     <>
@@ -28,7 +30,11 @@ export const Filter = () => {
                 onClick={() => dispatch(updateFilterValue(item))}
               >
                 <div className={`${css.circle} ${css[item]}`}></div>
-                <span className={css.text}>{item === 'none' ? 'without' : item}</span>
+                <span
+                  className={`${css.text}, ${item === filter ? css.act : ''}`}
+                >
+                  {item === 'none' ? 'without' : item}
+                </span>
               </button>
             </li>
           ))}
