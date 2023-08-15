@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 8px;
   padding-top: 10px;
-  /* width: 99px; */
+  /* max-width: 99px; */
 }
 
 .button {
@@ -49,8 +49,12 @@
 }
 
 .text {
-  /* max-width: 75px; */
-  display: block;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 
 .svg {
