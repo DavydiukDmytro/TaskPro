@@ -2,8 +2,14 @@
   border-radius: 8px;
   background-color: var(--bg-button);
   padding: 14px 18px 14px 24px;
-  width: 335px;
+  width: 310px;
   box-sizing: border-box;
+}
+
+@media screen and (min-width: 375px) {
+  .card {
+    width: 335px;
+  }
 }
 .card.none {
   border-left: 4px solid var(--priority-default);
