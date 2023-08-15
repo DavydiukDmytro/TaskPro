@@ -7,6 +7,7 @@ import { Modal } from 'components/Modal';
 import { AddCard } from 'components/AddCard';
 import { SwapModal } from 'components/SwapModal';
 import { selectCurrentBoard } from 'store/boards/selectorsBoards';
+import { format } from 'date-fns';
 
 export const CardItem = ({ task }) => {
   const board = useSelector(selectCurrentBoard);
@@ -24,6 +25,10 @@ export const CardItem = ({ task }) => {
   };
 
   const priorityClass = css[priority];
+
+  const date = new Date();
+  const formattedDate = format(date, 'dd/MM/yyyy');
+  console.log(formattedDate);
 
   return (
     <li className={`${css.card} ${priorityClass}`}>
@@ -47,13 +52,16 @@ export const CardItem = ({ task }) => {
           </div>
         </div>
         <ul className={css.iconList}>
-          <li>
-            <button className={css.button}>
-              <svg width={16} height={16} stroke="var( --accent-color)">
-                <use href={svgSprite + '#icon-bell'} />
-              </svg>
-            </button>
-          </li>
+          {formattedDate === deadline && (
+            <li>
+              <button className={css.button}>
+                <svg width={16} height={16} stroke="var( --accent-color)">
+                  <use href={svgSprite + '#icon-bell'} />
+                </svg>
+              </button>
+            </li>
+          )}
+
           <li>
             <button
               className={css.button}
