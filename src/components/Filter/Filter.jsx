@@ -6,16 +6,24 @@ export const Filter = () => {
   const priorityArr = ['none', 'low', 'medium', 'high'];
   return (
     <>
-      <div className={css.container}>
-        <p>Filters</p>
-        <p>Label color</p>
-        <button type={'button'} onClick={() => dispatch(updateFilterValue(''))}>
-          Show all
-        </button>
+      <div className={css.wrapper}>
+        <p className={css.title}>Filters</p>
+        <div className={css.container}>
+          <p className={css.subtitle}>Label color</p>
+          <button
+            className={css.filter}
+            type={'button'}
+            onClick={() => dispatch(updateFilterValue(''))}
+          >
+            Show all
+          </button>
+        </div>
+
         <ul>
           {priorityArr.map(item => (
             <li key={item}>
               <button
+                className={css.priority}
                 type={'button'}
                 onClick={() => dispatch(updateFilterValue(item))}
               >
